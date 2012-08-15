@@ -1,0 +1,234 @@
+---
+layout: post
+category : Database
+tags : [Database, beginner, SQL, tutorial]
+title: 通用SQL数据库查询语句精华使用简介
+wordpress_id: 95
+wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=95
+date: 2008-09-15 08:46:18.000000000 +08:00
+---
+<strong>一、 简单查询</strong>
+
+简单的Transact-SQL查询只包括选择列表、FROM子句和Where子句。它们分别说明所查询列、查询的表或视图、以及搜索条件等。
+
+例如，下面的语句查询testtable表中姓名为“张三”的nickname字段和email字段。
+
+[code]　　Select nickname,email
+　　FROM testtable
+　　Where name='张三'[/code]
+
+<strong>(一) 选择列表</strong>
+　　
+选择列表(select_list)指出所查询列，它可以是一组列名列表、星号、表达式、变量(包括局部变量和全局变量)等构成。
+　　
+1、选择所有列
+　　
+例如，下面语句显示testtable表中所有列的数据：
+
+[code]　　Select *
+　　FROM testtable[/code]
+
+2、选择部分列并指定它们的显示次序
+　　
+查询结果集合中数据的排列顺序与选择列表中所指定的列名排列顺序相同。例如：
+
+[code]　　Select nickname,email
+　　FROM testtable[/code]
+
+3、更改列标题
+　　
+在选择列表中，可重新指定列标题。定义格式为：
+
+[code]　　列标题=列名
+　　列名 列标题[/code]
+
+如果指定的列标题不是标准的标识符格式时，应使用引号定界符，例如，下列语句使用汉字显示列标题：
+
+[code]　　Select 昵称=nickname,电子邮件=email
+　　FROM testtable[/code]
+
+4、删除重复行
+　　
+Select语句中使用ALL或DISTINCT选项来显示表中符合条件的所有行或删除其中重复的数据行，默认为ALL。使用DISTINCT选项时，对于所有重复的数据行在Select返回的结果集合中只保留一行。
+　　
+5、限制返回的行数
+　　
+使用TOP n [PERCENT]选项限制返回的数据行数，TOP n说明返回n行，而TOP n PERCENT时，说明n是表示一百分数，指定返回的行数等于总行数的百分之几。例如：
+
+<div class="UBBPanel"><div class="UBBTitle"><img src="images/code.gif" style="margin:0px 2px -3px 0px" alt="程序代码"/> 程序代码</div><div class="UBBContent">Select TOP 2 *FROM testtable Select TOP 20 PERCENT * FROM testtable</div></div>
+
+<strong>(二) FROM子句</strong>
+　　
+FROM子句指定Select语句查询及与查询相关的表或视图。在FROM子句中最多可指定256个表或视图，它们之间用逗号分隔。
+　　
+在FROM子句同时指定多个表或视图时，如果选择列表中存在同名列，这时应使用对象名限定这些列所属的表或视图。例如在usertable和citytable表中同时存在cityid列，在查询两个表中的cityid时应使用下面语句格式加以限定：
+
+[code]　　Select username,citytable.cityid
+　　FROM usertable,citytable
+　　Where usertable.cityid=citytable.cityid[/code]
+
+在FROM子句中可用以下两种格式为表或视图指定别名：
+
+[code]　　表名 as 别名
+　　表名 别名[/code]
+
+例如上面语句可用表的别名格式表示为：
+
+[code]　　Select username,b.cityid
+　　FROM usertable a,citytable b
+　　Where a.cityid=b.cityid[/code]
+
+Select不仅能从表或视图中检索数据，它还能够从其它查询语句所返回的结果集合中查询数据。例如：
+
+[code]　　Select a.au_fname+a.au_lname
+　　FROM authors a,titleauthor ta
+　　(Select title_id,title
+　　FROM titles
+　　Where ytd_sales>10000
+　　) AS t
+　　Where a.au_id=ta.au_id
+　　AND ta.title_id=t.title_id[/code]
+
+此例中，将Select返回的结果集合给予一别名t，然后再从中检索数据。
+
+<strong>(三) 使用Where子句设置查询条件</strong>
+　　
+Where子句设置查询条件，过滤掉不需要的数据行。例如下面语句查询年龄大于20的数据：
+
+[code]　　Select *
+　　FROM usertable
+　　Where age>20[/code]
+
+Where子句可包括各种条件运算符：
+
+<ul>
+<li>比较运算符(大小比较)：>、>=、=、< 、<=、<>、!>、!< </li></li><li>NOT BETWEEN…AND…
+</li><li>列表运算符(判断表达式是否为列表中的指定项)：IN (项1,项2……)
+</li><li>NOT IN (项1,项2……)
+</li><li>模式匹配符(判断值是否与指定的字符通配格式相符):LIKE、NOT LIKE
+</li><li>空值判断符(判断表达式是否为空)：IS NULL、NOT IS NULL
+</li><li>逻辑运算符(用于多条件的逻辑连接)：NOT、AND、OR
+</li></ul>
+
+1、范围运算符例：age BETWEEN 10 AND 30相当于age>=10 AND age< =30
+2、列表运算符例：country IN ('Germany','China')
+3、模式匹配符例：常用于模糊查找，它判断列值是否与指定的字符串格式相匹配。可用于char、varchar、text、ntext、datetime和smalldatetime等类型查询。
+
+可使用以下通配字符：
+
+　　百分号%：可匹配任意类型和长度的字符，如果是中文，请使用两个百分号即%%。
+　　下划线_：匹配单个任意字符，它常用来限制表达式的字符长度。
+　　方括号[]：指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。
+          [^]：其取值也[] 相同，但它要求所匹配对象为指定字符以外的任一个字符。
+　　
+例如：
+　　限制以Publishing结尾，使用LIKE '%Publishing'
+　　限制以A开头：LIKE '[A]%'
+　　限制以A开头外：LIKE '[^A]%'
+
+4、空值判断符例Where age IS NULL
+5、逻辑运算符：优先级为NOT、AND、OR
+
+<strong>(四)查询结果排序
+
+使用ORDER BY子句对查询返回的结果按一列或多列排序。ORDER BY子句的语法格式为：
+
+　　<div class="UBBPanel"><div class="UBBTitle"><img src="images/code.gif" style="margin:0px 2px -3px 0px" alt="程序代码"/> 程序代码</div><div class="UBBContent">ORDER BY {column_name [ASC|DESC]} [,…n]</div></div>
+
+其中ASC表示升序，为默认值，DESC为降序。ORDER BY不能按ntext、text和image数据类型进行排序。例如：
+
+[code]　　Select *
+　　FROM usertable
+　　ORDER BY age desc,userid ASC[/code]
+
+另外，可以根据表达式进行排序。
+
+<strong>二、 联合查询</strong>
+
+UNION运算符可以将两个或两个以上上Select语句的查询结果集合合并成一个结果集合显示，即执行联合查询。UNION的语法格式为：
+
+[code]　　select_statement
+　　UNION [ALL] selectstatement
+　　[UNION [ALL] selectstatement][…n][/code]
+
+其中selectstatement为待联合的Select查询语句。
+
+ALL选项表示将所有行合并到结果集合中。不指定该项时，被联合查询结果集合中的重复行将只保留一行。
+
+联合查询时，查询结果的列标题为第一个查询语句的列标题。因此，要定义列标题必须在第一个查询语句中定义。要对联合查询结果排序时，也必须使用第一查询语句中的列名、列标题或者列序号。
+
+在使用UNION 运算符时，应保证每个联合查询语句的选择列表中有相同数量的表达式，并且每个查询选择表达式应具有相同的数据类型，或是可以自动将它们转换为相同的数据类型。在自动转换时，对于数值类型，系统将低精度的数据类型转换为高精度的数据类型。
+
+在包括多个查询的UNION语句中，其执行顺序是自左至右，使用括号可以改变这一执行顺序。例如：
+
+查询1 UNION (查询2 UNION 查询3)
+
+<strong>三、连接查询</strong>
+
+通过连接运算符可以实现多个表查询。连接是关系数据库模型的主要特点，也是它区别于其它类型数据库管理系统的一个标志。
+
+在关系数据库管理系统中，表建立时各数据之间的关系不必确定，常把一个实体的所有信息存放在一个表中。当检索数据时，通过连接操作查询出存放在多个表中的不同实体的信息。连接操作给用户带来很大的灵活性，他们可以在任何时候增加新的数据类型。为不同实体创建新的表，尔后通过连接进行查询。
+
+连接可以在Select 语句的FROM子句或Where子句中建立，似是而非在FROM子句中指出连接时有助于将连接操作与Where子句中的搜索条件区分开来。所以，在Transact-SQL中推荐使用这种方法。
+
+SQL-92标准所定义的FROM子句的连接语法格式为：
+
+[code]　　FROM join_table join_type join_table
+　　[ON (join_condition)][/code]
+
+其中join_table指出参与连接操作的表名，连接可以对同一个表操作，也可以对多表操作，对同一个表操作的连接又称做自连接。
+
+join_type 指出连接类型，可分为三种：内连接、外连接和交叉连接。内连接(INNER JOIN)使用比较运算符进行表间某(些)列数据的比较操作，并列出这些表中与连接条件相匹配的数据行。根据所使用的比较方式不同，内连接又分为等值连接、自然连接和不等连接三种。外连接分为左外连接(LEFT OUTER JOIN或LEFT JOIN)、右外连接(RIGHT OUTER JOIN或RIGHT JOIN)和全外连接(FULL OUTER JOIN或FULL JOIN)三种。与内连接不同的是，外连接不只列出与连接条件相匹配的行，而是列出左表(左外连接时)、右表(右外连接时)或两个表(全外连接时)中所有符合搜索条件的数据行。
+
+交叉连接(CROSS JOIN)没有Where 子句，它返回连接表中所有数据行的笛卡尔积，其结果集合中的数据行数等于第一个表中符合查询条件的数据行数乘以第二个表中符合查询条件的数据行数。
+
+连接操作中的ON (join_condition) 子句指出连接条件，它由被连接表中的列和比较运算符、逻辑运算符等构成。
+
+无论哪种连接都不能对text、ntext和image数据类型列进行直接连接，但可以对这三种列进行间接连接。例如：
+
+[code]　　Select p1.pub_id,p2.pub_id,p1.pr_info
+　　FROM pub_info AS p1 INNER JOIN pub_info AS p2
+　　ON DATALENGTH(p1.pr_info)=DATALENGTH(p2.pr_info)[/code]
+
+<strong>(一)内连接</strong>
+
+内连接查询操作列出与连接条件匹配的数据行，它使用比较运算符比较被连接列的列值。内连接分三种：
+
+1、等值连接：在连接条件中使用等于号(=)运算符比较被连接列的列值，其查询结果中列出被连接表中的所有列，包括其中的重复列。
+
+2、不等连接： 在连接条件使用除等于运算符以外的其它比较运算符比较被连接的列的列值。这些运算符包括>、>=、< =、<、!>、!< 和<>。
+
+3、自然连接：在连接条件中使用等于(=)运算符比较被连接列的列值，但它使用选择列表指出查询结果集合中所包括的列，并删除连接表中的重复列。
+
+例，下面使用等值连接列出authors和publishers表中位于同一城市的作者和出版社：
+
+[code]　　Select *
+　　FROM authors AS a INNER JOIN publishers AS p
+　　ON a.city=p.city[/code]
+
+又如使用自然连接，在选择列表中删除authors 和publishers 表中重复列(city和state)：
+
+[code]　　Select a.*,p.pub_id,p.pub_name,p.country
+　　FROM authors AS a INNER JOIN publishers AS p
+　　ON a.city=p.city[/code]
+
+<strong>(二)外连接</strong>
+
+内连接时，返回查询结果集合中的仅是符合查询条件( Where 搜索条件或 HAVING 条件)和连接条件的行。而采用外连接时，它返回到查询结果集合中的不仅包含符合连接条件的行，而且还包括左表(左外连接时)、右表(右外连接时)或两个边接表(全外连接)中的所有数据行。如下面使用左外连接将论坛内容和作者信息连接起来：
+
+[code]　　Select a.*,b.* FROM luntan LEFT JOIN usertable as b
+　　ON a.username=b.username[/code]
+
+下面使用全外连接将city表中的所有作者以及user表中的所有作者，以及他们所在的城市：
+
+[code]　　Select a.*,b.*
+　　FROM city as a FULL OUTER JOIN user as b
+　　ON a.username=b.username[/code]
+
+<strong>(三)交叉连接</strong>
+
+交叉连接不带Where 子句，它返回被连接的两个表所有数据行的笛卡尔积，返回到结果集合中的数据行数等于第一个表中符合查询条件的数据行数乘以第二个表中符合查询条件的数据行数。例，titles表中有6类图书，而publishers表中有8家出版社，则下列交叉连接检索到的记录数将等于6*8=48行。
+
+[code]　　Select type,pub_name
+　　FROM titles CROSS JOIN publishers
+　　ORDER BY type[/code]

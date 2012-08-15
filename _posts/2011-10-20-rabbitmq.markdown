@@ -1,0 +1,36 @@
+---
+layout: post
+category : MQ
+tags : [RabbitMQ, beginner, MQ, question]
+title: RabbitMQ常见问题整理
+wordpress_id: 1029
+wordpress_url: http://www.im47.cn/?p=1029
+date: 2011-10-20 15:58:20.000000000 +08:00
+---
+<h2>1.在成功安装为services后,start也成功,但是rabbitmqctl.bat status却提示</h2>
+或者rabbitmqctl list_exchanges
+<pre>Error: unable to connect to node '?': nodedown</pre>
+参考<a href="http://www.rabbitmq.com/install.html#running-windows-service">http://www.rabbitmq.com/install.html#running-windows-service</a>中 Troubleshooting 一节中提到<span class="Apple-style-span" style="font-family: 'Courier New', Courier, 'Lucida Console', Monaco, 'DejaVu Sans Mono', 'Nimbus Mono L', 'Bitstream Vera Sans Mono', monospace; font-size: 12px; line-height: normal; white-space: pre-wrap; background-color: #ffffff;"> </span>
+
+This example indicates that no broker is running:
+<pre>  Status of node 'rabbit@xxx' ...
+  Error: unable to connect to node 'rabbit@xxx': nodedown
+  diagnostics:
+  - nodes and their ports on xxx: [{rabbitmqctl,...}]
+  - current node: 'rabbitmqctlxxx@xxx'
+  - current node home dir: [...]
+  - current node cookie hash: [...]If the diagnostic line looks like this:</pre>
+<pre>  - nodes and their ports on xxx: [{rabbit,...},{rabbitmqctl,...}]</pre>
+and the broker logfile contains entries similar to
+<pre>  Connection attempt from disallowed node...</pre>
+then you should make sure the erlang cookies are the same.
+
+所以删了%APPDATA%下的"RabbitMQ"目录
+
+和%USERPROFILE%下的".erlang.cookie"文件,再试,还是失败
+
+然后看到 <a href="http://www.rabbitmq.com/man/rabbitmq-service.man.html">http://www.rabbitmq.com/man/rabbitmq-service.man.html</a>
+
+其中有一句
+<pre>(typically C:\WINDOWS\.erlang.cookie and the account that will be used to run rabbitmqctl.</pre>
+<strong><span style="color: #008080;">去把C:\WINDOWS\.erlang.cookie复制出来,覆盖掉%USERPROFILE%下的".erlang.cookie"文件,再试,成功</span></strong>

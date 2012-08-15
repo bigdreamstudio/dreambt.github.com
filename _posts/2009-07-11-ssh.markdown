@@ -1,0 +1,225 @@
+---
+layout: post
+category : J2EE
+tags : [beginner, J2EE, question, how-to]
+title: 【090711更新】SSH常见问题及解决办法
+wordpress_id: 162
+wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=162
+date: 2009-07-11 16:21:13.000000000 +08:00
+---
+<strong>内容检索</strong>
+
+<strong>1.警告: No configuration found for the specified action:<span style="color: #ffffff;"><span style="background-color: #800000;">'/myNameSpace/login.action' in namespace: ''</span></span>. Form action defaulting to 'action' attribute's literal value.</strong>
+
+<strong>2.关于s标签的错误</strong>
+
+<strong>3.导入struts-default.xml的错误</strong>
+
+<strong>4.Cannot locate the chosen ObjectFactory</strong>
+
+-----------------------------------------------分割线--------------------------------------------------------
+
+<strong>1.出错信息：</strong>
+
+警告: No configuration found for the specified action:<span style="color: #ffffff;"><span style="background-color: #800000;">'/myNameSpace/login.action' in namespace: ''</span></span>. Form action defaulting to 'action' attribute's literal value.
+
+今天花了点时间把struts2警告事件彻底的测试了一边，终于有点眉目了。希望能给其他人带来一点帮助。
+警告信息：
+
+警告: No configuration found for the specified action: '/myNameSpace/login.action' in namespace: ''. Form action defaulting to 'action' attribute's literal value.
+
+struts.xml配置信息（部分）
+
+[java]
+&lt;package name="packageName" extends="struts-default" namespace="/myNameSpace"&gt;
+&lt;action name="login" class="com.jato.srvclink.test.login.LoginAction" method="login"&gt;
+[/java]
+
+jsp页面配置信息（部分）
+
+[java]
+&lt;s:form action="/myNameSpace/login.action"&gt;
+[/java]
+
+思考：没有在''的namespace中发现指定的action '/myNameSpace/login.action'
+
+答疑：因为配置的struts2标签并未指定namespace属性。所以struts2会默认从根命名空间"/"搜索action串'/myNameSpace/login.action'，如果搜索不到将进入默认命名空间''搜索action请求串，在默认命名空间中是肯定找不到我们定义的action的，所以，struts2抛出一个警告信息。
+
+但是为什么我们没有填写namespace，我们的请求也可以正常访问呢？
+
+我们来看一下解析后的html
+
+查看源码得到的html（部分）
+
+[html]&lt;form id="login" onsubmit="return true;" action="/srvclink/myNameSpace/login.action" method="post"&gt;[/html]
+
+我们看到form提交的action串是准确的url请求，action串确实是/srvclin（应用根）/myNameSpace（命名空间）/login.action。
+
+命名空间中找不到action定义，并不意味着这个action真的不存在，只是我们的代码有问题而已。还有一点是我们在jsp页面的action请求中手动的加入了.action后缀。事实上struts2会自动追加.action的，因为我们并没有合法的使用struts2的标签，所以struts2这里并没有给我们追加.action，解析后的代码中存在的.action，完全是我们手动在jsp页面填写的，有疑问的网友可以不手动添加查看html。
+
+我们修改我们的程序代码
+
+jsp页面配置信息（部分）修改后加入namespace属性，修改action属性值为/login.action
+
+[java]&lt;s:form action="/login.action" namespace="/myNameSpace"&gt;[/java]
+
+请求页面后，大家很失望吧？警告依然存在。但是我们看一下警告信息。
+
+警告信息：
+
+警告: No configuration found for the specified action: '/login.action' in namespace: '/myNameSpace'. Form action defaulting to 'action' attribute's literal value.
+
+没有在'/myNameSpace'的namespace中发现指定的action '/login.action'
+
+毫无疑问，这里的警告和第一次的警告信息截然不同。我们现在存在命名空间，'/myNameSpace'能够被struts2检索到，并不是开始的''。那问题的关键在哪里呢？
+
+在namespace中没有发现指定的action '/login.action' ？？？
+
+我们来看一下struts.xml中的配置：
+
+struts.xml配置信息（部分）
+
+[java]
+&lt;package name="packageName" extends="struts-default" namespace="/myNameSpace"&gt;
+&lt;action name="login" class="com.jato.srvclink.test.login.LoginAction" method="login"&gt;
+[/java]
+
+是的，我们'/myNameSpace'命名空间下，只有action名字为'login'的定义，并没有所谓的 '/login.action' 定义，所以struts2的警告并未错。如果大家对这个抱有怀疑，可以修改action的名字'login'为‘/longin.action’
+
+[java]&lt;action name="/login.action" class="com.jato.srvclink.test.login.LoginAction" method="login"&gt;[/java]
+
+请求页面时你会发现不在报警告信息，原因很简单。因为在命名空间为'myNameSpace'下确实存在命名为'/login.action'的action。
+
+我们再次修改配置文件
+
+jsp页面配置信息（部分）修改后action属性值为longin
+
+[java]&lt;s:form action="login" namespace="/myNameSpace"&gt;[/java]
+
+请求页面时，我们发现不再有警告信息了。
+
+如果你有足够细心，我想你应该可以彻底的明白为什么struts2会报警了吧？你也应该明白了使用struts2标签action中添加/线后请求反而报错的原因了。
+
+<strong>2.关于s标签的错误</strong>
+
+JSP页面
+
+[html]
+&lt;%@ page language="java" import="java.util.*" pageEncoding="utf-8" %&gt;
+&lt;%@ taglib prefix="s" uri="/struts-tags" %&gt;
+&lt;s:form action="&lt;%=url%&gt;/login" method="post"&gt;
+&lt;s:textfield name="user.username" label="username" /&gt;
+&lt;s:textfield name="user.password" label="password" /&gt;
+&lt;s:submit value="submit" /&gt;
+&lt;/s:form&gt;
+&lt;/div&gt;
+[/html]
+
+错误信息
+[java]
+严重: Servlet.service() for servlet jsp threw exception
+org.apache.jasper.JasperException: /index.jsp(15,23) attribute for %&amp;gt;" is not properly terminated
+at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:39)
+at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:405)
+at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:130)
+at org.apache.jasper.compiler.Parser.parseAttributeValue(Parser.java:241)
+at org.apache.jasper.compiler.Parser.parseAttribute(Parser.java:205)
+at org.apache.jasper.compiler.Parser.parseAttributes(Parser.java:143)
+at org.apache.jasper.compiler.Parser.parseCustomTag(Parser.java:1328)
+at org.apache.jasper.compiler.Parser.parseElements(Parser.java:1560)
+at org.apache.jasper.compiler.Parser.parse(Parser.java:126)
+at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:211)
+at org.apache.jasper.compiler.ParserController.parse(ParserController.java:100)
+at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:146)
+at org.apache.jasper.compiler.Compiler.compile(Compiler.java:286)
+at org.apache.jasper.compiler.Compiler.compile(Compiler.java:267)
+at org.apache.jasper.compiler.Compiler.compile(Compiler.java:255)
+at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:556)
+at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:296)
+at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:295)
+at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:245)
+at javax.servlet.http.HttpServlet.service(HttpServlet.java:802)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:237)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:157)
+at org.apache.struts2.dispatcher.FilterDispatcher.doFilter(FilterDispatcher.java:416)
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:186)
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:157)
+at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:214)
+at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:825)
+at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:731)
+at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:526)
+at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+at java.lang.Thread.run(Thread.java:595)
+[/java]
+
+s标签不支持&lt;=%%&gt;,所以要用下面的代码：
+
+JSP代码
+[java]&lt;s:form action="${url}/login" method="post" &gt;[/java]
+
+<strong>3.导入struts-default.xml的错误</strong>
+
+错误信息
+[java]
+严重: Exception starting filter Struts2
+Caught exception while loading file struts-default.xml - [unknown location]
+at com.opensymphony.xwork2.config.providers.XmlConfigurationProvider.loadConfigurationFiles(XmlConfigurationProvider.java:839)
+at com.opensymphony.xwork2.config.providers.XmlConfigurationProvider.loadDocuments(XmlConfigurationProvider.java:131)
+at com.opensymphony.xwork2.config.providers.XmlConfigurationProvider.init(XmlConfigurationProvider.java:100)
+at com.opensymphony.xwork2.config.impl.DefaultConfiguration.reload(DefaultConfiguration.java:130)
+at com.opensymphony.xwork2.config.ConfigurationManager.getConfiguration(ConfigurationManager.java:52)
+at org.apache.struts2.dispatcher.Dispatcher.init_PreloadConfiguration(Dispatcher.java:395)
+at org.apache.struts2.dispatcher.Dispatcher.init(Dispatcher.java:452)
+at org.apache.struts2.dispatcher.FilterDispatcher.init(FilterDispatcher.java:201)
+at org.apache.catalina.core.ApplicationFilterConfig.getFilter(ApplicationFilterConfig.java:275)
+at org.apache.catalina.core.ApplicationFilterConfig.setFilterDef(ApplicationFilterConfig.java:397)
+at org.apache.catalina.core.ApplicationFilterConfig.&lt;init&gt;(ApplicationFilterConfig.java:108)
+at org.apache.catalina.core.StandardContext.filterStart(StandardContext.java:3696)
+at org.apache.catalina.core.StandardContext.start(StandardContext.java:4343)
+at org.apache.catalina.core.StandardContext.reload(StandardContext.java:3086)
+at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:404)
+at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1309)
+at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1601)
+at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1610)
+at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1590)
+at java.lang.Thread.run(Thread.java:619)
+Caused by: java.lang.ClassCastException: org.apache.xerces.parsers.XML11Configuration cannot be cast to org.apache.xerces.xni.parser.XMLParserConfiguration
+at org.apache.xerces.parsers.DOMParser.&lt;init&gt;(Unknown Source)
+at org.apache.xerces.parsers.DOMParser.&lt;init&gt;(Unknown Source)
+at org.apache.xerces.jaxp.DocumentBuilderImpl.&lt;init&gt;(Unknown Source)
+at org.apache.xerces.jaxp.DocumentBuilderFactoryImpl.newDocumentBuilder(Unknown Source)
+at com.sun.org.apache.xalan.internal.xsltc.trax.SAX2DOM.&lt;init&gt;(SAX2DOM.java:69)
+at com.sun.org.apache.xalan.internal.xsltc.runtime.output.TransletOutputHandlerFactory.getSerializationHandler(TransletOutputHandlerFactory.java:187)
+at com.sun.org.apache.xalan.internal.xsltc.trax.TransformerImpl.getOutputHandler(TransformerImpl.java:392)
+at com.sun.org.apache.xalan.internal.xsltc.trax.TransformerHandlerImpl.setResult(TransformerHandlerImpl.java:137)
+at com.opensymphony.xwork2.util.DomHelper$DOMBuilder.setup(DomHelper.java:213)
+at com.opensymphony.xwork2.util.DomHelper$DOMBuilder.&lt;init&gt;(DomHelper.java:198)
+at com.opensymphony.xwork2.util.DomHelper$DOMBuilder.&lt;init&gt;(DomHelper.java:189)
+at com.opensymphony.xwork2.util.DomHelper$DOMBuilder.&lt;init&gt;(DomHelper.java:175)
+at com.opensymphony.xwork2.util.DomHelper.parse(DomHelper.java:115)
+at com.opensymphony.xwork2.config.providers.XmlConfigurationProvider.loadConfigurationFiles(XmlConfigurationProvider.java:830)
+... 20 more
+[/java]
+
+解决方法:
+移除项目目录中的xerces.jar
+there was a conflict between tomcat's internal XML parser and the xerces I was using inside my project.
+参考链接:<a href="http://www.nabble.com/org.apache.xerces.parsers.XML11Configuration-cannot-be-cast-to-org.apache.xerces.xni.parser.XMLParserConfiguration-td14108368.html" target="_blank">http://www.nabble.com/org.apache.xerces.parsers.XML11Configuration-cannot-be-cast-to-org.apache.xerces.xni.parser.XMLParserConfiguration-td14108368.html</a>
+
+<strong>4.Cannot locate the chosen ObjectFactory</strong>
+
+错误信息
+Cannot locate the chosen ObjectFactory implementation: spring - [unknown location]
+
+解决办法一：
+添加struts2-spring-plugin-XXXX.jar
+
+解决办法二：
+在struts.properties里把struts.objectFactory=spring改成struts.objectFactory=com.opensymphony.xwork2.ObjectFactory就可以了.

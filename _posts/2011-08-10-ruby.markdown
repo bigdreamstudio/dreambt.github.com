@@ -1,0 +1,200 @@
+---
+layout: post
+category : Ruby
+tags : [intro, beginner, Ruby]
+title: Ruby入门(一):Ruby简介
+wordpress_id: 998
+wordpress_url: http://www.im47.cn/?p=998
+date: 2011-08-10 21:02:55.000000000 +08:00
+---
+<strong>文章摘要</strong>
+<div>
+<ul>
+	<li><strong>Ruby是如何来的</strong></li>
+	<li><strong>准备</strong></li>
+	<li><strong>ScreenShot</strong></li>
+</ul>
+</div>
+<strong><span style="color: #0000ff; font-size: small;">Ruby是如何来的</span></strong>
+
+Ruby 的发明者<a href="http://www.rubyist.net/~matz/">松本行弘 Yukihiro “matz” Matsumoto</a>，混合了他喜欢的语言（Perl、 Smalltalk、 Eiffel、 Ada 和 Lisp ） 产生了一种具有函数式及指令程序设计特性的新语言。他常说，他是“试着让 Ruby 更自然，而不是简单，就像生活一样”。
+
+除此之外，他还提到：Ruby 就像人的身体一样，表面上看来简单，但是内部却相当的复杂.
+
+在 1993 年，没有人会相信一个由日本业余语言设计者创建的面向对象的语言，能最终在世界范围内被广泛使用并且变得几乎像 Perl 那样流行。自从 1995 年 Ruby 公开发表以来，Ruby 在全球吸引了许多忠实的程序设计员。在 2006 年，Ruby 被广泛接受。在各大城市都有活跃的使用者并通过社区举办许许多多场场爆满的研讨会。
+
+&nbsp;
+
+在 TIOBE， 最流行的开发语言排名调查中， Ruby 排名为全球第 11 位。 根据这样的成长情况，他们预测“在半年之中 Ruby 将会进入最受欢迎开发语言的前 10 名。”有越来越多受欢迎的软件如 Ruby on Rails web framework 是使用 Ruby 撰写而成，也是造成 Ruby 如此快速成长的原因。
+
+Ruby 是开源软件。 不只是免费，而且可以自由的使用、复制、修改与发布。
+
+<strong><span style="color: #0000ff; font-size: small;">准备</span></strong>
+
+首先下载安装Ruby <a title="http://www.ruby-lang.org/en/downloads/" href="http://www.ruby-lang.org/en/downloads/">http://www.ruby-lang.org/en/downloads/</a>
+
+安装后，在命令行ruby -v 检查是否安装正确
+
+ruby提供了很好的irb的环境，直接在命令行敲入irb就可以，然后可以直接运行ruby 语句，这对实验ruby是非常好的环境，比如我就经常拿它来当计算器
+
+<strong><span style="color: #0000ff; font-size: small;">ScreenShot</span></strong>
+
+<strong>1. 一切皆是对象</strong>
+
+&nbsp;
+<pre>#一切皆是对象
+puts 1.class
+puts 0.1.class
+puts true.class
+puts false.class
+puts nil.class</pre>
+&nbsp;
+
+从上图可以看出，从简单类型，到真、假、空都是对象，方法调用参数也是可选的
+
+<strong>2.语句块和迭代器</strong>
+
+&nbsp;
+<pre>#语句块&amp;迭代器
+3.times{puts "Happy SiQi~"}
+1.upto(10){puts "Hello world~"}</pre>
+&nbsp;
+
+上面两张图可以看出ruby操作循环的便利
+<pre>#map
+a=[1,2,3,4]
+b=a.map{|x| x*2}
+c=a.select{|x| x%2==0}</pre>
+&nbsp;
+
+上图显示的是处理集合的威力
+<pre>#hash
+h={
+:one=&gt;1,
+:two=&gt;2
+}
+h[:one]
+h[:two]
+h.each do |key,value|
+  print "#{value}:#{key}"
+end</pre>
+&nbsp;
+
+上图显示Hash处理的展示
+
+<strong>3.表达式和操作符</strong>
+
+&nbsp;
+<pre>#表达式和操作符
+puts 1+2
+puts 1*2
+puts 1+2==3
+puts "Hello"+" World!"
+puts "Happy New Year"*3
+puts "%s %d %s" % ["Jack",20,"cool"]</pre>
+<strong>4. 方法</strong>
+
+a.自定义方法
+
+&nbsp;
+<pre>#方法
+#自定义方法
+def SayHello(name=siqi)
+  puts name
+  3.times{puts "你好!"}
+end
+SayHello("Jack")</pre>
+&nbsp;
+
+b.为已有的类添加方法
+
+&nbsp;
+<pre>#为已有的类添加方法
+def Math.AddTwo(x)
+  x+2
+end
+puts Math.AddTwo(5)</pre>
+&nbsp;
+
+5. 赋值语句
+
+&nbsp;
+<pre>#赋值语句
+x=1
+y=10
+x+=1
+puts "x=#{x}"
+y-=1
+puts "y=#{y}"
+a,b=1,2
+puts "a=#{a},b=#{b}"
+a,b=b,a
+puts "a=#{a},b=#{b}"
+x,y,z=[1,2,3]
+puts "x=#{x},y=#{y},z=#{z}"</pre>
+&nbsp;
+
+为多个变量赋值是比较便利的
+
+下图展示方法是可以返回多个值的
+
+&nbsp;
+<pre>#可以返回多个值的
+def LoveMovieAndSport(name)
+  [name+" Love StarWar", name+" Love FootBar"]
+end
+movie,sport=LoveMovieAndSport("Jack")
+puts movie
+puts sport</pre>
+&nbsp;
+
+6.后缀
+
+？检查方法结果是否为真，!立即改变当前对象
+
+&nbsp;
+<pre>#后缀
+#?检查方法结果是否为真，!立即改变当前对象
+a=[4,2,1,3,7]
+puts a.empty?
+puts a.sort
+puts a
+a.sort!
+puts a</pre>
+&nbsp;
+
+<strong>7. Class 和 Module</strong>
+
+&nbsp;
+<pre>#Class 和 Module
+class Animal
+  def GetLeg
+    4000
+  end
+end
+animal=Animal.new()
+puts animal.GetLeg</pre>
+&nbsp;
+
+上图展示如何用module来组织类，是不是像.Net的命名空间？实际不是，这个我们后面会说到。
+
+<strong>8. gem包管理</strong>
+
+ruby的第三方插件是用gem方式来管理，这是一个非常容易发布和共享，一个简单的命令就可以安装上第三方的扩展库
+
+gem install rails 安装ruby on rails
+
+gem list 列出所有安装的ruby 包
+
+gem enviroment 显示gem的配置
+
+gem update rails 更新指定的包
+
+gem update   更新所有的包
+
+gem update --system 更新gem自身
+
+gem uninstall rails  卸载指定的包
+
+<strong>
+</strong>
