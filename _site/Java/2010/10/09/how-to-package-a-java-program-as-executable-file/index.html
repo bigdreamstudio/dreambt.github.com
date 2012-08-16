@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>如何打包JAVA程序以及生成可执行文件</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>如何打包JAVA程序以及生成可执行文件 <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p>首先，选择好你即将发布的.class二进制文件，使用如下命令：</p>
+
+<p>[java]javac *.java[/java]</p>
+
+<p>然后，创建jar文件(这里讲解的是打jar包)。这里我用一个名字叫做test.class的文件来举例，另外注意还要编写一个确定main_class（主类）的文件manifest.mf（编写方法见后面）。在这里mainfest.mf和test.class是在同一个目录下，然后使用如下命令：</p>
+
+<p>[java]jar cvfm test.jar manifest.mf test[/java]</p>
+
+<p>这样，一个test.jar文件就生成了。但为了确保成功，我们可以再用下面的指令执行一下刚刚生成的test.jar：</p>
+
+<p>[java]java -jar test.jar[/java]</p>
+
+<blockquote>打开Java的JAR文件我们经常可以看到文件中包含着一个META-INF目录，这个目录下会有一些文件，其中必有一个MANIFEST.MF，这个文件描述了该Jar文件的很多信息，下面将详细介绍MANIFEST.MF文件的内容，先来看struts.jar中包含的MANIFEST.MF文件内容：
+Manifest-Version: 1.0
+Created-By: Apache Ant 1.5.1
+Extension-Name: Struts Framework
+Specification-Title: Struts Framework
+Specification-Vendor: Apache Software Foundation
+Specification-Version: 1.1
+Implementation-Title: Struts Framework
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-Version: 1.1
+Class-Path:  commons-beanutils.jar commons-collections.jar commons-digester.jar commons-logging.jar commons-validator.jar jakarta-oro.jar struts-legacy.jar
+
+如果我们把MANIFEST中的配置信息进行分类，可以归纳出下面几个大类：
+
+一. 一般属性
+
+1. Manifest-Version
+用来定义manifest文件的版本，例如：Manifest-Version: 1.0
+
+2. Created-By
+声明该文件的生成者，一般该属性是由jar命令行工具生成的，例如：Created-By: Apache Ant 1.5.1
+
+3. Signature-Version
+定义jar文件的签名版本
+
+4. Class-Path
+应用程序或者类装载器使用该值来构建内部的类搜索路径
+
+二. 应用程序相关属性
+
+1. Main-Class
+定义jar文件的入口类，该类必须是一个可执行的类，一旦定义了该属性即可通过 java -jar x.jar来运行该jar文件。
+
+三. 小程序(Applet)相关属性
+
+1. Extendsion-List
+该属性指定了小程序需要的扩展信息列表，列表中的每个名字对应以下的属性
+2. &lt;extension&gt;-Extension-Name
+3. &lt;extension&gt;-Specification-Version
+4. &lt;extension&gt;-Implementation-Version
+5. &lt;extension&gt;-Implementation-Vendor-Id
+5. &lt;extension&gt;-Implementation-URL
+
+四. 扩展标识属性
+
+1. Extension-Name
+该属性定义了jar文件的标识，例如Extension-Name: Struts Framework
+
+五. 包扩展属性
+
+1. Implementation-Title   定义了扩展实现的标题
+2. Implementation-Version   定义扩展实现的版本
+3. Implementation-Vendor   定义扩展实现的组织
+4. Implementation-Vendor-Id   定义扩展实现的组织的标识
+5. Implementation-URL :   定义该扩展包的下载地址(URL)
+6. Specification-Title   定义扩展规范的标题
+7. Specification-Version   定义扩展规范的版本
+8. Specification-Vendor   声明了维护该规范的组织
+9. Sealed   定义jar文件是否封存，值可以是true或者false (这点我还不是很理解)
+
+六. 签名相关属性
+
+签名方面的属性我们可以来参照JavaMail所提供的mail.jar中的一段
+
+Name: javax/mail/Address.class
+Digest-Algorithms: SHA MD5
+SHA-Digest: AjR7RqnN//cdYGouxbd06mSVfI4=
+MD5-Digest: ZnTIQ2aQAtSNIOWXI1pQpw==
+
+这段内容定义类签名的类名、计算摘要的算法名以及对应的摘要内容(使用BASE64方法进行编码)
+
+七.自定义属性
+
+除了前面提到的一些属性外，你也可以在MANIFEST.MF中增加自己的属性以及响应的值，例如J2ME程序jar包中就可能包含着如下信息
+
+MicroEdition-Configuration: CLDC-1.0
+MIDlet-Name: J2ME_MOBBER Midlet Suite
+MIDlet-Info-URL: <a href="http://www.javayou.com/">http://www.javayou.com/</a>
+MIDlet-Icon: /icon.png
+MIDlet-Vendor: Midlet Suite Vendor
+MIDlet-1: mobber,/icon.png,mobber
+MIDlet-Version: 1.0.0
+MicroEdition-Profile: MIDP-1.0
+MIDlet-Description: Communicator
+
+关键在于我们怎么来读取这些信息呢？其实很简单，JDK给我们提供了用于处理这些信息的API，详细的信息请见java.util.jar包中，我们可以通过给JarFile传递一个jar文件的路径，然后调用JarFile的getManifest方法来获取Manifest信息。
+更详细关于JAR文件的规范请见
+<a href="http://java.sun.com/j2se/1.3/docs/guide/jar/jar.html">http://java.sun.com/j2se/1.3/docs/guide/jar/jar.html</a></blockquote>
+
+
+<p>怎么样，是不是可以很顺利的进行？如果是，那我们就可以开始进行可执行文件的创建了。</p>
+
+<p>下面打开exe4j，它的开始一个界面是这样的：</p>
+
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-563" title="2010-10-09_210226" src="wp-content/uploads/2010/10/2010-10-09_210226.jpg" alt="" width="584" height="440" /></p>
+
+
+<p>单击NEXT键，选择”JAR in EXE”mod按钮，单击NEXT；填写短名和文件输出的路径然后点击NEXT继续。</p>
+
+<p>在下面的画面中，你可以选择你要生成的可执行文件的类型，以及生成的可执行文件名称、可执行文件的图标等，我们在这里就选择GUI application，名字就根据自己的需要取一个，图标你可以自己在你的图标库里选一个你喜欢的，然后再NEXT再继续；</p>
+
+<p>下一个画面里填写Main class的名字，单击下面的绿色+选择所需的.jar文件,如果没有特殊要求我们就可以再继续了；</p>
+
+<p>接下来是选择版本的画面，填写好自己的最大最小版本然后再继续</p>
+
+<p>下面这个画面可以帮助你设一下你的文件执行的片头，增加其美观效果，选择自己喜欢的图片，写自己想写的文字，并可以根据需要调整文字的位置，再继续</p>
+
+<p>下面是一个选择语言版本的界面选好后再继续</p>
+
+<p>下面是一个短暂的等待，</p>
+
+<p>然后就大功告成了。</p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/PHP/2010/10/07/cannot-modify-header-information-headers-already-sent-by" title="Cannot modify header information - headers already sent by错误解决办法">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Life/2010/10/18/we-can-not-help-but-lose-to-the-distance" title="我们能不能不输给距离">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '562 http://dreambt.github.com/?p=562';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2010-10-09</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#intro-ref">intro <span>69</span></a></li>
+     
+    	<li><a href="/tags.html#beginner-ref">beginner <span>51</span></a></li>
+     
+    	<li><a href="/tags.html#Java-ref">Java <span>11</span></a></li>
+     
+    	<li><a href="/tags.html#how-to-ref">how-to <span>14</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Java/2012/03/25/how-to-write-high-quality-java-source-code"><i class="icon-file"></i>如何书写高质量的Java源代码</a></li>
+           
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Java/2010/07/27/java-j2se-and-c-comparison"><i class="icon-file"></i>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</a></li>
+           
+           <li><a href="/Java/2011/11/14/java-internationalization-resource-files"><i class="icon-file"></i>Java国际化资源文件相关的乱码问题</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/Version Control/2011/09/29/how-to-rollback-of-svn"><i class="icon-file"></i>如何对SVN进行回滚操作</a></li>
+           
+           <li><a href="/Version Control/2011/03/28/apache-svn"><i class="icon-file"></i>如何让现有的Apache服务器支持SVN</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/ssh"><i class="icon-file"></i>【090711更新】SSH常见问题及解决办法</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Java/2011/08/23/java-container-traversal-method-and-efficiency-compared"><i class="icon-file"></i>Java 容器类及遍历效率对比</a></li>
+           
+           <li><a href="/Java/2008/09/14/how-to-become-a-good-java-developer"><i class="icon-file"></i>如何成为一个成功的Jsp程序员？</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Windows/2011/05/18/win7-boot-process-and-restoration"><i class="icon-file"></i>Win7启动过程及启动项修复</a></li>
+           
+           <li><a href="/Linux/2011/05/12/open-local-dns-cache-to-speed-up-web-browsing"><i class="icon-file"></i>开启本地DNS缓存来加速网页浏览</a></li>
+           
+           <li><a href="/Linux/2011/04/29/ubuntu-grub2-restoration"><i class="icon-file"></i>Ubuntu下Grub2修复详细步骤</a></li>
+           
+           <li><a href="/Linux/2011/01/16/grub-secure-ubuntu-restroe"><i class="icon-file"></i>开机显示grub secure的ubuntu启动项修复</a></li>
+           
+           <li><a href="/Life/2009/03/21/clever-question"><i class="icon-file"></i>提问的智慧</a></li>
+           
+           <li><a href="/J2EE/2012/08/13/log4j"><i class="icon-file"></i>日志处理Log4j</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/jersey-basic"><i class="icon-file"></i>Jersey基础知识分享</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/rest-web-service"><i class="icon-file"></i>构建REST风格的Web Service</a></li>
+           
+           <li><a href="/J2EE/2011/12/15/tomcat-http2"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（下）</a></li>
+           
+           <li><a href="/J2EE/2011/12/08/tomcat-http1"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（上）</a></li>
+           
+           <li><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server"><i class="icon-file"></i>Install VMWare Tools on Ubuntu Server</a></li>
+           
+           <li><a href="/Test/2011/10/30/junit-4-before-after-ignore-test-beforeclass-afterclass"><i class="icon-file"></i>JUnit 4 中的Before After Ignore Test BeforeClass AfterClass</a></li>
+           
+           <li><a href="/Linux/2011/10/16/ubuntu-terminal"><i class="icon-file"></i>Ubuntu常用的终端命令</a></li>
+           
+           <li><a href="/Ruby/2011/10/12/ruby-commonly-used-global-variables"><i class="icon-file"></i>Ruby中常用的全局变量</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Database/2011/08/22/oracle-lock-table-and-unluck"><i class="icon-file"></i>Oracle锁表与解表</a></li>
+           
+           <li><a href="/Ruby/2011/08/10/ruby"><i class="icon-file"></i>Ruby入门(一):Ruby简介</a></li>
+           
+           <li><a href="/UML/2011/03/27/uml-class-diagram-elements"><i class="icon-file"></i>全面认识UML-类图元素</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Database/2011/03/19/mysql-join"><i class="icon-file"></i>MySQL的连接/联结（Join）语法</a></li>
+           
+           <li><a href="/Security/2011/03/14/two-basic-algorithms-in-classical-encryption-technology"><i class="icon-file"></i>古典加密技术中最基本的两种算法</a></li>
+           
+           <li><a href="/Version Control/2011/03/12/svn-trunk-branches-and-tags"><i class="icon-file"></i>SVN trunk, branches and tags</a></li>
+           
+           <li><a href="/Linux/2011/03/02/linux-ubuntu-mount-point-presentations"><i class="icon-file"></i>Linux(Ubuntu)挂载点介绍及桌面服务器分区方案</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Matlab/2010/10/21/matlab-curve-fitting-toolbox"><i class="icon-file"></i>Matlab曲线拟合工具箱Curve Fitting Toolbox</a></li>
+           
+           <li><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation"><i class="icon-file"></i>C语言绘图-拉格朗日插值</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/s-form-action"><i class="icon-file"></i>浅谈s:form标签中action属性为XX.action与XX的区别</a></li>
+           
+           <li><a href="/Linux/2009/05/16/linux-speed-up-yum"><i class="icon-file"></i>Speed Up YUM！让Linux的升级速度快如飞</a></li>
+           
+           <li><a href="/Linux/2009/05/02/linux-os-file-system"><i class="icon-file"></i>Linux操作系统文件系统基础知识详解</a></li>
+           
+           <li><a href="/Linux/2009/04/05/rpm"><i class="icon-file"></i>RPM命令详解</a></li>
+           
+           <li><a href="/Cloud/2012/08/02/esxi"><i class="icon-file"></i>ESXi相关问题解决</a></li>
+           
+           <li><a href="/PHP/2012/06/06/cannot-find-autoconf-please-check-your-autoconf-installation"><i class="icon-file"></i>运行phpize时出现：Cannot find autoconf. Please check your autoconf installation</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbitmq"><i class="icon-file"></i>RabbitMQ常见问题整理</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbits-and-warrens"><i class="icon-file"></i>[翻译] [RabbitMQ入门经典] 兔子和兔子窝</a></li>
+           
+           <li><a href="/Other/2010/11/13/jonathan-danylko-20-programming-experience"><i class="icon-file"></i>Jonathan Danylko的20条编程经验</a></li>
+           
+           <li><a href="/PHP/2010/10/07/cannot-modify-header-information-headers-already-sent-by"><i class="icon-file"></i>Cannot modify header information - headers already sent by错误解决办法</a></li>
+           
+           <li><a href="/Web Design/2009/03/25/xmlhttprequest"><i class="icon-file"></i>XMLHttpRequest对象</a></li>
+           
+           <li><a href="/Database/2008/11/21/char-varchar"><i class="icon-file"></i>char与varchar数据类型转化的奇怪问题</a></li>
+           
+           <li><a href="/Database/2008/11/14/error-reading-data-from-static-cursor-cache"><i class="icon-file"></i>莫名其妙的Error reading data from static cursor cache</a></li>
+           
+           <li><a href="/Database/2008/09/15/sql"><i class="icon-file"></i>通用SQL数据库查询语句精华使用简介</a></li>
+           
+           <li><a href="/Security/2012/08/04/oauth2"><i class="icon-file"></i>OAuth原理初探</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/07/gof-kit"><i class="icon-file"></i>GoF设计模式之Kit抽象工厂</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/05/gof-factory-method"><i class="icon-file"></i>GoF设计模式之工厂方法模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-decorator"><i class="icon-file"></i>GoF设计模式之Decorator装饰者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-simply-factory"><i class="icon-file"></i>GoF设计模式之简单工厂模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/29/gof-observer"><i class="icon-file"></i>GoF设计模式之Observer观察者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/27/gof-policy"><i class="icon-file"></i>GoF设计模式之Policy策略模式</a></li>
+           
+           <li><a href="/Algorithm/2011/10/19/kmp-algorithm"><i class="icon-file"></i>KMP算法详解</a></li>
+           
+           <li><a href="/Linux/2011/08/04/linux-curl"><i class="icon-file"></i>Linux下curl命令的使用</a></li>
+           
+           <li><a href="/Test/2011/07/15/ruby-watir-test"><i class="icon-file"></i>Ruby和Watir调用浏览器测试</a></li>
+           
+           <li><a href="/Cloud/2011/07/02/quality-of-service"><i class="icon-file"></i>Quality of Service服务质量</a></li>
+           
+           <li><a href="/Web Design/2011/05/11/server-returns-status-code"><i class="icon-file"></i>服务器返回状态码图解</a></li>
+           
+           <li><a href="/Linux/2011/05/05/overviewof-open-source-software-license"><i class="icon-file"></i>开源软件许可证总览</a></li>
+           
+           <li><a href="/J2EE/2011/05/02/all-levels-of-encoding-in-j2ee-system"><i class="icon-file"></i>J2EE系统各个层次的编码方式</a></li>
+           
+           <li><a href="/Algorithm/2011/04/21/data-mining-classical-algorithm-10-cart"><i class="icon-file"></i>数据挖掘十大经典算法(10) CART: 分类与回归树</a></li>
+           
+           <li><a href="/Algorithm/2011/04/20/data-mining-classical-algorithm-9-naive-bayes"><i class="icon-file"></i>数据挖掘十大经典算法(9) 朴素贝叶斯分类器 Naive Bayes</a></li>
+           
+           <li><a href="/Algorithm/2011/04/19/data-mining-classical-algorithm-8-knn-k-nearest-neighbor-classification"><i class="icon-file"></i>数据挖掘十大经典算法(8) kNN: k-nearest neighbor classification</a></li>
+           
+           <li><a href="/Algorithm/2011/04/18/data-mining-classical-algorithm-7-adaboost"><i class="icon-file"></i>数据挖掘十大经典算法(7) AdaBoost</a></li>
+           
+           <li><a href="/Algorithm/2011/04/17/data-mining-classical-algorithm-6-pagerank"><i class="icon-file"></i>数据挖掘十大经典算法(6) PageRank</a></li>
+           
+           <li><a href="/Algorithm/2011/04/16/data-mining-classical-algorithm-5"><i class="icon-file"></i>数据挖掘十大经典算法(5) 最大期望(EM)算法</a></li>
+           
+           <li><a href="/Algorithm/2011/04/15/data-mining-classical-algorithm-4-the-apriori-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(4) The Apriori algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/14/data-mining-classical-algorithm-3-support-vector-machines"><i class="icon-file"></i>数据挖掘十大经典算法(3) Support vector machines</a></li>
+           
+           <li><a href="/Algorithm/2011/04/13/data-mining-classical-algorithm-2-the-k-means-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(2) The k-means algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/12/data-mining-classical-algorithm-1-c4-5"><i class="icon-file"></i>数据挖掘十大经典算法(1) C4.5</a></li>
+           
+           <li><a href="/Linux/2011/04/11/unix-timestamp"><i class="icon-file"></i>关于Unix时间戳(Unix timestamp)</a></li>
+           
+           <li><a href="/Design Pattern/2011/03/30/gof-prototype"><i class="icon-file"></i>GoF设计模式之Prototype(原型模式)</a></li>
+           
+           <li><a href="/Linux/2010/04/02/5-open-source-license-agreement"><i class="icon-file"></i>5大开源许可协议详解</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/struts2-struts-config-xml"><i class="icon-file"></i>struts2的struts-config.xml文件</a></li>
+           
+           <li><a href="/J2EE/2009/06/01/spring-applicationcontext-xml"><i class="icon-file"></i>Spring的applicationContext.xml文件</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

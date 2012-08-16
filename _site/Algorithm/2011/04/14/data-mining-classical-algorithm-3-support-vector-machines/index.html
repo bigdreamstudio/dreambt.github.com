@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>数据挖掘十大经典算法(3) Support vector machines</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>数据挖掘十大经典算法(3) Support vector machines <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p>支持向量机，英文为Support Vector Machine，简称SV机（论文中一般简称SVM）。它是一种監督式學習的方法，它广泛的应用于统计分类以及回归分析中。</p>
+
+<p>支持向量机属于一般化线性分类器.他们也可以认为是提克洛夫规范化（Tikhonov Regularization）方法的一个特例.这族分类器的特点是他们能够同时最小化经验误差与最大化几何边缘区.因此支持向量机也被称为最大边缘区分类器。在统计计算中，最大期望（EM）算法是在概率（probabilistic）模型中寻找参数最大似然估计的算法，其中概率模型依赖于无法观测的隐藏变量（Latent Variabl）。最大期望经常用在机器学习和计算机视觉的数据集聚（Data Clustering）领域。最大期望算法经过两个步骤交替进行计算，第一步是计算期望（E），也就是将隐藏变量象能够观测到的一样包含在内从而计算最大似然的期望值；另外一步是最大化（M），也就是最大化在 E 步上找到的最大似然的期望值从而计算参数的最大似然估计。M 步上找到的参数然后用于另外一个 E 步计算，这个过程不断交替进行。</p>
+
+<p>Vapnik等人在多年研究统计学习理论基础上对线性分类器提出了另一种设计最佳准则。其原理也从线性可分说起，然后扩展到线性不可分的情况。甚至扩展到 使用非线性函数中去，这种分类器被称为支持向量机(Support Vector Machine,简称SVM)。支持向量机的提出有很深的理论背景。 支持向量机方法是在近年来提出的一种新方法。
+SVM的主要思想可以概括为两点： (1) 它是针对线性可分情况进行分析，对于线性不可分的情况，通过使用非线性映射算法将低维输入空间线性不可分的样本转化为高维特征空间使其线性可分，从而 使得高维特征空间采用线性算法对样本的非线性特征进行线性分析成为可能；(2) 它基于结构风险最小化理论之上在特征空间中建构最优分割超平面，使得学习器得到全局最优化,并且在整个样本空间的期望风险以某个概率满足一定上界。
+在学习这种方法时，首先要弄清楚这种方法考虑问题的特点，这就要从线性可分的最简单情况讨论 起，在没有弄懂其原理之前，不要急于学习线性不可分等较复杂的情况，支持向量机在设计时，需要用到条件极值问题的求解，因此需用拉格朗日乘子理论，但对多 数人来说，以前学到的或常用的是约束条件为等式表示的方式，但在此要用到以不等式作为必须满足的条件，此时只要了解拉格朗日理论的有关结论就行。</p>
+
+<h2>介绍</h2>
+
+
+<p>支持向量机将向量映射到一个更高维的空间里，在这个空间里建立有一个最大间隔超平面。在分开数据的超平面的两边建有两个互相平行的超平面。分隔超平 面使两个平行超平面的距离最大化。假定平行超平面间的距离或差距越大，分类器的总误差越小。一个极好的指南是C.J.C Burges的《模式识别支持向量机指南》。van der Walt 和 Barnard 将支持向量机和其他分类器进行了比较。</p>
+
+<p><a id=".E5.8A.A8.E6.9C.BA" name=".E5.8A.A8.E6.9C.BA"></a></p>
+
+<h3>动机</h3>
+
+
+<div>
+<div><a title="有很多个分类器(超平面）可以把数据分开，但是只有一个能够达到最大分割。" href="http://zh.wikipedia.org/wiki/File:Classifier.png"><img src="http://upload.wikimedia.org/wikipedia/zh/thumb/c/c8/Classifier.png/180px-Classifier.png" border="0" alt="" width="180" height="151" /></a>
+<div>
+<div><a title="放大" href="http://zh.wikipedia.org/wiki/File:Classifier.png"><img src="http://zh.wikipedia.org/skins-1.5/common/images/magnify-clip.png" alt="" width="15" height="11" /></a></div>
+有很多个分类器(超平面）可以把数据分开，但是只有一个能够达到最大分割。</div>
+</div>
+</div>
+
+
+<p>我们通常希望分类的过程是一个机器学习的过程。这些数据点并不需要是<img src="http://upload.wikimedia.org/math/a/1/f/a1fd49f304c1094efe3fda098d5eaa5f.png" alt="\mathbb{R}^2" />中的点，而可以是任意<img src="http://upload.wikimedia.org/math/5/6/e/56ef1cb9c0683de06f05e34c0bd42537.png" alt="\mathbb{R}^p" />(统计学符号)中或者<img src="http://upload.wikimedia.org/math/3/0/c/30c28f76ef7517dbd19df4d4c683dbe6.png" alt="\mathbb{R}^n" /> (计算机科学符号) 的点。我们希望能够把这些点通过一个n-1维的<a title="超平面" href="http://zh.wikipedia.org/wiki/%E8%B6%85%E5%B9%B3%E9%9D%A2">超平面</a>分开，通常这个被称为<a title="线性分类器" href="http://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E5%99%A8">线性分类器</a>。有很多分类器都符合这个要求，但是我们还希望找到分类最佳的平面，即使得属于两个不同类的数据点间隔最大的那个面，该面亦称为<strong>最大间隔超平面</strong>。如果我们能够找到这个面，那么这个分类器就称为最大间隔分类器。</p>
+
+<p><a id=".E9.97.AE.E9.A2.98.E5.AE.9A.E4.B9.89" name=".E9.97.AE.E9.A2.98.E5.AE.9A.E4.B9.89"></a></p>
+
+<h3>问题定义</h3>
+
+
+<div>
+<div><a title="设样本属于两个类，用该样本训练svm得到的最大间隔超平面。在超平面上的样本点也称为支持向量." href="http://zh.wikipedia.org/wiki/File:SVM_margins.png"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/SVM_margins.png/180px-SVM_margins.png" border="0" alt="" width="180" height="220" /></a>
+<div>
+<div><a title="放大" href="http://zh.wikipedia.org/wiki/File:SVM_margins.png"><img src="http://zh.wikipedia.org/skins-1.5/common/images/magnify-clip.png" alt="" width="15" height="11" /></a></div>
+设样本属于两个类，用该样本训练svm得到的最大间隔超平面。在超平面上的样本点也称为支持向量.</div>
+</div>
+</div>
+
+
+<p>我们考虑以下形式的样本点</p>
+
+<dl><dd><img src="http://upload.wikimedia.org/math/7/3/c/73c2271c2efadc59ca11fea82796020c.png" alt="\{ (\mathbf{x}_1, c_1), (\mathbf{x}_2, c_2), \ldots, (\mathbf{x}_n, c_n)\}" /></dd></dl>
+
+
+<p>其中<em>c</em><sub><em>i</em></sub>为1或−1 --用以表示数据点属于哪个类. <img src="http://upload.wikimedia.org/math/3/f/0/3f052ba8a0742f689f895fd252fa157f.png" alt=" \mathbf{x}_i " /> 是一个<em>p</em> − (统计学符号), 或 <em>n</em> − (计算机科学符号) 维向量，其每个元素都被缩放到[0,1]或[-1,1].缩放的目的是防止方差大的随机变量主导分类过程.我们可以把这些数据称为“训练数据”，希望我们的支持向量机能够通过一个超平面正确的把他们分开。超平面的数学形式可以写作</p>
+
+<dl><dd><img src="http://upload.wikimedia.org/math/4/8/7/4875c57f22ae0726fe413a3be97da5df.png" alt="\mathbf{w}\cdot\mathbf{x} - b=0." /></dd></dl>
+
+
+<p>根据几何知识，我们知道<img src="http://upload.wikimedia.org/math/2/c/5/2c5a3544056eab0411512e37fedea46d.png" alt="\mathbf{w}" />向量垂直于分类超平面。加入位移<strong>b</strong>的目的是增加间隔.如果没有<em>b</em>的话，那超平面将不得不通过原点，限制了这个方法的灵活性。</p>
+
+<p>由于我们要求最大间隔，因此我们需要知道支持向量以及（与最佳超平面）平行的并且离支持向量最近的超平面。我们可以看到这些平行超平面可以由方程族：</p>
+
+<dl><dd><img src="http://upload.wikimedia.org/math/f/3/4/f34af0e1112d160e98feffbceb7d110a.png" alt="\mathbf{w}\cdot\mathbf{x} - b=1," /></dd><dd><img src="http://upload.wikimedia.org/math/0/3/0/03034da6a72ea9fbed8496cf3e3e9294.png" alt="\mathbf{w}\cdot\mathbf{x} - b=-1." /></dd></dl>
+
+
+<p>来表示。</p>
+
+<p>如果这些训练数据是线性可分的，那就可以找到这样两个超平面，在它们之间没有任何样本点并且这两个超平面之间的距离也最大.通过几何不难得到这两个超平面之间的距离是 2/|<em><strong>w</strong></em>|，因此我们需要最小化 |<em><strong>w</strong></em>|。同时为了使得样本数据点都在超平面的间隔区以外，我们需要保证对于所有的 <em>i</em> 满足其中的一个条件</p>
+
+<dl><dd><img src="http://upload.wikimedia.org/math/9/d/6/9d692015b7c3120ba24d6b4ed69e7fe3.png" alt="\mathbf{w}\cdot\mathbf{x_i} - b \ge 1\qquad\mathrm{or}" /></dd><dd><img src="http://upload.wikimedia.org/math/f/f/6/ff60a9e0368a9230d64b4a0bd593d038.png" alt="\mathbf{w}\cdot\mathbf{x_i} - b \le -1\qquad\mathrm{}" /></dd></dl>
+
+
+<p>这两个式子可以写作：</p>
+
+<dl><dd><img src="http://upload.wikimedia.org/math/e/2/5/e25615c8322690f31073b67037a9dffa.png" alt="c_i(\mathbf{w}\cdot\mathbf{x_i} - b) \ge 1, \quad 1 \le i \le n.\qquad\qquad(1)" /></dd></dl>
+
+
+<p><a id=".E5.8E.9F.E5.9E.8B" name=".E5.8E.9F.E5.9E.8B"></a></p>
+
+<h3>原型</h3>
+
+
+<p>现在寻找最佳超平面这个问题就变成了在(1)这个约束条件下最小化|<em><strong>w</strong></em>|.这是一个<a title="二次规划" href="http://zh.wikipedia.org/wiki/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92">二次規劃</a>QP(quadratic programming)<a title="最优化" href="http://zh.wikipedia.org/wiki/%E6%9C%80%E4%BC%98%E5%8C%96">最优化</a>中的问题。</p>
+
+<p>更清楚的，它可以表示如下：</p>
+
+<dl><dd>最小化 <img src="http://upload.wikimedia.org/math/2/b/5/2b50a93790c7dec2ca1a735eb253c403.png" alt="||\mathbf{w}||^2\over2" />, 满足 <img src="http://upload.wikimedia.org/math/3/5/2/35299c944f7732a9b377dfac7f84b2f1.png" alt="c_i(\mathbf{w}\cdot\mathbf{x_i} - b) \ge 1, \quad 1 \le i \le n." />。</dd></dl>
+
+
+<p>1/2 这个因子是为了数学上表达的方便加上的。</p>
+
+<p><a id=".E5.AF.B9.E5.81.B6.E5.9E.8B.28Dual_Form.29" name=".E5.AF.B9.E5.81.B6.E5.9E.8B.28Dual_Form.29"></a></p>
+
+<h3>对偶型(Dual Form)</h3>
+
+
+<p>把原型的分类规则写作对偶型，可以看到分类器其实是一个关于支持向量（即那些在间隔区边缘的训练样本点）的函数。</p>
+
+<p>支持向量机的对偶型如下： <img src="http://upload.wikimedia.org/math/8/b/8/8b868abe02465e531792cb69c817cc54.png" alt="\max \sum_{i=1}^n\alpha_i - \sum_{i,j} \alpha_i \alpha_j c_i c_j x_i^Tx_j" /> 并满足α<sub><em>i</em></sub> &gt; = 0</p>
+
+<p><a id=".E8.BD.AF.E9.97.B4.E9.9A.94" name=".E8.BD.AF.E9.97.B4.E9.9A.94"></a></p>
+
+<h2>软间隔</h2>
+
+
+<p>1995年, <a title="Corinna Cortes" href="http://zh.wikipedia.org/w/index.php?title=Corinna_Cortes&amp;action=edit&amp;redlink=1">Corinna Cortes</a> 与Vapnik 提出了一种改进的最大间隔区方法，这种方法可以处理标记错误的样本。如果可区分正负例的超平面不存在，则“软边界”将选择一个超平面尽可能清晰地区分样 本，同时使其与分界最清晰的样本的距离最大化。这一成果使术语“支持向量机”（或“SVM”）得到推广。这种方法引入了松驰参数ξ<sub><em>i</em></sub>以衡量对数据<em>x</em><sub><em>i</em></sub>的误分类度。</p>
+
+<dl><dd><img src="http://upload.wikimedia.org/math/a/4/8/a488b29a2187d7443084565d09e4abf5.png" alt="c_i(\mathbf{w}\cdot\mathbf{x_i} - b) \ge 1 - \xi_i \quad 1 \le i \le n \quad\quad(2)" />。</dd></dl>
+
+
+<p>随后，将目标函数与一个针对非0ξ<sub><em>i</em></sub>的惩罚函数相加，在增大间距和缩小错误惩罚两大目标之间进行权衡优化。如果惩罚函数是一个线性函数，则等式(3)变形为</p>
+
+<p>&nbsp;</p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Algorithm/2011/04/13/data-mining-classical-algorithm-2-the-k-means-algorithm" title="数据挖掘十大经典算法(2) The k-means algorithm">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Algorithm/2011/04/15/data-mining-classical-algorithm-4-the-apriori-algorithm" title="数据挖掘十大经典算法(4) The Apriori algorithm">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '905 http://dreambt.github.com/?p=905';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2011-04-14</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#intro-ref">intro <span>69</span></a></li>
+     
+    	<li><a href="/tags.html#Data mining-ref">Data mining <span>10</span></a></li>
+     
+    	<li><a href="/tags.html#Algorithm-ref">Algorithm <span>12</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Algorithm/2011/04/21/data-mining-classical-algorithm-10-cart"><i class="icon-file"></i>数据挖掘十大经典算法(10) CART: 分类与回归树</a></li>
+           
+           <li><a href="/Algorithm/2011/04/20/data-mining-classical-algorithm-9-naive-bayes"><i class="icon-file"></i>数据挖掘十大经典算法(9) 朴素贝叶斯分类器 Naive Bayes</a></li>
+           
+           <li><a href="/Algorithm/2011/04/19/data-mining-classical-algorithm-8-knn-k-nearest-neighbor-classification"><i class="icon-file"></i>数据挖掘十大经典算法(8) kNN: k-nearest neighbor classification</a></li>
+           
+           <li><a href="/Algorithm/2011/04/18/data-mining-classical-algorithm-7-adaboost"><i class="icon-file"></i>数据挖掘十大经典算法(7) AdaBoost</a></li>
+           
+           <li><a href="/Algorithm/2011/04/17/data-mining-classical-algorithm-6-pagerank"><i class="icon-file"></i>数据挖掘十大经典算法(6) PageRank</a></li>
+           
+           <li><a href="/Algorithm/2011/04/16/data-mining-classical-algorithm-5"><i class="icon-file"></i>数据挖掘十大经典算法(5) 最大期望(EM)算法</a></li>
+           
+           <li><a href="/Algorithm/2011/04/15/data-mining-classical-algorithm-4-the-apriori-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(4) The Apriori algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/13/data-mining-classical-algorithm-2-the-k-means-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(2) The k-means algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/12/data-mining-classical-algorithm-1-c4-5"><i class="icon-file"></i>数据挖掘十大经典算法(1) C4.5</a></li>
+           
+           <li><a href="/Algorithm/2011/10/19/kmp-algorithm"><i class="icon-file"></i>KMP算法详解</a></li>
+           
+           <li><a href="/Algorithm/2011/04/27/md5-based-base64-algorithm"><i class="icon-file"></i>用MD5做散列函数的新Base64算法</a></li>
+           
+           <li><a href="/J2EE/2012/08/13/log4j"><i class="icon-file"></i>日志处理Log4j</a></li>
+           
+           <li><a href="/Security/2012/08/04/oauth2"><i class="icon-file"></i>OAuth原理初探</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/07/gof-kit"><i class="icon-file"></i>GoF设计模式之Kit抽象工厂</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/05/gof-factory-method"><i class="icon-file"></i>GoF设计模式之工厂方法模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-decorator"><i class="icon-file"></i>GoF设计模式之Decorator装饰者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-simply-factory"><i class="icon-file"></i>GoF设计模式之简单工厂模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/29/gof-observer"><i class="icon-file"></i>GoF设计模式之Observer观察者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/27/gof-policy"><i class="icon-file"></i>GoF设计模式之Policy策略模式</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/jersey-basic"><i class="icon-file"></i>Jersey基础知识分享</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/rest-web-service"><i class="icon-file"></i>构建REST风格的Web Service</a></li>
+           
+           <li><a href="/J2EE/2011/12/15/tomcat-http2"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（下）</a></li>
+           
+           <li><a href="/J2EE/2011/12/08/tomcat-http1"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（上）</a></li>
+           
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server"><i class="icon-file"></i>Install VMWare Tools on Ubuntu Server</a></li>
+           
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Test/2011/10/30/junit-4-before-after-ignore-test-beforeclass-afterclass"><i class="icon-file"></i>JUnit 4 中的Before After Ignore Test BeforeClass AfterClass</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Linux/2011/10/16/ubuntu-terminal"><i class="icon-file"></i>Ubuntu常用的终端命令</a></li>
+           
+           <li><a href="/Ruby/2011/10/12/ruby-commonly-used-global-variables"><i class="icon-file"></i>Ruby中常用的全局变量</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Database/2011/08/22/oracle-lock-table-and-unluck"><i class="icon-file"></i>Oracle锁表与解表</a></li>
+           
+           <li><a href="/Ruby/2011/08/10/ruby"><i class="icon-file"></i>Ruby入门(一):Ruby简介</a></li>
+           
+           <li><a href="/Linux/2011/08/04/linux-curl"><i class="icon-file"></i>Linux下curl命令的使用</a></li>
+           
+           <li><a href="/Test/2011/07/15/ruby-watir-test"><i class="icon-file"></i>Ruby和Watir调用浏览器测试</a></li>
+           
+           <li><a href="/Cloud/2011/07/02/quality-of-service"><i class="icon-file"></i>Quality of Service服务质量</a></li>
+           
+           <li><a href="/Web Design/2011/05/11/server-returns-status-code"><i class="icon-file"></i>服务器返回状态码图解</a></li>
+           
+           <li><a href="/Linux/2011/05/05/overviewof-open-source-software-license"><i class="icon-file"></i>开源软件许可证总览</a></li>
+           
+           <li><a href="/J2EE/2011/05/02/all-levels-of-encoding-in-j2ee-system"><i class="icon-file"></i>J2EE系统各个层次的编码方式</a></li>
+           
+           <li><a href="/Linux/2011/04/11/unix-timestamp"><i class="icon-file"></i>关于Unix时间戳(Unix timestamp)</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Design Pattern/2011/03/30/gof-prototype"><i class="icon-file"></i>GoF设计模式之Prototype(原型模式)</a></li>
+           
+           <li><a href="/UML/2011/03/27/uml-class-diagram-elements"><i class="icon-file"></i>全面认识UML-类图元素</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Database/2011/03/19/mysql-join"><i class="icon-file"></i>MySQL的连接/联结（Join）语法</a></li>
+           
+           <li><a href="/Security/2011/03/14/two-basic-algorithms-in-classical-encryption-technology"><i class="icon-file"></i>古典加密技术中最基本的两种算法</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Version Control/2011/03/12/svn-trunk-branches-and-tags"><i class="icon-file"></i>SVN trunk, branches and tags</a></li>
+           
+           <li><a href="/Linux/2011/03/02/linux-ubuntu-mount-point-presentations"><i class="icon-file"></i>Linux(Ubuntu)挂载点介绍及桌面服务器分区方案</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Matlab/2010/10/21/matlab-curve-fitting-toolbox"><i class="icon-file"></i>Matlab曲线拟合工具箱Curve Fitting Toolbox</a></li>
+           
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation"><i class="icon-file"></i>C语言绘图-拉格朗日插值</a></li>
+           
+           <li><a href="/Java/2010/07/27/java-j2se-and-c-comparison"><i class="icon-file"></i>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</a></li>
+           
+           <li><a href="/Linux/2010/04/02/5-open-source-license-agreement"><i class="icon-file"></i>5大开源许可协议详解</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/s-form-action"><i class="icon-file"></i>浅谈s:form标签中action属性为XX.action与XX的区别</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/struts2-struts-config-xml"><i class="icon-file"></i>struts2的struts-config.xml文件</a></li>
+           
+           <li><a href="/J2EE/2009/06/01/spring-applicationcontext-xml"><i class="icon-file"></i>Spring的applicationContext.xml文件</a></li>
+           
+           <li><a href="/Linux/2009/05/16/linux-speed-up-yum"><i class="icon-file"></i>Speed Up YUM！让Linux的升级速度快如飞</a></li>
+           
+           <li><a href="/Linux/2009/05/02/linux-os-file-system"><i class="icon-file"></i>Linux操作系统文件系统基础知识详解</a></li>
+           
+           <li><a href="/Linux/2009/04/05/rpm"><i class="icon-file"></i>RPM命令详解</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

@@ -1,0 +1,1543 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison) <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr align="middle">
+<td colspan="2">
+<table width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Program Structure</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>package hello;public class HelloWorld {
+public static void <strong>main</strong>(String[] args) {
+String name = "Java";
+
+// See if an argument was passed from the command line
+if (args.length == 1)
+name = args[0];
+
+System.out.println("Hello, " + name + "!");
+}
+}</td>
+<td>using System;namespace Hello {
+public class HelloWorld {
+public static void <strong>Main</strong>(string[] args) {
+string name = "C#";
+
+// See if an argument was passed from the command line
+if (args.Length == 1)
+name = args[0];
+
+Console.WriteLine("Hello, " + name + "!");
+}
+}
+}</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table2" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Comments</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td>// Single line
+/* Multiple
+line  */
+/** Javadoc documentation comments */</td>
+<td>// Single line
+/* Multiple
+line  */
+/// XML comments on a single line
+/** XML comments on multiple lines */</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table3" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Data Types</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td>Primitive Types
+boolean
+byte
+char
+short, int, long
+float, double
+Reference Types
+Object   (superclass of all other classes)
+String
+<em>arrays, classes, interfaces</em>Conversions
+
+// int to String
+int x = 123;
+String y = Integer.toString(x);  // y is "123"
+
+// String to int
+y = "456";
+x = Integer.parseInt(y);   // x is 456
+
+// double to int
+double z = 3.5;
+x = <strong>(int)</strong> z;   // x is 3  (truncates decimal)</td>
+<td>Value Types
+bool
+byte, sbyte
+char
+short, ushort, int, uint, long, ulong
+float, double, decimal
+<em>structures, enumerations</em>Reference Types
+object    (superclass of all other classes)
+string
+<em>arrays, classes, interfaces, delegates</em>
+
+Convertions
+
+// int to string
+int x = 123;
+String y = x.ToString();  // y is "123"
+
+// string to int
+y = "456";
+x = int.Parse(y);   // or x = Convert.ToInt32(y);
+
+// double to int
+double z = 3.5;
+x = <strong>(int)</strong> z;   // x is 3  (truncates decimal)</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table4" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Constants</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td>// May be initialized in a constructor
+<strong>final</strong> double PI = 3.14;</td>
+<td><strong>const</strong> double PI = 3.14;// Can be set to a const or a variable. May be initialized in a constructor.
+<strong>readonly</strong> int MAX_HEIGHT = 9;</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table20" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Enumerations</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td><strong>enum</strong>Action {Start, Stop, Rewind, Forward};// Special type of class
+<strong>enum</strong> Status {
+Flunk(50), Pass(70), Excel(90);
+private final int value;
+Status(int value) { this.value = value; }
+public int value() { return value; }
+};
+
+Action a = Action.Stop;
+if (a != Action.Start)
+System.out.println(a);               // Prints "Stop"
+
+Status s = Status.Pass;
+System.out.println(s.value());      // Prints "70"</td>
+<td><strong>enum</strong>Action {Start, Stop, Rewind, Forward};<strong>enum</strong> Status {Flunk = 50, Pass = 70, Excel = 90};
+
+No equivalent.
+
+Action a = Action.Stop;
+if (a != Action.Start)
+Console.WriteLine(a);             // Prints "Stop"
+
+Status s = Status.Pass;
+Console.WriteLine((int) s);       // Prints "70"</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table5" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Operators</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="16">Comparison
+==  &lt;  &gt;  &lt;=  &gt;=  !=Arithmetic
++  -  *  /
+%  (mod)
+/   (integer division if both operands are ints)
+Math.Pow(x, y)
+
+Assignment
+=  +=  -=  *=  /=   %=   &amp;=  |=  ^=  &lt;&lt;=  &gt;&gt;=  &gt;&gt;&gt;=  ++  --
+
+Bitwise
+&amp;  |  ^   ~  &lt;&lt;  &gt;&gt;  &gt;&gt;&gt;
+
+Logical
+&amp;&amp;  ||  &amp;  |   ^   !
+
+<strong>Note:</strong> &amp;&amp; and || perform short-circuit logical evaluations
+
+String Concatenation
++</td>
+<td height="16">Comparison
+==  &lt;  &gt;  &lt;=  &gt;=  !=Arithmetic
++  -  *  /
+%  (mod)
+/   (integer division if both operands are ints)
+Math.Pow(x, y)
+
+Assignment
+=  +=  -=  *=  /=   %=  &amp;=  |=  ^=  &lt;&lt;=  &gt;&gt;=  ++  --
+
+Bitwise
+&amp;  |  ^   ~  &lt;&lt;  &gt;&gt;
+
+Logical
+&amp;&amp;  ||  &amp;  |   ^   !
+
+<strong>Note:</strong> &amp;&amp; and || perform short-circuit logical evaluations
+
+String Concatenation
++</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table6" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Choices</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="163">greeting = age &lt; 20 <strong>?</strong> "What's up?" <strong>:</strong>"Hello";<strong>if </strong>(x &lt; y)
+System.out.println("greater");
+
+<strong>if </strong>(x != 100) {
+x *= 5;
+y *= 2;
+}
+<strong>else</strong>
+z *= 6;
+
+int selection = 2;
+<strong>switch</strong> (selection) {     <em>// Must be byte, short, int, char, or enum</em>
+<strong>case</strong> 1: x++;            <em>// Falls through to next case if no break</em>
+<strong>case</strong> 2: y++;   <strong>break;</strong>
+<strong>case</strong> 3: z++;   <strong>break;</strong>
+<strong>default:</strong> other++;
+}</td>
+<td height="163">greeting = age &lt; 20 <strong>?</strong> "What's up?" <strong>:</strong>"Hello";<strong>if </strong>(x &lt; y)
+Console.WriteLine("greater");
+
+<strong>if </strong>(x != 100) {
+x *= 5;
+y *= 2;
+}
+<strong>else</strong>
+z *= 6;
+
+string color = "red";
+<strong>switch</strong> (color) {                          <em>// Can be any predefined type</em>
+<strong>case</strong> "red":    r++;    <strong>break;</strong> <em>// break is mandatory; no fall-through</em>
+<strong>case</strong> "blue":   b++;   <strong>break;</strong>
+<strong>case</strong> "green": g++;   <strong>break;</strong>
+<strong>default:</strong> other++;     <strong>break;</strong> <em>// break necessary on default</em>
+}</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table7" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Loops</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="259"><strong>while</strong> (i &lt; 10)
+i++;<strong>for</strong> (i = 2; i &lt;= 10; i += 2)
+System.out.println(i);
+
+<strong>do</strong>
+i++;
+<strong>while</strong> (i &lt; 10);
+
+<strong>for</strong> (int i <strong>:</strong> numArray)  // foreach construct
+sum += i;
+
+// for loop can be used to iterate through any Collection
+import java.util.ArrayList;
+ArrayList&lt;Object&gt; list = new ArrayList&lt;Object&gt;();
+list.add(10);    // boxing converts to instance of Integer
+list.add("Bisons");
+list.add(2.3);    // boxing converts to instance of Double
+
+<strong>for</strong> (Object o <strong>:</strong> list)
+System.out.println(o);</td>
+<td valign="top" height="259"><strong>while</strong> (i &lt; 10)
+i++;<strong>for</strong> (i = 2; i &lt;= 10; i += 2)
+Console.WriteLine(i);
+
+<strong>do</strong>
+i++;
+<strong>while</strong> (i &lt; 10);
+
+<strong>foreach</strong> (int i <strong>in</strong> numArray)
+sum += i;
+
+<em>// foreach can be used to iterate through any collection</em>
+using System.Collections;
+ArrayList list = new ArrayList();
+list.Add(10);
+list.Add("Bisons");
+list.Add(2.3);
+
+<strong>foreach</strong> (Object o <strong>in</strong> list)
+Console.WriteLine(o);</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table8" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Arrays</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="144">int nums<strong>[]</strong> = {1, 2, 3};   <em>or</em> int<strong>[]</strong> nums = {1, 2, 3};
+for (int i = 0; i &lt; nums.length; i++)
+System.out.println(nums[i]);String names[] = new String[5];
+names[0] = "David";
+
+float twoD<strong>[][]</strong> = new float[rows][cols];
+twoD[2][0] = 4.5;int<strong>[][]</strong> jagged = new int[5][];
+jagged[0] = new int[5];
+jagged[1] = new int[2];
+jagged[2] = new int[3];
+jagged[0][4] = 5;</td>
+<td height="144">int<strong>[]</strong> nums = {1, 2, 3};
+for (int i = 0; i &lt; nums.Length; i++)
+Console.WriteLine(nums[i]);string[] names = new string[5];
+names[0] = "David";
+
+float<strong>[,]</strong> twoD = new float[rows, cols];
+twoD[2,0] = 4.5f;int<strong>[][]</strong> jagged = new int[3][] {
+new int[5], new int[2], new int[3] };
+jagged[0][4] = 5;</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table9" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Functions</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td width="50%">
+<table width="100%" border="0" cellpadding="0">
+<tbody>
+<tr valign="top">
+<td width="50%">// Return single value
+<strong>int</strong> Add(int x, int y) {
+<strong>return</strong> x + y;
+}int sum = Add(2, 3);</td>
+<td width="50%">// Return no value
+<strong>void</strong> PrintSum(int x, int y) {
+System.out.println(x + y);
+}PrintSum(2, 3);</td>
+</tr>
+</tbody>
+</table>
+// Primitive types and references are always passed by value
+void TestFunc(int x, Point p) {
+x++;
+p.x++;       // Modifying property of the object
+p = null;    // Remove local reference to object
+}
+
+class Point {
+public int x, y;
+}
+
+Point p = new Point();
+p.x = 2;
+int a = 1;
+TestFunc(a, p);
+System.out.println(a + " " + p.x + " " + (p == null) );  // 1 3 false
+
+// Accept variable number of arguments
+int Sum(int <strong>...</strong> nums) {
+int sum = 0;
+for (int i : nums)
+sum += i;
+return sum;
+}
+
+int total = Sum(4, 3, 2, 1);   // returns 10</td>
+<td width="50%">
+<table id="Table1" width="100%" border="0" cellpadding="0">
+<tbody>
+<tr valign="top">
+<td width="50%">// Return single value
+<strong>int</strong> Add(int x, int y) {
+<strong>return</strong> x + y;
+}int sum = Add(2, 3);</td>
+<td width="50%">// Return no value
+<strong>void</strong> PrintSum(int x, int y) {
+Console.WriteLine(x + y);
+}PrintSum(2, 3);</td>
+</tr>
+</tbody>
+</table>
+// Pass by value (default), in/out-reference (ref), and out-reference (out)
+void TestFunc(int x, <strong>ref</strong> int y, <strong>out</strong> int z, Point p1, <strong>ref</strong> Point p2) {
+x++;  y++;  z = 5;
+p1.x++;       // Modifying property of the object
+p1 = null;    // Remove local reference to object
+p2 = null;   // Free the object
+}
+
+class Point {
+public int x, y;
+}
+
+Point p1 = new Point();
+Point p2 = new Point();
+p1.x = 2;
+int a = 1, b = 1, c;   // Output param doesn't need initializing
+TestFunc(a, <strong>ref</strong> b, <strong>out</strong> c, p1, <strong>ref</strong> p2);
+Console.WriteLine("{0} {1} {2} {3} {4}",
+a, b, c, p1.x, p2 == null);   // 1 2 5 3 True
+
+// Accept variable number of arguments
+int Sum(<strong>params</strong> int[] nums) {
+int sum = 0;
+foreach (int i in nums)
+sum += i;
+return sum;
+}
+
+int total = Sum(4, 3, 2, 1);   <em>// returns 10</em></td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table10" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Strings</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td>// String concatenation
+<strong>String</strong> school = "Harding ";
+school = school + "University";   // school is "Harding University"// String comparison
+String mascot = "Bisons";
+if (mascot == "Bisons")    // Not the correct way to do string comparisons
+if (mascot.<strong>equals</strong>("Bisons"))   // true
+if (mascot.<strong>equalsIgnoreCase</strong>("BISONS"))   // true
+if (mascot.<strong>compareTo</strong>("Bisons") == 0)   // true
+
+System.out.println(mascot.<strong>substring</strong>(2, 5));   // Prints "son"
+
+// My birthday: Oct 12, 1973
+java.util.Calendar c = new java.util.GregorianCalendar(1973, 10, 12);
+String s = String.format("My birthday: %1$tb %1$te, %1$tY", c);
+
+// Mutable string
+<strong>StringBuffer</strong> buffer = new <strong>StringBuffer</strong>("two ");
+buffer.<strong>append</strong>("three ");
+buffer.<strong>insert</strong>(0, "one ");
+buffer.<strong>replace</strong>(4, 7, "TWO");
+System.out.println(buffer);     // Prints "one TWO three"</td>
+<td>// String concatenation
+<strong>string</strong> school = "Harding ";
+school = school + "University";   // school is "Harding University"// String comparison
+string mascot = "Bisons";
+if (mascot == "Bisons")    // true
+if (mascot.<strong>Equals</strong>("Bisons"))   // true
+if (mascot.<strong>ToUpper</strong>().<strong>Equals</strong>("BISONS"))   // true
+if (mascot.<strong>CompareTo</strong>("Bisons") == 0)    // true
+
+Console.WriteLine(mascot.<strong>Substring</strong>(2, 3));    // Prints "son"
+
+// My birthday: Oct 12, 1973
+DateTime dt = new DateTime(1973, 10, 12);
+string s = "My birthday: " + dt.ToString("MMM dd, yyyy");
+
+// Mutable string
+System.Text.<strong>StringBuilder</strong> buffer = new System.Text.<strong>StringBuilder</strong>("two ");
+buffer.<strong>Append</strong>("three ");
+buffer.<strong>Insert</strong>(0, "one ");
+buffer.<strong>Replace</strong>("two", "TWO");
+Console.WriteLine(buffer);     // Prints "one TWO three"</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table11" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Exception Handling</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="96">// Must be in a method that is declared to throw this exception
+Exception ex = new Exception("Something is really wrong.");
+<strong>throw</strong>ex;<strong>try</strong> {
+y = 0;
+x = 10 / y;
+} <strong>catch</strong> (Exception ex) {
+System.out.println(ex.getMessage());
+} <strong>finally</strong> {
+// Code that always gets executed
+}</td>
+<td>Exception up = new Exception("Something is really wrong.");
+<strong>throw</strong>up;  // ha ha<strong>
+try</strong> {
+y = 0;
+x = 10 / y;
+} <strong>catch</strong> (Exception ex) {      // Variable "ex" is optional
+Console.WriteLine(ex.Message);
+} <strong>finally</strong> {
+// Code that always gets executed
+}</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table12" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Namespaces</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="163"><strong>package</strong>harding.compsci.graphics;&nbsp;
+
+<strong> </strong><strong>import</strong> harding.compsci.graphics.Rectangle;  // Import single class
+
+<strong>import</strong> harding.compsci.graphics.*;   // Import all classes</td>
+<td height="163"><strong>namespace</strong> Harding.Compsci.Graphics {
+...
+}or
+
+<strong>namespace</strong> Harding {
+<strong>namespace</strong> Compsci {
+<strong>namespace</strong> Graphics {
+...
+}
+}
+}
+
+// Import all class. Can't import single class.
+<strong>using</strong> Harding.Compsci.Graphics;</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table13" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Classes / Interfaces</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td>Accessibility keywords
+public
+private
+protected
+static// Inheritance
+<strong>class</strong> FootballGame <strong>extends</strong> Competition {
+...
+}
+
+// Interface definition
+<strong>interface</strong> IAlarmClock {
+...
+}
+
+// Extending an interface
+<strong>interface</strong> IAlarmClock <strong>extends</strong> IClock {
+...
+}
+
+// Interface implementation
+<strong>class</strong> WristWatch <strong>implements</strong> IAlarmClock, ITimer {
+...
+}</td>
+<td>Accessibility keywords
+public
+private
+internal
+protected
+protected internal
+static// Inheritance
+<strong>class</strong> FootballGame <strong>:</strong> Competition {
+...
+}
+
+// Interface definition
+<strong>interface</strong> IAlarmClock {
+...
+}
+
+// Extending an interface
+<strong>interface</strong> IAlarmClock : IClock {
+...
+}
+
+// Interface implementation
+<strong>class</strong> WristWatch <strong>:</strong> IAlarmClock, ITimer {
+...
+}</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table14" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Constructors / Destructors</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="176">class SuperHero {
+private int mPowerLevel;public SuperHero() {
+mPowerLevel = 0;
+}
+
+public SuperHero(int powerLevel) {
+this.mPowerLevel= powerLevel;
+}
+
+// No destructors, just override the finalize method
+protected void <strong>finalize</strong>() throws Throwable {
+super.finalize();   // Always call parent's finalizer
+}
+}</td>
+<td height="176">class SuperHero {
+private int mPowerLevel;public SuperHero() {
+mPowerLevel = 0;
+}
+
+public SuperHero(int powerLevel) {
+this.mPowerLevel= powerLevel;
+}
+
+<strong>~</strong>SuperHero() {
+// Destructor code to free unmanaged resources.
+// Implicitly creates a Finalize method.
+}
+}</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table15" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Objects</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="163">SuperHero hero = new SuperHero();hero.setName("SpamMan");
+hero.setPowerLevel(3);
+
+hero.Defend("Laura Jones");
+SuperHero.Rest();  // Calling static method
+
+SuperHero hero2 = hero;   // Both refer to same object
+hero2.setName("WormWoman");
+System.out.println(hero.getName());  // Prints WormWoman
+
+hero = <strong>null</strong>;   // Free the object
+
+if (hero == <strong>null</strong>)
+hero = new SuperHero();
+
+Object obj = new SuperHero();
+System.out.println("object's type: " + obj.<strong>getClass()</strong>.toString());
+if (obj <strong>instanceof</strong> SuperHero)
+System.out.println("Is a SuperHero object.");</td>
+<td height="163">SuperHero hero = new SuperHero();hero.Name = "SpamMan";
+hero.PowerLevel = 3;
+
+hero.Defend("Laura Jones");
+SuperHero.Rest();   // Calling static method
+
+SuperHero hero2 = hero;   // Both refer to same object
+hero2.Name = "WormWoman";
+Console.WriteLine(hero.Name);   // Prints WormWoman
+
+hero = <strong>null</strong> ;   // Free the object
+
+if (hero == <strong>null</strong>)
+hero = new SuperHero();
+
+Object obj = new SuperHero();
+Console.WriteLine("object's type: " + obj.<strong>GetType()</strong>.ToString());
+if (obj <strong>is</strong> SuperHero)
+Console.WriteLine("Is a SuperHero object.");</td>
+</tr>
+<tr>
+<td colspan="2">
+<table id="Table16" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Properties</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td width="50%" height="134">private int mSize;public int <strong>getSize</strong>() { return mSize; }
+public void <strong>setSize</strong>(int value) {
+if (value &lt; 0)
+mSize = 0;
+else
+mSize = value;
+}
+int s = shoe.getSize();
+shoe.setSize(s+1);</td>
+<td width="50%" height="134">private int mSize;public int Size {
+<strong>get</strong> { return mSize; }
+<strong>set</strong> {
+if (value &lt; 0)
+mSize = 0;
+else
+mSize = value;
+}
+}
+
+shoe.Size++;</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table17" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Structs</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td height="256">&nbsp;
+
+<em>No structs in Java.</em></td>
+<td height="256"><strong>struct</strong> StudentRecord {
+public string name;
+public float gpa;public StudentRecord(string name, float gpa) {
+this.name = name;
+this.gpa = gpa;
+}
+}
+
+StudentRecord stu = new StudentRecord("Bob", 3.5f);
+StudentRecord stu2 = stu;
+
+stu2.name = "Sue";
+Console.WriteLine(stu.name);    // Prints "Bob"
+Console.WriteLine(stu2.name);   // Prints "Sue"</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table18" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">Console I/O</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td width="50%" height="163">java.io.DataInput in = new java.io.DataInputStream(System.in);
+System.out.print("What is your name? ");
+String name = in.readLine();
+System.out.print("How old are you? ");
+int age = Integer.parseInt(in.readLine());
+System.out.println(name + " is " + age + " years old.");
+int c = System.in.read();   // Read single char
+System.out.println(c);      // Prints 65 if user enters "A"// The studio costs $499.00 for 3 months.
+System.out.printf("The %s costs $%.2f for %d months.%n", "studio", 499.0, 3);
+
+// Today is 06/25/04
+System.out.printf("Today is %tD\n", new java.util.Date());</td>
+<td width="50%" height="163">Console.Write("What's your name? ");
+string name = Console.ReadLine();
+Console.Write("How old are you? ");
+int age = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("{0} is {1} years old.", name, age);
+// or
+Console.WriteLine(name + " is " + age + " years old.");int c = Console.Read();  // Read single char
+Console.WriteLine(c);    // Prints 65 if user enters "A"// The studio costs $499.00 for 3 months.
+Console.WriteLine("The {0} costs {1:C} for {2} months.\n", "studio", 499.0, 3);
+
+// Today is 06/25/2004
+Console.WriteLine("Today is " + DateTime.Now.ToShortDateString());</td>
+</tr>
+<tr align="middle">
+<td colspan="2">
+<table id="Table19" width="100%" border="0">
+<tbody>
+<tr align="middle">
+<td width="20%">Java</td>
+<td width="60%">File I/O</td>
+<td width="20%">C#</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td width="50%" height="163">import java.io.*;// Character stream writing
+<strong>FileWriter</strong> writer = new FileWriter("c:\\myfile.txt");
+writer.write("Out to file.\n");
+writer.close();
+
+// Character stream reading
+<strong>FileReader</strong> reader = new FileReader("c:\\myfile.txt");
+<strong>BufferedReader</strong> br = new BufferedReader(reader);
+String line = br.readLine();
+while (line != null) {
+System.out.println(line);
+line = br.readLine();
+}
+reader.close();
+
+// Binary stream writing
+<strong>FileOutputStream</strong> out = new FileOutputStream("c:\\myfile.dat");
+out.write("Text data".getBytes());
+out.write(123);
+out.close();
+
+// Binary stream reading
+<strong>FileInputStream</strong> in = new FileInputStream("c:\\myfile.dat");
+byte buff[] = new byte[9];
+in.read(buff, 0, 9);   // Read first 9 bytes into buff
+String s = new String(buff);
+int num = in.read();   // Next is 123
+in.close();</td>
+<td width="50%" height="163">using System.IO;// Character stream writing
+<strong>StreamWriter</strong> writer = File.CreateText("c:\\myfile.txt");
+writer.WriteLine("Out to file.");
+writer.Close();
+
+// Character stream reading
+<strong>StreamReader</strong> reader = File.OpenText("c:\\myfile.txt");
+string line = reader.ReadLine();
+while (line != null) {
+Console.WriteLine(line);
+line = reader.ReadLine();
+}
+reader.Close();
+// Binary stream writing
+<strong>BinaryWriter</strong> out = new BinaryWriter(File.OpenWrite("c:\\myfile.dat"));
+out.Write("Text data");
+out.Write(123);
+out.Close();
+
+// Binary stream reading
+<strong>BinaryReader</strong> in = new BinaryReader(File.OpenRead("c:\\myfile.dat"));
+string s = in.ReadString();
+int num = in.ReadInt32();
+in.Close();</td>
+</tr>
+</tbody>
+</table>
+
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Linux/2010/04/02/5-open-source-license-agreement" title="5大开源许可协议详解">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation" title="C语言绘图-拉格朗日插值">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '421 http://dreambt.github.com/?p=421';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2010-07-27</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#intro-ref">intro <span>69</span></a></li>
+     
+    	<li><a href="/tags.html#beginner-ref">beginner <span>51</span></a></li>
+     
+    	<li><a href="/tags.html#Java-ref">Java <span>11</span></a></li>
+     
+    	<li><a href="/tags.html#C#-ref">C# <span>1</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/Java/2012/03/25/how-to-write-high-quality-java-source-code"><i class="icon-file"></i>如何书写高质量的Java源代码</a></li>
+           
+           <li><a href="/Java/2011/11/14/java-internationalization-resource-files"><i class="icon-file"></i>Java国际化资源文件相关的乱码问题</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Java/2011/08/23/java-container-traversal-method-and-efficiency-compared"><i class="icon-file"></i>Java 容器类及遍历效率对比</a></li>
+           
+           <li><a href="/Java/2008/09/14/how-to-become-a-good-java-developer"><i class="icon-file"></i>如何成为一个成功的Jsp程序员？</a></li>
+           
+           <li><a href="/J2EE/2012/08/13/log4j"><i class="icon-file"></i>日志处理Log4j</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/jersey-basic"><i class="icon-file"></i>Jersey基础知识分享</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/rest-web-service"><i class="icon-file"></i>构建REST风格的Web Service</a></li>
+           
+           <li><a href="/J2EE/2011/12/15/tomcat-http2"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（下）</a></li>
+           
+           <li><a href="/J2EE/2011/12/08/tomcat-http1"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（上）</a></li>
+           
+           <li><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server"><i class="icon-file"></i>Install VMWare Tools on Ubuntu Server</a></li>
+           
+           <li><a href="/Test/2011/10/30/junit-4-before-after-ignore-test-beforeclass-afterclass"><i class="icon-file"></i>JUnit 4 中的Before After Ignore Test BeforeClass AfterClass</a></li>
+           
+           <li><a href="/Linux/2011/10/16/ubuntu-terminal"><i class="icon-file"></i>Ubuntu常用的终端命令</a></li>
+           
+           <li><a href="/Ruby/2011/10/12/ruby-commonly-used-global-variables"><i class="icon-file"></i>Ruby中常用的全局变量</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Database/2011/08/22/oracle-lock-table-and-unluck"><i class="icon-file"></i>Oracle锁表与解表</a></li>
+           
+           <li><a href="/Ruby/2011/08/10/ruby"><i class="icon-file"></i>Ruby入门(一):Ruby简介</a></li>
+           
+           <li><a href="/UML/2011/03/27/uml-class-diagram-elements"><i class="icon-file"></i>全面认识UML-类图元素</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Database/2011/03/19/mysql-join"><i class="icon-file"></i>MySQL的连接/联结（Join）语法</a></li>
+           
+           <li><a href="/Security/2011/03/14/two-basic-algorithms-in-classical-encryption-technology"><i class="icon-file"></i>古典加密技术中最基本的两种算法</a></li>
+           
+           <li><a href="/Version Control/2011/03/12/svn-trunk-branches-and-tags"><i class="icon-file"></i>SVN trunk, branches and tags</a></li>
+           
+           <li><a href="/Linux/2011/03/02/linux-ubuntu-mount-point-presentations"><i class="icon-file"></i>Linux(Ubuntu)挂载点介绍及桌面服务器分区方案</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/Matlab/2010/10/21/matlab-curve-fitting-toolbox"><i class="icon-file"></i>Matlab曲线拟合工具箱Curve Fitting Toolbox</a></li>
+           
+           <li><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation"><i class="icon-file"></i>C语言绘图-拉格朗日插值</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/s-form-action"><i class="icon-file"></i>浅谈s:form标签中action属性为XX.action与XX的区别</a></li>
+           
+           <li><a href="/Linux/2009/05/16/linux-speed-up-yum"><i class="icon-file"></i>Speed Up YUM！让Linux的升级速度快如飞</a></li>
+           
+           <li><a href="/Linux/2009/05/02/linux-os-file-system"><i class="icon-file"></i>Linux操作系统文件系统基础知识详解</a></li>
+           
+           <li><a href="/Linux/2009/04/05/rpm"><i class="icon-file"></i>RPM命令详解</a></li>
+           
+           <li><a href="/Cloud/2012/08/02/esxi"><i class="icon-file"></i>ESXi相关问题解决</a></li>
+           
+           <li><a href="/PHP/2012/06/06/cannot-find-autoconf-please-check-your-autoconf-installation"><i class="icon-file"></i>运行phpize时出现：Cannot find autoconf. Please check your autoconf installation</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbitmq"><i class="icon-file"></i>RabbitMQ常见问题整理</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbits-and-warrens"><i class="icon-file"></i>[翻译] [RabbitMQ入门经典] 兔子和兔子窝</a></li>
+           
+           <li><a href="/Version Control/2011/09/29/how-to-rollback-of-svn"><i class="icon-file"></i>如何对SVN进行回滚操作</a></li>
+           
+           <li><a href="/Version Control/2011/03/28/apache-svn"><i class="icon-file"></i>如何让现有的Apache服务器支持SVN</a></li>
+           
+           <li><a href="/Other/2010/11/13/jonathan-danylko-20-programming-experience"><i class="icon-file"></i>Jonathan Danylko的20条编程经验</a></li>
+           
+           <li><a href="/PHP/2010/10/07/cannot-modify-header-information-headers-already-sent-by"><i class="icon-file"></i>Cannot modify header information - headers already sent by错误解决办法</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/ssh"><i class="icon-file"></i>【090711更新】SSH常见问题及解决办法</a></li>
+           
+           <li><a href="/Web Design/2009/03/25/xmlhttprequest"><i class="icon-file"></i>XMLHttpRequest对象</a></li>
+           
+           <li><a href="/Database/2008/11/21/char-varchar"><i class="icon-file"></i>char与varchar数据类型转化的奇怪问题</a></li>
+           
+           <li><a href="/Database/2008/11/14/error-reading-data-from-static-cursor-cache"><i class="icon-file"></i>莫名其妙的Error reading data from static cursor cache</a></li>
+           
+           <li><a href="/Database/2008/09/15/sql"><i class="icon-file"></i>通用SQL数据库查询语句精华使用简介</a></li>
+           
+           <li><a href="/Security/2012/08/04/oauth2"><i class="icon-file"></i>OAuth原理初探</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/07/gof-kit"><i class="icon-file"></i>GoF设计模式之Kit抽象工厂</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/05/gof-factory-method"><i class="icon-file"></i>GoF设计模式之工厂方法模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-decorator"><i class="icon-file"></i>GoF设计模式之Decorator装饰者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-simply-factory"><i class="icon-file"></i>GoF设计模式之简单工厂模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/29/gof-observer"><i class="icon-file"></i>GoF设计模式之Observer观察者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/27/gof-policy"><i class="icon-file"></i>GoF设计模式之Policy策略模式</a></li>
+           
+           <li><a href="/Algorithm/2011/10/19/kmp-algorithm"><i class="icon-file"></i>KMP算法详解</a></li>
+           
+           <li><a href="/Linux/2011/08/04/linux-curl"><i class="icon-file"></i>Linux下curl命令的使用</a></li>
+           
+           <li><a href="/Test/2011/07/15/ruby-watir-test"><i class="icon-file"></i>Ruby和Watir调用浏览器测试</a></li>
+           
+           <li><a href="/Cloud/2011/07/02/quality-of-service"><i class="icon-file"></i>Quality of Service服务质量</a></li>
+           
+           <li><a href="/Web Design/2011/05/11/server-returns-status-code"><i class="icon-file"></i>服务器返回状态码图解</a></li>
+           
+           <li><a href="/Linux/2011/05/05/overviewof-open-source-software-license"><i class="icon-file"></i>开源软件许可证总览</a></li>
+           
+           <li><a href="/J2EE/2011/05/02/all-levels-of-encoding-in-j2ee-system"><i class="icon-file"></i>J2EE系统各个层次的编码方式</a></li>
+           
+           <li><a href="/Algorithm/2011/04/21/data-mining-classical-algorithm-10-cart"><i class="icon-file"></i>数据挖掘十大经典算法(10) CART: 分类与回归树</a></li>
+           
+           <li><a href="/Algorithm/2011/04/20/data-mining-classical-algorithm-9-naive-bayes"><i class="icon-file"></i>数据挖掘十大经典算法(9) 朴素贝叶斯分类器 Naive Bayes</a></li>
+           
+           <li><a href="/Algorithm/2011/04/19/data-mining-classical-algorithm-8-knn-k-nearest-neighbor-classification"><i class="icon-file"></i>数据挖掘十大经典算法(8) kNN: k-nearest neighbor classification</a></li>
+           
+           <li><a href="/Algorithm/2011/04/18/data-mining-classical-algorithm-7-adaboost"><i class="icon-file"></i>数据挖掘十大经典算法(7) AdaBoost</a></li>
+           
+           <li><a href="/Algorithm/2011/04/17/data-mining-classical-algorithm-6-pagerank"><i class="icon-file"></i>数据挖掘十大经典算法(6) PageRank</a></li>
+           
+           <li><a href="/Algorithm/2011/04/16/data-mining-classical-algorithm-5"><i class="icon-file"></i>数据挖掘十大经典算法(5) 最大期望(EM)算法</a></li>
+           
+           <li><a href="/Algorithm/2011/04/15/data-mining-classical-algorithm-4-the-apriori-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(4) The Apriori algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/14/data-mining-classical-algorithm-3-support-vector-machines"><i class="icon-file"></i>数据挖掘十大经典算法(3) Support vector machines</a></li>
+           
+           <li><a href="/Algorithm/2011/04/13/data-mining-classical-algorithm-2-the-k-means-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(2) The k-means algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/12/data-mining-classical-algorithm-1-c4-5"><i class="icon-file"></i>数据挖掘十大经典算法(1) C4.5</a></li>
+           
+           <li><a href="/Linux/2011/04/11/unix-timestamp"><i class="icon-file"></i>关于Unix时间戳(Unix timestamp)</a></li>
+           
+           <li><a href="/Design Pattern/2011/03/30/gof-prototype"><i class="icon-file"></i>GoF设计模式之Prototype(原型模式)</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Linux/2010/04/02/5-open-source-license-agreement"><i class="icon-file"></i>5大开源许可协议详解</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/struts2-struts-config-xml"><i class="icon-file"></i>struts2的struts-config.xml文件</a></li>
+           
+           <li><a href="/J2EE/2009/06/01/spring-applicationcontext-xml"><i class="icon-file"></i>Spring的applicationContext.xml文件</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

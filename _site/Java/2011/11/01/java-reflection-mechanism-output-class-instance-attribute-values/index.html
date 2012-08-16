@@ -1,0 +1,838 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>利用Java反射机制输出类实例的属性值</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>利用Java反射机制输出类实例的属性值 <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p><strong>设计目的：</strong></p>
+
+<p>平时我们调试代码可以使用IDE内置的Debug工具，但有的时候我们可能没有办法利用这些专业的Debug工具进行调试（比如我们自己设计一套监控系统）。于是，我设计了一个可以打印类变量中属性值的Java类，主要利用了Java的反射机制，方便直接调用查看POJO传值是否正确等。更多用途期待大家发现，欢迎交流～</p>
+
+<p><strong>源代码参考：</strong></p>
+
+<p>打印类PrintClass：</p>
+
+<pre>package net.im47.utils;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * User: siqi
+ * Date: 11-10-31
+ * Time: 下午10:10
+ * 该类用于打印类中的所有属性及其类型、值。
+ */
+public class PrintClass {
+    public static DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+    public static void print(Object object) {
+        StringBuffer str = new StringBuffer();
+        str.append("Attribute of instance: " + object.toString() + "\n");
+        Field[] fields = object.getClass().getDeclaredFields();
+        for (Field field : fields) {
+            if (field.getName().equals("serialVersionUID") || field.getName().equals("$VALUES")) return;
+            String name = getAttrName(field);
+            String type = getAttrType(field);
+            String value = getAttrValue(object, field, name);
+
+            str.append("Name:" + name);
+            str.append("\t\tType:" + type);
+            str.append("\t\tValue:" + value);
+            str.append("\n");
+        }
+        System.out.println(str);
+    }
+
+    private static String getAttrName(Field field) {
+        return field.getName();
+    }
+
+    private static String getAttrType(Field field) {
+        return field.getGenericType().toString();
+    }
+
+    private static String getAttrValue(Object object, Field field, String attrName) {
+        try {
+            Method method = object.getClass().getMethod("get" + attrName.substring(0, 1).toUpperCase() + attrName.substring(1));
+            Class type = method.getReturnType();
+            Object value = method.invoke(object);
+            if ("java.util.Date".equals(type.toString())) {
+                //dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+                //dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+                dateFormat = DateFormat.getDateInstance(DateFormat.FULL);
+                return dateFormat.format(value);
+            } else {
+                print(value);
+                return value.toString();
+            }
+        } catch (NoSuchMethodException e) {
+            //System.out.println("Error: NoSuchMethod: get" + attrName.substring(0, 1).toUpperCase() + attrName.substring(1));
+        } catch (InvocationTargetException e) {
+            System.out.println("Error: NoInvocationTarget");
+        } catch (IllegalAccessException e) {
+            System.out.println("Error: IllegalAccess");
+        }
+        return "";
+    }
+
+    public static void main(String[] args) throws ParseException {
+        Date birthday = dateFormat.parse("1987-08-08");
+        User user = new User("baitao.jibt", "badsiu129hqw98ed", User.Gender.MALE, 24, birthday, new User.Address("china", "shandong", "jinan"));
+        PrintClass.print(user);
+    }
+}</pre>
+
+
+<p>待检查类User：</p>
+
+<pre>package net.im47.utils;
+
+import java.util.Date;
+
+/**
+ * User: siqi
+ * Date: 11-10-30
+ * Time: 下午7:22
+ */
+public class User {
+    private String username;
+    private String password;
+    private Gender gender;
+    private int age;
+    private Date birthday;
+    private Address address;
+
+    public enum Gender {MALE, FEMALE}
+
+    ;
+
+    public User() {
+
+    }
+
+    public User(String username, String password, int age) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
+    }
+
+    public User(String username, String password, Gender gender, int age) {
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.age = age;
+    }
+
+    public User(String username, String password, Gender gender, int age, Date birthday, Address address) {
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.age = age;
+        this.birthday = birthday;
+        this.address = address;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public static class Address {
+        private String country;
+        private String province;
+        private String city;
+
+        public Address() {
+        }
+
+        public Address(String country, String city, String province) {
+            this.country = country;
+            this.city = city;
+            this.province = province;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+
+        public void setCountry(String country) {
+            this.country = country;
+        }
+
+        public String getProvince() {
+            return province;
+        }
+
+        public void setProvince(String province) {
+            this.province = province;
+        }
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
+    }
+}</pre>
+
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Linux/2011/10/31/ubuntu-open-ssh-service" title="ubuntu开启SSH服务">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server" title="Install VMWare Tools on Ubuntu Server">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '1051 http://dreambt.github.com/?p=1051';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2011-11-01</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#intro-ref">intro <span>69</span></a></li>
+     
+    	<li><a href="/tags.html#beginner-ref">beginner <span>51</span></a></li>
+     
+    	<li><a href="/tags.html#Java-ref">Java <span>11</span></a></li>
+     
+    	<li><a href="/tags.html#how-to-ref">how-to <span>14</span></a></li>
+     
+    	<li><a href="/tags.html#reflection-ref">reflection <span>1</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/Java/2012/03/25/how-to-write-high-quality-java-source-code"><i class="icon-file"></i>如何书写高质量的Java源代码</a></li>
+           
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Java/2010/07/27/java-j2se-and-c-comparison"><i class="icon-file"></i>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</a></li>
+           
+           <li><a href="/Java/2011/11/14/java-internationalization-resource-files"><i class="icon-file"></i>Java国际化资源文件相关的乱码问题</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/Version Control/2011/09/29/how-to-rollback-of-svn"><i class="icon-file"></i>如何对SVN进行回滚操作</a></li>
+           
+           <li><a href="/Version Control/2011/03/28/apache-svn"><i class="icon-file"></i>如何让现有的Apache服务器支持SVN</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/ssh"><i class="icon-file"></i>【090711更新】SSH常见问题及解决办法</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Java/2011/08/23/java-container-traversal-method-and-efficiency-compared"><i class="icon-file"></i>Java 容器类及遍历效率对比</a></li>
+           
+           <li><a href="/Java/2008/09/14/how-to-become-a-good-java-developer"><i class="icon-file"></i>如何成为一个成功的Jsp程序员？</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Windows/2011/05/18/win7-boot-process-and-restoration"><i class="icon-file"></i>Win7启动过程及启动项修复</a></li>
+           
+           <li><a href="/Linux/2011/05/12/open-local-dns-cache-to-speed-up-web-browsing"><i class="icon-file"></i>开启本地DNS缓存来加速网页浏览</a></li>
+           
+           <li><a href="/Linux/2011/04/29/ubuntu-grub2-restoration"><i class="icon-file"></i>Ubuntu下Grub2修复详细步骤</a></li>
+           
+           <li><a href="/Linux/2011/01/16/grub-secure-ubuntu-restroe"><i class="icon-file"></i>开机显示grub secure的ubuntu启动项修复</a></li>
+           
+           <li><a href="/Life/2009/03/21/clever-question"><i class="icon-file"></i>提问的智慧</a></li>
+           
+           <li><a href="/J2EE/2012/08/13/log4j"><i class="icon-file"></i>日志处理Log4j</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/jersey-basic"><i class="icon-file"></i>Jersey基础知识分享</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/rest-web-service"><i class="icon-file"></i>构建REST风格的Web Service</a></li>
+           
+           <li><a href="/J2EE/2011/12/15/tomcat-http2"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（下）</a></li>
+           
+           <li><a href="/J2EE/2011/12/08/tomcat-http1"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（上）</a></li>
+           
+           <li><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server"><i class="icon-file"></i>Install VMWare Tools on Ubuntu Server</a></li>
+           
+           <li><a href="/Test/2011/10/30/junit-4-before-after-ignore-test-beforeclass-afterclass"><i class="icon-file"></i>JUnit 4 中的Before After Ignore Test BeforeClass AfterClass</a></li>
+           
+           <li><a href="/Linux/2011/10/16/ubuntu-terminal"><i class="icon-file"></i>Ubuntu常用的终端命令</a></li>
+           
+           <li><a href="/Ruby/2011/10/12/ruby-commonly-used-global-variables"><i class="icon-file"></i>Ruby中常用的全局变量</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Database/2011/08/22/oracle-lock-table-and-unluck"><i class="icon-file"></i>Oracle锁表与解表</a></li>
+           
+           <li><a href="/Ruby/2011/08/10/ruby"><i class="icon-file"></i>Ruby入门(一):Ruby简介</a></li>
+           
+           <li><a href="/UML/2011/03/27/uml-class-diagram-elements"><i class="icon-file"></i>全面认识UML-类图元素</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Database/2011/03/19/mysql-join"><i class="icon-file"></i>MySQL的连接/联结（Join）语法</a></li>
+           
+           <li><a href="/Security/2011/03/14/two-basic-algorithms-in-classical-encryption-technology"><i class="icon-file"></i>古典加密技术中最基本的两种算法</a></li>
+           
+           <li><a href="/Version Control/2011/03/12/svn-trunk-branches-and-tags"><i class="icon-file"></i>SVN trunk, branches and tags</a></li>
+           
+           <li><a href="/Linux/2011/03/02/linux-ubuntu-mount-point-presentations"><i class="icon-file"></i>Linux(Ubuntu)挂载点介绍及桌面服务器分区方案</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Matlab/2010/10/21/matlab-curve-fitting-toolbox"><i class="icon-file"></i>Matlab曲线拟合工具箱Curve Fitting Toolbox</a></li>
+           
+           <li><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation"><i class="icon-file"></i>C语言绘图-拉格朗日插值</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/s-form-action"><i class="icon-file"></i>浅谈s:form标签中action属性为XX.action与XX的区别</a></li>
+           
+           <li><a href="/Linux/2009/05/16/linux-speed-up-yum"><i class="icon-file"></i>Speed Up YUM！让Linux的升级速度快如飞</a></li>
+           
+           <li><a href="/Linux/2009/05/02/linux-os-file-system"><i class="icon-file"></i>Linux操作系统文件系统基础知识详解</a></li>
+           
+           <li><a href="/Linux/2009/04/05/rpm"><i class="icon-file"></i>RPM命令详解</a></li>
+           
+           <li><a href="/Cloud/2012/08/02/esxi"><i class="icon-file"></i>ESXi相关问题解决</a></li>
+           
+           <li><a href="/PHP/2012/06/06/cannot-find-autoconf-please-check-your-autoconf-installation"><i class="icon-file"></i>运行phpize时出现：Cannot find autoconf. Please check your autoconf installation</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbitmq"><i class="icon-file"></i>RabbitMQ常见问题整理</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbits-and-warrens"><i class="icon-file"></i>[翻译] [RabbitMQ入门经典] 兔子和兔子窝</a></li>
+           
+           <li><a href="/Other/2010/11/13/jonathan-danylko-20-programming-experience"><i class="icon-file"></i>Jonathan Danylko的20条编程经验</a></li>
+           
+           <li><a href="/PHP/2010/10/07/cannot-modify-header-information-headers-already-sent-by"><i class="icon-file"></i>Cannot modify header information - headers already sent by错误解决办法</a></li>
+           
+           <li><a href="/Web Design/2009/03/25/xmlhttprequest"><i class="icon-file"></i>XMLHttpRequest对象</a></li>
+           
+           <li><a href="/Database/2008/11/21/char-varchar"><i class="icon-file"></i>char与varchar数据类型转化的奇怪问题</a></li>
+           
+           <li><a href="/Database/2008/11/14/error-reading-data-from-static-cursor-cache"><i class="icon-file"></i>莫名其妙的Error reading data from static cursor cache</a></li>
+           
+           <li><a href="/Database/2008/09/15/sql"><i class="icon-file"></i>通用SQL数据库查询语句精华使用简介</a></li>
+           
+           <li><a href="/Security/2012/08/04/oauth2"><i class="icon-file"></i>OAuth原理初探</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/07/gof-kit"><i class="icon-file"></i>GoF设计模式之Kit抽象工厂</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/05/gof-factory-method"><i class="icon-file"></i>GoF设计模式之工厂方法模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-decorator"><i class="icon-file"></i>GoF设计模式之Decorator装饰者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-simply-factory"><i class="icon-file"></i>GoF设计模式之简单工厂模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/29/gof-observer"><i class="icon-file"></i>GoF设计模式之Observer观察者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/27/gof-policy"><i class="icon-file"></i>GoF设计模式之Policy策略模式</a></li>
+           
+           <li><a href="/Algorithm/2011/10/19/kmp-algorithm"><i class="icon-file"></i>KMP算法详解</a></li>
+           
+           <li><a href="/Linux/2011/08/04/linux-curl"><i class="icon-file"></i>Linux下curl命令的使用</a></li>
+           
+           <li><a href="/Test/2011/07/15/ruby-watir-test"><i class="icon-file"></i>Ruby和Watir调用浏览器测试</a></li>
+           
+           <li><a href="/Cloud/2011/07/02/quality-of-service"><i class="icon-file"></i>Quality of Service服务质量</a></li>
+           
+           <li><a href="/Web Design/2011/05/11/server-returns-status-code"><i class="icon-file"></i>服务器返回状态码图解</a></li>
+           
+           <li><a href="/Linux/2011/05/05/overviewof-open-source-software-license"><i class="icon-file"></i>开源软件许可证总览</a></li>
+           
+           <li><a href="/J2EE/2011/05/02/all-levels-of-encoding-in-j2ee-system"><i class="icon-file"></i>J2EE系统各个层次的编码方式</a></li>
+           
+           <li><a href="/Algorithm/2011/04/21/data-mining-classical-algorithm-10-cart"><i class="icon-file"></i>数据挖掘十大经典算法(10) CART: 分类与回归树</a></li>
+           
+           <li><a href="/Algorithm/2011/04/20/data-mining-classical-algorithm-9-naive-bayes"><i class="icon-file"></i>数据挖掘十大经典算法(9) 朴素贝叶斯分类器 Naive Bayes</a></li>
+           
+           <li><a href="/Algorithm/2011/04/19/data-mining-classical-algorithm-8-knn-k-nearest-neighbor-classification"><i class="icon-file"></i>数据挖掘十大经典算法(8) kNN: k-nearest neighbor classification</a></li>
+           
+           <li><a href="/Algorithm/2011/04/18/data-mining-classical-algorithm-7-adaboost"><i class="icon-file"></i>数据挖掘十大经典算法(7) AdaBoost</a></li>
+           
+           <li><a href="/Algorithm/2011/04/17/data-mining-classical-algorithm-6-pagerank"><i class="icon-file"></i>数据挖掘十大经典算法(6) PageRank</a></li>
+           
+           <li><a href="/Algorithm/2011/04/16/data-mining-classical-algorithm-5"><i class="icon-file"></i>数据挖掘十大经典算法(5) 最大期望(EM)算法</a></li>
+           
+           <li><a href="/Algorithm/2011/04/15/data-mining-classical-algorithm-4-the-apriori-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(4) The Apriori algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/14/data-mining-classical-algorithm-3-support-vector-machines"><i class="icon-file"></i>数据挖掘十大经典算法(3) Support vector machines</a></li>
+           
+           <li><a href="/Algorithm/2011/04/13/data-mining-classical-algorithm-2-the-k-means-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(2) The k-means algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/12/data-mining-classical-algorithm-1-c4-5"><i class="icon-file"></i>数据挖掘十大经典算法(1) C4.5</a></li>
+           
+           <li><a href="/Linux/2011/04/11/unix-timestamp"><i class="icon-file"></i>关于Unix时间戳(Unix timestamp)</a></li>
+           
+           <li><a href="/Design Pattern/2011/03/30/gof-prototype"><i class="icon-file"></i>GoF设计模式之Prototype(原型模式)</a></li>
+           
+           <li><a href="/Linux/2010/04/02/5-open-source-license-agreement"><i class="icon-file"></i>5大开源许可协议详解</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/struts2-struts-config-xml"><i class="icon-file"></i>struts2的struts-config.xml文件</a></li>
+           
+           <li><a href="/J2EE/2009/06/01/spring-applicationcontext-xml"><i class="icon-file"></i>Spring的applicationContext.xml文件</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

@@ -1,0 +1,605 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Win7启动过程及启动项修复</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>Win7启动过程及启动项修复 <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p>先让我们看一下win7的启动过程的常识：</p>
+
+<p>电脑加电后，首先是启动BIOS程序，BIOS自检完毕后，找到硬盘上的主引导记录MBR，MBR读取DPT（分区表），从中找出活动的主分区，然后读取活动主分区的PBR（分区引导记录，也叫dbr），PBR再搜寻分区内的启动管理器文件 BOOTMGR，在BOOTMGR被找到后，控制权就交给了BOOTMGR。BOOTMGR读取\boot\bcd文件（BCD=Boot Configuration Data）,也就是“启动配置数据”，简单地说，win7下的bcd文件就相当于xp下的boot.ini文件），如果存在着多个操作系统并且选择操作系统的等待时间不为0的话，这时就会在显示器上显示操作系统的选择界面。在我们选择启动WINDOWS7后，BOOTMGR就会去启动盘寻找WINDOWS\system32\winload.exe，然后通过winload.exe加载win7内核，从而启动整个win7系统。</p>
+
+<p>可以把这个过程简单地概括为：</p>
+
+<p><strong>BIOS--&gt;MBR--&gt;DPT--&gt;pbr--&gt;Bootmgr--&gt;bcd--&gt;Winload.exe--&gt;内核加载 --&gt;整个win7系统</strong></p>
+
+<p>本文就来说一说MBR--&gt;DPT--&gt;pbr--&gt; Bootmgr--&gt;bcd这一段可能出现的故障的解决。</p>
+
+<p><strong>1.MBR出现问题</strong></p>
+
+<p>主要是mbr代码被改写，因为被改写的代码不同，所以出错信息也各不相同。比如我们装了win7与ubuntu双系 统，ubuntu改写了mbr，在我们把ubuntu所在的分区格式化后，既进不了win7，也进不了ubuntu，开机的时候会出现如图的错误 提示：</p>
+
+<blockquote>GRUB Loading stage1.5.
+
+GRUB loading, please wait...
+
+Error 22</blockquote>
+
+
+<p>解决的办法就是重写mbr。对于重写mbr，我们所熟知的是在dos下用fdisk /mbr命令进行重写。fdisk /mbr所重写的mbr与xp是兼容的，但是，与win7已经不那么兼容了。实践表明：用fdisk /mbr命令重写win7的mbr后，需要重建bcd，否则不能正常启动win7。有网友指出，这里面的原因是fdisk /mbr命令改写了mbr中的硬盘签名。一般的分区工具都是可以重写mbr的，比如diskgenius，它所重写的mbr与win7是兼容的。 也可以用bootrec /fixmbr命令重写。要运行 Bootrec.exe 工具，必须启动 Windows RE。为此，请按照下列步骤操作：</p>
+
+<blockquote>插入windows 7安装光盘，从光盘启动电脑，在光盘启动完成后，按下shift+f10键，调出cmd命令提示符。在cmd命令提示符中输入：bootrec /fixmbr回车。</blockquote>
+
+
+<p>这样也就重写了mbr。</p>
+
+<p><strong>2.分区表存在问题</strong></p>
+
+<p>系统盘不是活动的主分区，这种情形只要用分区工具（比如diskgenius)把系统盘设为活动的主分区即可。
+pbr出现问题，主要是pbr代码被改写，因为被改写的代码不同，所以出错信息也不相同。比如Win7系统的活动分区，却被写入了适合于XP的 pbr，这样开机的时候就会出现如图的提示：</p>
+
+<blockquote>NTLDR is missing
+
+Press Ctrl+Alt+Del to restart</blockquote>
+
+
+<p>简单的解决办法就是用bootrec /fixboot命令重写pbr:</p>
+
+<blockquote>插入win7安装光盘，从光盘启动，在光盘启动完成后，按下shift+f10键，调出cmd命令提示符。在命令提示符中输入：bootrec /fixboot回车。</blockquote>
+
+
+<p>这样也就重建了活动分区的pbr。
+这里面还有一个常用的命令也要提一下，这就是bootsect：</p>
+
+<blockquote>插入win7安装光盘，从光盘启动，在光盘启动完成后，按下shift+f10键，调出cmd命令提示符。在cmd命令提示符中输 入：bootsect /nt60 sys /mbr回车。</blockquote>
+
+
+<p>这个命令会改写活动分区的pbr，并同时会改写mbr，使得mbr和pbr适合于win7和vista。
+bootsect.exe程序位于win7安装光盘的boot目录下，可以把这个文件提取出来，在xp下的命令行可以运行这个程序，也可以在 winpe下的命令行运行这个程序，因而这个程序在使用时很方便。而bootrec.exe命令的使用就没这么方便了。所以BOOTSECT命令被应用得更为广泛一些。
+另外有一个要点需要指出，vista的安装光盘里面的boot文件夹也存在着这个小工具，但vista的bootsect命令没有/mbr参数，因而它只能改写pbr，而不能改写mbr，这是必须要注意的。实践表明：把一个硬盘的mbr清零，然后运行win7的bootsect命令，确实可以发现mbr被恢复正常。这也就表明了win7的bootsect命令的确能够重写mbr。
+另外，bootsect命令也可以重写xp的mbr和pbr，而这也是bootrec命令所做不到的。xp的恢复控制台用fixmbr命令改写mbr,用 fixboot命令改写pbr。</p>
+
+<p><strong>3.引导文件的问题</strong></p>
+
+<p>一般可以用bcdboot命令重新写入引导文件：</p>
+
+<blockquote>插入win7安装光盘，从光盘启动，在光盘启动完成后，按下shift+f10键，调出cmd命令提示符。在命令提示符中输入：
+bcdboot x:\windows /s x:</blockquote>
+
+
+<p>注意，这前一个x:是win7的windows文件夹所在的盘，一般是c:，如果你的不是c盘，请改为对应的盘符。这后一个x:是活动主分区的盘符所在，一般也是c盘。所以这个命令一般的写法是：bcdboot c:\windows /s c:
+但需要注意，在windows re环境下所看到的盘符与你在win7下所看到的盘符未必一样。所以需要首先用dir /a命令确认各盘是否正确。
+比如：</p>
+
+<blockquote>cd /d c:
+dir /a</blockquote>
+
+
+<p>这两个命令的作用是，首先进入c:盘的根目录，然后显示c盘根目录下的所有文件和文件夹，根据所显示的文件或者文件夹，可以判断这个盘具体是你在 win7下所看到的哪一个盘。
+win7的引导文件主要是bootmgr和boot文件夹里面的文件，而boot文件夹里面的文件主要是bcd文件。bcdboot命令会在指定 的分区内重新写入全部win7的引导文件。
+如果只是bcd文件有问题，则可以用bootrec命令重建bcd:</p>
+
+<blockquote>插入win7安装光盘，从光盘启动，在光盘启动完成后，按下shift+f10键，调出cmd命令提示符。在命令提示符中输入：
+bootrec /RebuildBcd</blockquote>
+
+
+<p>这个命令如果搜到没有写入bcd的win7或者vista的操作系统，会提示你是否写入，按提示输入Y也就会写入了的。
+或者用bcdedit命令手动改写bcd，但操作要复杂得多。</p>
+
+<p><strong>具体案例分析</strong></p>
+
+<p>案例一：开机的时候出现：</p>
+
+<blockquote>BOOTMGR is missing
+press ctrl+alt+del to restart.</blockquote>
+
+
+<p>翻译成汉语就是：bootmgr缺失，按Ctrl + Alt + Del重新启动
+这是很常见的故障。既然是bootmgr缺失，我们一般只要用bcdboot命令重建引导文件即可。
+这种情形产生的原因，一般可能有：bootmgr文件确实没有了，这是最为常见的。一种则是由磁盘错误导致的，这种情形下，在winpe下运行一下 chkdsk /f命令也可能解决。有朋友使用 Diskeeper 对MFT碎片进行整理，开机的时候也出现了这个提示。估计可能是用DISKEEPER进行的MFT磁盘整理后，这或者是diskeeper的一个bug， 因而不建议用diskeeper进行mft碎片整理。
+一位网友因为好奇。把C盘设成了活动的（active partition ）。是这样设置活动的：对计算机点右键-管理-硬盘管理。右键点C盘，设置为活动的。靠。怎么回事啊。
+重启后居然无法启动！显示bootmgr is missing，Ctrl+Alt+Delete to restart。然后还是如此。
+这是从网上找到的一个案例，分析可以得出结论。他所装的windows7应该存在着一个隐藏的“系统保留”分区，这个隐藏的系统保留分区才是真正的活动主 分区，而他的c盘则应该不是活动的。他把c盘设为活动，这也就意味着取消了“系统保留”分区的活动状态。但引导文件是在“系统保留”分区，而不是在c 盘，c盘变成了活动的主分区，mbr就会启动c盘的pbr，而c盘的pbr又会去c盘找bootmgr,但c盘没有bootmgr，所以出错也就是必然的 了。解决的办法其实只要简单地再把系统保留分区设为活动即可。
+这位朋友制造了问题，但好象并没能最后解决问题。真所谓会者不难，难者不会。</p>
+
+<p>&nbsp;</p>
+
+<p>案例二：开机的时候出现：</p>
+
+<blockquote>BOOTMGR is compressed
+Press Ctrl+Alt+Del to restart</blockquote>
+
+
+<p>翻译成汉语就是：
+bootmgr被压缩，按Ctrl + Alt + Del重新启动
+这种情形产生的原因是因为对系统盘进行了压缩。奇怪的是，对于这种情形，我们用bcdboot命令重建引导文件却并不能解决。
+但是，我们可以运行命令：compact /u /a /f /i /s c:*
+这样可以使得问题得到解决。compact程序位于windows\system32文件夹下，所以我们要先用CD命令进入windows\system32目录。这里是假设c:盘是bootmgr所在的盘，如果不是，要改为对应的盘符。
+网上有朋友用这个命令的时候并没有解决问题，原因则在于，这位朋友所运行的命令是：compact /u /a /f /i /s c:\
+没有后面这个＊，所以命令并没有实现运行者的目的。从命令本身所提供的帮助说明来看，这个＊似乎是没有必要的，但实际操作表明，这个＊是必须的。
+这个命令会把已经压缩的C盘文件完全解压，真所谓解铃还須系铃人。
+注意，只运行命令：compact /u /a /f /i c:\bootmgr
+并不能解决问题。
+有网友发现，运行“Bootrec.exe /fixmbr、Bootrec /fixboot"然后重启，这样可以解决问题。测试表明，其实只需要运行Bootrec /fixboot这一个命令即可。这是另类的解决的办法。猜想可能是，对驱动压缩后，PBR中的BPB表并没有随之修改，所以BPB表中所记录的分区信息 与实际的分区信息不一致。运行Bootrec /fixboot命令后重写了bpb，这样就使得二者变为了一致。</p>
+
+<p>实践表明：用bootsect命令也能实现对这个问题的解决。
+有网友发贴，说是装了xp与vista双系统，启动vista系统出现了BOOTMGR is compressed ，于是他在xp下取消了系统盘的压缩状态。但这位网友的话未必可信，因为如果ntldr也被压缩了的话，则xp启动的时候会出现：</p>
+
+<blockquote>ntldr is compressed
+Press Ctrl+Alt+Del to restart</blockquote>
+
+
+<p>除非这位朋友只压缩了bootmgr，而没有压缩ntldr,但这一般不太可能。这种压缩一般是对整个盘进行压缩的时候产生的，如果压缩指定文件的话，一 般不会有人去压缩bootmgr和ntldr的。实践表明，在win7下，即便指定对整个的系统盘进行压缩，一般也不能压缩bootmgr的，会 提示拒绝访问，但是，在开机的时候仍会出现出错提示：</p>
+
+<blockquote>bootmgr is compressed</blockquote>
+
+
+<p>案例三：
+先装的win7，后装的linux,在linux系统出问题后，既进不了linux,也进不了win7，这里面的原因是mbr和活动分区 的pbr被改写。只要重建mbr和活动分区的pbr，也就可以进入win7了。最简单的办法是用bootsect命令解决：</p>
+
+<blockquote>bootsect /nt60 sys /mbr</blockquote>
+
+
+<p>案例四：
+先装的win7，后装的xp,没有了win7的启动项：
+这个需要三步解决问题：
+一、用bcdboot命令重建win7的引导文件。
+二、用bootsect命令恢复win7的mbr和pbr
+三、进入win7后，用bcdedit命令添加xp的启动项。</p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Linux/2011/05/12/open-local-dns-cache-to-speed-up-web-browsing" title="开启本地DNS缓存来加速网页浏览">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Other/2011/06/04/learn-management-from-10-classic-tale" title="从十大经典故事中学管理">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '952 http://dreambt.github.com/?p=952';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2011-05-18</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#Windows-ref">Windows <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#Win7-ref">Win7 <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#how-to-ref">how-to <span>14</span></a></li>
+     
+    	<li><a href="/tags.html#boot-ref">boot <span>1</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Windows/2012/02/23/virtualbox-win7"><i class="icon-file"></i>VirtualBox中使用物理硬盘上的Win7</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Java/2012/03/25/how-to-write-high-quality-java-source-code"><i class="icon-file"></i>如何书写高质量的Java源代码</a></li>
+           
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Version Control/2011/09/29/how-to-rollback-of-svn"><i class="icon-file"></i>如何对SVN进行回滚操作</a></li>
+           
+           <li><a href="/Linux/2011/05/12/open-local-dns-cache-to-speed-up-web-browsing"><i class="icon-file"></i>开启本地DNS缓存来加速网页浏览</a></li>
+           
+           <li><a href="/Linux/2011/04/29/ubuntu-grub2-restoration"><i class="icon-file"></i>Ubuntu下Grub2修复详细步骤</a></li>
+           
+           <li><a href="/Version Control/2011/03/28/apache-svn"><i class="icon-file"></i>如何让现有的Apache服务器支持SVN</a></li>
+           
+           <li><a href="/Linux/2011/01/16/grub-secure-ubuntu-restroe"><i class="icon-file"></i>开机显示grub secure的ubuntu启动项修复</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/ssh"><i class="icon-file"></i>【090711更新】SSH常见问题及解决办法</a></li>
+           
+           <li><a href="/Life/2009/03/21/clever-question"><i class="icon-file"></i>提问的智慧</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

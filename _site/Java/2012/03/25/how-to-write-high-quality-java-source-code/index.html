@@ -1,0 +1,757 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>如何书写高质量的Java源代码</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>如何书写高质量的Java源代码 <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p><span style="color: #ff0000;"><strong>错误码：WMI_WRONG_MAP_ITERATOR</strong></span></p>
+
+<p>实例：</p>
+
+<pre>for(String key : blackItemsMap.keySet()) {
+List&lt;BlockListDO&gt; item = blackItemsMap.get(key);
+if (null == item || item.isEmpty())
+continue;
+else ....
+}</pre>
+
+
+<p>解读：遍历Map时使用了效率低下的方法，比如：先一个一个的把key遍历，然后在根据key去查找value，为什么不遍历entry（桶）然后直接从entry得到value呢？它们的执行效率大概为1.5:1（有人实际测试过）。 我们看看HashMap.get方法的源代码：</p>
+
+<pre>public V get(Object key) {
+if (key == null)
+return getForNullKey();
+int hash = hash(key.hashCode());
+for (Entry&lt;K,V&gt; e = table[indexFor(hash, table.length)];
+e != null;
+e = e.next) {
+Object k;
+if (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k)))
+return e.value;
+}
+return null;
+}</pre>
+
+
+<p>从这里可以看出查找value的原理，先计算出hashcode，然后散列表里取出entry，不管是计算hashcode，还是执行循环for以及执行equals方法，都是CPU密集运算，非常耗费CPU资源，如果对一个比较大的map进行遍历，会出现CPU迅速飚高的现象，直接影响机器的响应速度，在并发的情况下，简直就是一场灾难。</p>
+
+<p><strong><span style="color: #00ff00;">最佳实践</span></strong></p>
+
+<pre>for (Map.Entry&lt;String, JMenu&gt; entry : menuList.entrySet()) {
+mb.add(entry.getValue());
+}</pre>
+
+
+<p><span style="color: #ff0000;"><strong>错误码：EI_EXPOSE_REP2</strong></span></p>
+
+<p>实例：</p>
+
+<pre>public Date getCreatedTime() {
+return this.createdTime;
+}</pre>
+
+
+<p>解读：此代码存储到一个到对象的内部表示外部可变对象的引用。如果实例是由不受信任的代码，并以可变对象会危及安全或其他重要的属性选中更改访问，你需要做不同的东西。存储一个对象的副本，在许多情况下是更好的办法。</p>
+
+<p><strong><span style="color: #00ff00;">最佳实践</span></strong></p>
+
+<pre>public Date getGmtCreate() {
+if(this.gmtCreate != null)
+return new Date(this.gmtCreate.getTime()); //正确值
+else
+return null;
+}</pre>
+
+
+<p><span style="color: #ff0000;"><strong>错误码：DM_FP_NUMBER_CTOR</strong>、<strong>DM_NUMBER_CTOR</strong></span></p>
+
+<p>实例：UnitTestUtil.setObjectValue(new Double(123.456));</p>
+
+<p>解读：采用new Ddouble(double)会产生一个新的对象，采用Ddouble.valueOf(double)在编译的时候可能通过缓存经常请求的值来显著提高空间和时间性能。</p>
+
+<p><strong><span style="color: #00ff00;">最佳实践</span></strong></p>
+
+<p>1.采用Ddouble.valueOf方法，</p>
+
+<p>2.推荐使用Integer.ValueOf(int)代替new Integer(int)，因为这样可以提高性能。如果当你的int值介于-128～127时，Integer.ValueOf(int)的效率比Integer(int)快大约3.5倍。看一下Integer.ValueOf(int)的源代码：</p>
+
+<pre>public static Integer valueOf(int i) {
+final int offset = 128;
+if (i &gt;= -128 &amp;&amp; i &lt;= 127) { // must cache
+return IntegerCache.cache[i + offset];
+}
+return new Integer(i);
+}</pre>
+
+
+<pre>private static class IntegerCache {
+private IntegerCache(){}
+
+static final Integer cache[] = new Integer[-(-128) + 127 + 1];
+static {
+for(int i = 0; i &lt; cache.length; i++)
+cache = new Integer(i - 128);
+}
+}</pre>
+
+
+<p>运行如下代码，思考上面的话：</p>
+
+<pre>public static void main(String []args) {
+Integer a = 100;
+Integer b = 100;
+System.out.println(a==b);
+
+Integer c = new Integer(100);
+Integer d = new Integer(100);
+System.out.println(c==d);
+}
+
+public static void main(String args[]) throws Exception{
+Integer a = 100;
+Integer b = a;
+a = a + 1;　　//或者a++;
+System.out.println(a==b);
+}</pre>
+
+
+<p><span style="color: #ff0000;"><strong>错误码：DM_BOOLEAN_CTOR</strong></span></p>
+
+<p>实例：int number = Math.abs(sellerId.hasCode());</p>
+
+<p>解读：此代码产生的哈希码，然后计算该哈希码的绝对值。如果哈希码是Integer.MIN_VALUE的，那么结果将是负面的，以及（因为Math.abs（Integer.MIN_VALUE的）==Integer.MIN_VALUE的）。</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<p>在使用之前判断一下是否是为Integer.MIN_VALUE</p>
+
+<pre>int iTemp = sellerId.hashCode();
+if(iTemp != Integer.MIN_VALUE) {
+number = Math.abs(iTemp) % 12;
+} else {
+number = Integer.MIN_VALUE % 12;
+}</pre>
+
+
+<p><span style="color: #ff0000;"><strong>错误码：SE_NO_SERIALVERSIONID</strong></span></p>
+
+<p>解读：实现了Serializable接口，却没有实现定义serialVersionUID字段，序列化的时候，我们的对象都保存为硬盘上的一个文件，当通过网络传输或者其他类加载方式还原为一个对象时，serialVersionUID字段会保证这个对象的兼容性，考虑两种情况：
+1. 新软件读取老文件，如果新软件有新的数据定义，那么它们必然会丢失。
+2. 老软件读取新文件，只要数据是向下兼容的，就没有任何问题。
+序列化会把所有与你要序列化对象相关的引用（包括父类，特别是内部类持有对外部类的引用，这里的例子就符合这种情况）都输出到一个文件中，这也是为什么能够使用序列化能进行深拷贝。这种序列化算法给我们的忠告是，不要把一些你无法确定其基本数据类型的对象引用作为你序列化的字段（比如JFrame），否则序列化后的文件超大，而且会出现意想不到的异常。</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<p>定义serialVersionUID字段</p>
+
+<p><span style="color: #ff0000;"><strong>错误码：DM_GC</strong></span></p>
+
+<p>解读：
+1. System.gc()只是建议，不是命令，JVM不能保证立刻执行垃圾回收。
+2. System.gc()被显示调用时，很大可能会触发Full GC。</p>
+
+<p>GC有两种类型：Scavenge GC和Full GC</p>
+
+<p>Scavenge GC一般是针对年轻代区（Eden区）进行GC，不会影响老年代和永生代（PerGen），由于大部分对象都是从Eden区开始的，所以Scavenge GC会频繁进行，GC算法速度也更快，效率更高</p>
+
+<p>但是Full GC不同，Full GC是对整个堆进行整理，包括Young、Tenured和Perm，所以比Scavenge GC要慢，因此应该尽可能减少Full GC的次数。</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<p>去掉System.gc()</p>
+
+<p><span style="color: #ff0000;"><strong>错误码：DP_DO_INSIDE_DO_PRIVILEGED</strong></span></p>
+
+<p>解读：此代码调用一个方法，需要一个安全权限检查。如果此代码将被授予安全权限，但可能是由代码不具有安全权限调用，则需要调用发生在一个doPrivileged的块。</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<p>一般情况下，我们并不能对类的私有字段进行操作，利用反射也不例外，但有的时候，例如要序列化的时候，我们又必须有能力去处理这些字段，这时候，我们就需要调用AccessibleObject上的setAccessible()方法来允许这种访问，而由于反射类中的Field，Method和Constructor继承自AccessibleObject，因此，通过在这些类上调用setAccessible()方法，我们可以实现对这些字段的操作。但有的时候这将会成为一个安全隐患，为此，我们可以启用java.security.manager来判断程序是否具有调用setAccessible()的权限。默认情况下，内核API和扩展目录的代码具有该权限，而类路径或通过URLClassLoader加载的应用程序不拥有此权限。例如：当我们以这种方式来执行上述程序时将会抛出异常</p>
+
+<p>增加：} catch (SecurityException e) {</p>
+
+<p><span style="color: #ff0000;"><strong>错误码：NP_NULL_ON_SOME_PATH</strong></span></p>
+
+<p>解读：方法中存在空指针</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<p>在对实例做操作前，先对字段做为空的判断</p>
+
+<p><span style="color: #ff0000;"><strong>错误码：RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE</strong></span></p>
+
+<p>实例：</p>
+
+<pre>if (bean2 == null) {
+return bean1 == null;
+}</pre>
+
+
+<p>解读：这种方法包含了一个称为非空对空值的不断重复检查。</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<pre>if (bean2 == null) {
+return false;
+}</pre>
+
+
+<p><span style="color: #ff0000;"><strong>错误码：SS_SHOULD_BE_STATIC</strong></span></p>
+
+<p>解读：final成员变量表示常量，只能被赋值一次，赋值后值不再改变。 这个类包含的一个final变量初始化为编译时静态值。考虑变成静态常量。</p>
+
+<p><span style="color: #00ff00;"><strong>最佳实践</strong></span></p>
+
+<p>增加static关键字</p>
+
+<p><span style="color: #ff0000;"><strong>错误码：NM_METHOD_NAMING_CONVENTION</strong></span></p>
+
+<p>解读：方法应该是动词，与第一个字母小写混合的情况下，与每个单词的首字母大写的内部。</p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/J2EE/2012/03/06/jersey-basic" title="Jersey基础知识分享">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/PHP/2012/06/06/cannot-find-autoconf-please-check-your-autoconf-installation" title="运行phpize时出现：Cannot find autoconf. Please check your autoconf installation">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '1125 http://dreambt.github.com/?p=1125';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2012-03-25</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#how-to-ref">how-to <span>14</span></a></li>
+     
+    	<li><a href="/tags.html#beginner-ref">beginner <span>51</span></a></li>
+     
+    	<li><a href="/tags.html#Java-ref">Java <span>11</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Java/2011/11/14/java-internationalization-resource-files"><i class="icon-file"></i>Java国际化资源文件相关的乱码问题</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Java/2010/07/27/java-j2se-and-c-comparison"><i class="icon-file"></i>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</a></li>
+           
+           <li><a href="/Version Control/2011/09/29/how-to-rollback-of-svn"><i class="icon-file"></i>如何对SVN进行回滚操作</a></li>
+           
+           <li><a href="/Version Control/2011/03/28/apache-svn"><i class="icon-file"></i>如何让现有的Apache服务器支持SVN</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/ssh"><i class="icon-file"></i>【090711更新】SSH常见问题及解决办法</a></li>
+           
+           <li><a href="/Java/2011/08/23/java-container-traversal-method-and-efficiency-compared"><i class="icon-file"></i>Java 容器类及遍历效率对比</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Java/2008/09/14/how-to-become-a-good-java-developer"><i class="icon-file"></i>如何成为一个成功的Jsp程序员？</a></li>
+           
+           <li><a href="/Windows/2011/05/18/win7-boot-process-and-restoration"><i class="icon-file"></i>Win7启动过程及启动项修复</a></li>
+           
+           <li><a href="/Linux/2011/05/12/open-local-dns-cache-to-speed-up-web-browsing"><i class="icon-file"></i>开启本地DNS缓存来加速网页浏览</a></li>
+           
+           <li><a href="/Linux/2011/04/29/ubuntu-grub2-restoration"><i class="icon-file"></i>Ubuntu下Grub2修复详细步骤</a></li>
+           
+           <li><a href="/Linux/2011/01/16/grub-secure-ubuntu-restroe"><i class="icon-file"></i>开机显示grub secure的ubuntu启动项修复</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Life/2009/03/21/clever-question"><i class="icon-file"></i>提问的智慧</a></li>
+           
+           <li><a href="/J2EE/2012/08/13/log4j"><i class="icon-file"></i>日志处理Log4j</a></li>
+           
+           <li><a href="/Cloud/2012/08/02/esxi"><i class="icon-file"></i>ESXi相关问题解决</a></li>
+           
+           <li><a href="/PHP/2012/06/06/cannot-find-autoconf-please-check-your-autoconf-installation"><i class="icon-file"></i>运行phpize时出现：Cannot find autoconf. Please check your autoconf installation</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/jersey-basic"><i class="icon-file"></i>Jersey基础知识分享</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/rest-web-service"><i class="icon-file"></i>构建REST风格的Web Service</a></li>
+           
+           <li><a href="/J2EE/2011/12/15/tomcat-http2"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（下）</a></li>
+           
+           <li><a href="/J2EE/2011/12/08/tomcat-http1"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（上）</a></li>
+           
+           <li><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server"><i class="icon-file"></i>Install VMWare Tools on Ubuntu Server</a></li>
+           
+           <li><a href="/Test/2011/10/30/junit-4-before-after-ignore-test-beforeclass-afterclass"><i class="icon-file"></i>JUnit 4 中的Before After Ignore Test BeforeClass AfterClass</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbitmq"><i class="icon-file"></i>RabbitMQ常见问题整理</a></li>
+           
+           <li><a href="/MQ/2011/10/20/rabbits-and-warrens"><i class="icon-file"></i>[翻译] [RabbitMQ入门经典] 兔子和兔子窝</a></li>
+           
+           <li><a href="/Linux/2011/10/16/ubuntu-terminal"><i class="icon-file"></i>Ubuntu常用的终端命令</a></li>
+           
+           <li><a href="/Ruby/2011/10/12/ruby-commonly-used-global-variables"><i class="icon-file"></i>Ruby中常用的全局变量</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Database/2011/08/22/oracle-lock-table-and-unluck"><i class="icon-file"></i>Oracle锁表与解表</a></li>
+           
+           <li><a href="/Ruby/2011/08/10/ruby"><i class="icon-file"></i>Ruby入门(一):Ruby简介</a></li>
+           
+           <li><a href="/UML/2011/03/27/uml-class-diagram-elements"><i class="icon-file"></i>全面认识UML-类图元素</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Database/2011/03/19/mysql-join"><i class="icon-file"></i>MySQL的连接/联结（Join）语法</a></li>
+           
+           <li><a href="/Security/2011/03/14/two-basic-algorithms-in-classical-encryption-technology"><i class="icon-file"></i>古典加密技术中最基本的两种算法</a></li>
+           
+           <li><a href="/Version Control/2011/03/12/svn-trunk-branches-and-tags"><i class="icon-file"></i>SVN trunk, branches and tags</a></li>
+           
+           <li><a href="/Linux/2011/03/02/linux-ubuntu-mount-point-presentations"><i class="icon-file"></i>Linux(Ubuntu)挂载点介绍及桌面服务器分区方案</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Other/2010/11/13/jonathan-danylko-20-programming-experience"><i class="icon-file"></i>Jonathan Danylko的20条编程经验</a></li>
+           
+           <li><a href="/Matlab/2010/10/21/matlab-curve-fitting-toolbox"><i class="icon-file"></i>Matlab曲线拟合工具箱Curve Fitting Toolbox</a></li>
+           
+           <li><a href="/PHP/2010/10/07/cannot-modify-header-information-headers-already-sent-by"><i class="icon-file"></i>Cannot modify header information - headers already sent by错误解决办法</a></li>
+           
+           <li><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation"><i class="icon-file"></i>C语言绘图-拉格朗日插值</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/s-form-action"><i class="icon-file"></i>浅谈s:form标签中action属性为XX.action与XX的区别</a></li>
+           
+           <li><a href="/Linux/2009/05/16/linux-speed-up-yum"><i class="icon-file"></i>Speed Up YUM！让Linux的升级速度快如飞</a></li>
+           
+           <li><a href="/Linux/2009/05/02/linux-os-file-system"><i class="icon-file"></i>Linux操作系统文件系统基础知识详解</a></li>
+           
+           <li><a href="/Linux/2009/04/05/rpm"><i class="icon-file"></i>RPM命令详解</a></li>
+           
+           <li><a href="/Web Design/2009/03/25/xmlhttprequest"><i class="icon-file"></i>XMLHttpRequest对象</a></li>
+           
+           <li><a href="/Database/2008/11/21/char-varchar"><i class="icon-file"></i>char与varchar数据类型转化的奇怪问题</a></li>
+           
+           <li><a href="/Database/2008/11/14/error-reading-data-from-static-cursor-cache"><i class="icon-file"></i>莫名其妙的Error reading data from static cursor cache</a></li>
+           
+           <li><a href="/Database/2008/09/15/sql"><i class="icon-file"></i>通用SQL数据库查询语句精华使用简介</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

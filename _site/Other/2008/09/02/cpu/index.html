@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>从技术参数开始全面解读CPU</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>从技术参数开始全面解读CPU <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p>　CPU是PC的核心所在，在以下的文章里面我们从几个与CPU相关的性能参数谈起，使读者初步对CPU有个全面的了解，这样将有助于加深读者对PC的了解。
+　　1.CPU的内部结构与工作原理
+　　CPU是Central Processing Unit－－中央处理器的缩写，它由运算器和控制器组成，CPU的内部结构可分为控制单元，逻辑单元和存储单元三大部分。CPU的工作原理就象一个工厂对产品的加工过程：进入工厂的原料（指令），经过物资分配部门（控制单元）的调度分配，被送往生产线（逻辑运算单元），生产出成品（处理后的数据）后，再存储在仓库（存储器）中，最后等着拿到市场上去卖（交由应用程序使用）。
+　　2.CPU的相关技术参数
+　　(1)主频
+　　主频也叫时钟频率，单位是MHz，用来表示CPU的运算速度。CPU的主频＝外频×倍频系数。很多人以为认为CPU的主频指的是CPU运行的速度，实际上这个认识是很片面的。CPU的主频表示在CPU内数字脉冲信号震荡的速度，与CPU实际的运算能力是没有直接关系的。当然，主频和实际的运算速度是有关的，但是目前还没有一个确定的公式能够实现两者之间的数值关系，而且CPU的运算速度还要看CPU的流水线的各方面的性能指标。由于主频并不直接代表运算速度，所以在一定情况下，很可能会出现主频较高的CPU实际运算速度较低的现象。因此主频仅仅是CPU性能表现的一个方面，而不代表CPU的整体性能。
+　　(2)外频
+　　外频是CPU的基准频率，单位也是MHz。外频是CPU与主板之间同步运行的速度，而且目前的绝大部分电脑系统中外频也是内存与主板之间的同步运行的速度，在这种方式下，可以理解为CPU的外频直接与内存相连通，实现两者间的同步运行状态。外频与前端总线(FSB)频率很容易被混为一谈，下面的前端总线介绍我们谈谈两者的区别。
+　　(3)前端总线(FSB)频率
+　　前端总线(FSB)频率（即总线频率）是直接影响CPU与内存直接数据交换速度。由于数据传输最大带宽取决于所有同时传输的数据的宽度和传输频率，即数据带宽＝（总线频率×数据带宽）/8。外频与前端总线(FSB)频率的区别：前端总线的速度指的是数据传输的速度，外频是CPU与主板之间同步运行的速度。也就是说，100MHz外频特指数字脉冲信号在每秒钟震荡一千万次；而100MHz前端总线指的是每秒钟CPU可接受的数据传输量是100MHz×64bit÷8Byte/bit=800MB/s。
+　　(4)倍频系数
+　　倍频系数是指CPU主频与外频之间的相对比例关系。在相同的外频下，倍频越高CPU的频率也越高。但实际上，在相同外频的前提下，高倍频的CPU本身意义并不大。这是因为CPU与系统之间数据传输速度是有限的，一味追求高倍频而得到高主频的CPU就会出现明显的“瓶颈”效应——CPU从系统中得到数据的极限速度不能够满足CPU运算的速度。
+　　(5)缓存
+　　缓存是指可以进行高速数据交换的存储器，它先于内存与CPU交换数据，因此速度很快。L1　Cache（一级缓存）是CPU第一层高速缓存。内置的L1高速缓存的容量和结构对CPU的性能影响较大，不过高速缓冲存储器均由静态RAM组成，结构较复杂，在CPU管芯面积不能太大的情况下，L1级高速缓存的容量不可能做得太大。一般L1缓存的容量通常在32～256KB.
+　　L2 Cache（二级缓存）是CPU的第二层高速缓存，分内部和外部两种芯片。内部的芯片二级缓存运行速度与主频详图，而外部的二级缓存则只有主频的一半。L2高速缓存容量也会影响CPU的性能，原则是越大越好，现在家庭用CPU容量最大的是512KB，而服务器和工作站上用CPU的L2高速缓存更高达1MB-3MB。
+　　(6)CPU扩展指令集
+　　CPU扩展指令集指的是CPU增加的多媒体或者是3D处理指令，这些扩展指令可以提高CPU处理多媒体和3D图形的能力。著名的有MMX（多媒体扩展指令）、SSE（因特网数据流单指令扩展）和3DNow!指令集。
+　　(7)CPU内核和I/O工作电压
+　　从586CPU开始，CPU的工作电压分为内核电压和I/O电压两种。其中内核电压的大小是根据CPU的生产工艺而定，一般制作工艺越小，内核工作电压越低；I/O电压一般都在1.6~3V。低电压能解决耗电过大和发热过高的问题。
+　　(8)制造工艺
+　　指在硅材料上生产CPU时内部各元器材的连接线宽度，一般用微米表示。微米值越小制作工艺越先进，CPU可以达到的频率越高，集成的晶体管就可以更多。目前Intel的P4和AMD的XP都已经达到了0.13微米的制造工艺，明年将达到0.09微米的制作工艺。
+　　了解了CPU的逻辑结构以及一些基本技术参数，我们将全面了解影响CPU性能的有关技术参数。下边还有一些其他相关资料，需要您来了解。
+　　1.指令集
+　　(1) X86指令集　要知道什么是指令集还要从当今的X86架构的CPU说起。X86指令集是Intel为其第一块16位CPU（i8086）专门开发的，IBM1981年推出的世界第一台PC机中的CPU—i8088（i8086简化版）使用的也是X86指令，同时电脑中为提高浮点数据处理能力而增加的X87芯片系列数学协处理器则另外使用X87指令，以后就将X86指令集和X87指令集统称为X86指令集。虽然随着CPU技术的不断发展，Intel陆续研制出更新型的i80386、i80486直到今天的Pentium Ⅲ（以下简为PⅢ）系列，但为了保证电脑能继续运行以往开发的各类应用程序以保护和继承丰富的软件资源，所以Intel公司所生产的所有CPU仍然继续使用X86指令集，所以它的CPU仍属于X86系列。由于Intel X86系列及其兼容CPU都使用X86指令集，所以就形成了今天庞大的X86系列及兼容CPU阵容。
+　　(2) RISC指令集　RISC指令集是以后高性能CPU的发展方向。它与传统的CISC（复杂指令集）相对。相比而言，RISC的指令格式统一，种类比较少，寻址方式也比复杂指令集少。当然处理速度就提高很多了。而且RISC指令集还兼容原来的X86指令集。
+　　2.字长
+　　电脑技术中对CPU在单位时间内（同一时间）能一次处理的二进制数的位数叫字长。所以能处理字长为8位数据的CPU通常就叫8位的CPU。同理32位的CPU就能在单位时间内处理字长为32位的二进制数据。当前的CPU都是32位的CPU，但是字长的最佳是CPU发展的一个趋势。AMD未来将推出64位的CPU-Atlon64。未来必然是64位CPU的天下。
+　　3.IA-32、IA-64架构
+　　IA是Intel Architecture（英特尔体系结构）的英语缩写，IA-32或IA-64是指符合英特尔结构字长为32或64位的CPU，其他公司所生产的与Intel产品相兼容的CPU也包括在这一范畴。当前市场上所有的X86系列CPU仍属IA-32架构。AMD即将推出Athlon64是IA-64架构的CPU。
+　　4.流水线与超流水线
+　　流水线（pipeline）是Intel首次在486芯片中开始使用的。流水线的工作方式就象工业生产上的装配流水线。在CPU中由5~6个不同功能的电路单元组成一条指令处理流水线，然后将一条X86指令分成5~6步后再由这些电路单元分别执行，这样就能实现在一个CPU时钟周期完成一条指令，因此提高CPU的运算速度。超流水线（superpiplined）是指某型CPU内部的流水线超过通常的5~6步以上，例如Pentium pro的流水线就长达14步。将流水线设计的步（级）其完成一条指令的速度越快，因此才能适应工作主频更高的CPU。但是流水线过长也带来了一定副作用，很可能会出现主频较高的CPU实际运算速度较低的现象，Intel的奔腾4就出现了这种情况，虽然它的主频可以高达1.4G以上，但其运算性能却远远比不上AMD 1.2G的速龙甚至奔腾III。
+　　5.封装形式
+　　CPU封装是采用特定的材料将CPU芯片或CPU模块固化在其中以防损坏的保护措施，一般必须在封装后CPU才能交付用户使用。CPU的封装方式取决于CPU安装形式和器件集成设计，从大的分类来看通常采用Socket插座进行安装的CPU使用PGA(栅格阵列)方式封装，而采用Slot x槽安装的CPU则全部采用SEC(单边接插盒)的形式封装。现在还有PLGA(Plastic Land Grid Array)、OLGA(Organic Land Grid Array)等封装技术。由于市场竞争日益激烈，目前CPU封装技术的发展方向以节约成本为主。
+　　超频理论篇：4种思路+2种方法+5项注意
+　　“超频”在DIYer中是个永恒的话题，每每让CPU的速度提升一些或榨取一点硬件性能的“油水”，他们总会欣喜不已。DIYer就是为了让电脑用得更好，“超频”正是一把利器。随着游戏和大型应用软件的更新换代，电脑相对变慢或者根本“跑不动”都很快成为“残酷的现实”，升级？费用太高！别急，或许超频可以满足你暂时的需要。另外，据调查：电脑中几乎没有配件可以陪伴你三年。就拿笔者来说，2000年组装的“爱机”（i815E＋赛扬600＋128MB SDR）早已升级成（Barton 2600＋ ＋KT600＋512MB DDR），只有显示器还在为笔者服务。既然如此，我们何必让它们拥有那么长的寿命呢（何况“超频”是否不利于CPU还有争论，个人感觉运气成分更多一些）？“超”吧，“折腾”吧，我们会在更“快”中找到更快乐！下面我将从超频思路、超频方法、超频应注意的事项这三个方面简单地谈一下超频，算是一个“预热”！
+　　超频思路：CPU主频=外频×倍频。这是一个众所周知的CPU主频计算公式，但这也从根本上为我们提供了“超频”的思路。很明显我们可以通过超外频、超倍频、两者同时超频、降倍频超外频等多种思路来达到超频的目的。以上这四种思路是比较有意义的，也是目前主要采用的。“降外频超倍频”从实质上来并没有什么实际意义，而仅仅是满足了没有体质强健CPU而又想炫耀频率的电脑爱好者一种虚荣而已。
+　　四种超频思路
+　　第一，超外频 这是目前采用最多的思路。谈到外频就会有标准外频和非标准外频。无论是Intel还是AMD都将100MHz、133MHz、166MHz、200MHz等作为标准外频（66MHz等非主流外频不提，另Intel现在最高的标准外频为266MHz，即1066FSB）。对于一些没有AGP/PCI锁定的主板，最好让CPU工作在标准外频上。提升外频对CPU性能影响很大，使前端总线的吞吐量大为提升，是一条不错的超频思路。
+　　第二，超倍频 超倍频是建立在CPU倍频未锁定或已破解的基础上。不过，随着Intel和AMD在CPU Die（内核）上加装保护盖，和新版PCB的使用，这条路将走向没落。
+　　第三，两者同时超 这种思路可以较容易使CPU接近极限频率，两者相互协调（并非最高的外频与最高的倍频相结合），在一个合适的条件下使CPU发挥更佳的性能。这种超频模式操作很烦琐，需要有足够的耐心和时间。
+　　第四，降倍频超外频 同等频率如果可以通过降倍频超外频达到，通常这种超频模式可以获得更好的性能。现在Intel CPU倍频锁死，而且又有保护盖，这种思路表面上已走到尽头；君不见ASUS等厂商已破解倍频，可以在某一个范围内下调，真可谓“柳暗花明又一村”啊。而AMD的Athlon 64就更为超频用户考虑了，不用做任何改造，可以直接下调CPU倍频。倘若前者技术可以发扬光大，后者能继续保持；谁敢说明天不是康庄大道？！
+　　两种超频方法
+　　按照上面的思路主要有通过BIOS超频和通过软件超频这么两种方法。BIOS超频需要有一定的BIOS知识（这方面的文章不少，但大部分不太实用，不妨请教老鸟），在超频过程中需要不停地重启才能找到一个理想的状态。这种方法的优点就是不占用系统资源，简单直接。而软件超频需要你对主板的型号有确切地了解，但这还远远不够，需要你对该芯片的频率发生器型号有初步的了解（后面在讲到软件超频时，会详细解释），并且需要软件支持该型号；这种方法常被国内的DIYer称为“鸡肋”，但国外的超频玩家多采用这种方法。相对来说这种方法入门稍难，占用一些系统资源但不用反复重启即可更快地找到理想的超频状态。
+　　超频注意事项
+　　第一，选材 这里的选材不仅仅指一款核心优异的CPU，它包括更多的配件（主板、内存、硬盘等一系列可能影响超频的配件）的选择。这要求主板具备丰富的BIOS的调节（可逐兆对处理器外频进行线性调节，调节范围较大，能够对CPU、内存、芯片组电压和内存频率调整，最好可固定AGP/PCI频率等等），要求内存具备更高频率品质（如DDR500）或优秀的超频芯片（如Winbond的BH-5内存芯片），此外最好有一块可以稳定工作在更高PCI总线频率下的硬盘。这一切对于超频来说都具有举足轻重的作用，在以后的文章中将会一一展现在读者面前。
+　　第二，散热 CPU现在的温度已经高得让人头疼了，尤其在增加电压超频时，更为恐怖的夏天即将来到我们身边，良好的散热便成了超频成功的保障。如何更好地为CPU超频护航，在林林总总的散热器中如何选择“对”的产品，这里所涉及的问题也非三言两语可以讲明白，请关注2005年6月6日出版的《中国电脑教育报》第22期“散热专题”，在该专题中，我们将获得一个全新的整体散热概念，敬请关注！而在“超频应用专题”系列文章的后续会简单的介绍超频所需要的散热系统。（不涉及液冷或压缩机等特殊散热方法，因为这并不适合普通消费者）。
+　　第三，辅助手段 为了让CPU工作在更高的频率上，采用一些辅助手段是非常必要的。如对CPU及内存适量加压，一般情况下，只要CPU电压提升幅度控制在25%以内，还是非常安全的。另外，需要锁定AGP/PCI的频率（需主板支持），如果没有该功能，外频最好设定在标准外频下。辅助手段尚有许多，这大多属于超频技巧之类的，以后的文章会陆续介绍。
+　　第四，测试稳定性 超频完成后能进入操作系统，并进行简单操作并不意味着超频就成功了，必须要对电脑进行全面的测试（“烤”机），而这里笔者推荐用SuperPi、3Dmark、Pemire95等进行最少两个小时的残酷测试。至于软件的简单使用以后会提到。
+　　第五，其他 应该注意的事项着实不少，一一归总起来总是让人感觉介绍的还不够完整，如AMD Athlon 64处理器超频还需要注意系统总线的问题。在下期连载的文章中，笔者将会一一说明，希望读者多一些耐心。</p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Life/2008/08/03/do-not-cry" title="看后请不要哭，无论你想起了谁">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Web Design/2008/09/06/website-development-process" title="网站开发的流程">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '83 http://dreambt.github.com/?p=83';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2008-09-02</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#CPU-ref">CPU <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#tutorial-ref">tutorial <span>16</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Linux/2011/10/31/ubuntu-open-ssh-service"><i class="icon-file"></i>ubuntu开启SSH服务</a></li>
+           
+           <li><a href="/Version Control/2011/03/28/apache-svn"><i class="icon-file"></i>如何让现有的Apache服务器支持SVN</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/Web Design/2009/03/25/xmlhttprequest"><i class="icon-file"></i>XMLHttpRequest对象</a></li>
+           
+           <li><a href="/Database/2008/09/15/sql"><i class="icon-file"></i>通用SQL数据库查询语句精华使用简介</a></li>
+           
+           <li><a href="/Web Design/2008/03/21/css-name-rule"><i class="icon-file"></i>常用的CSS命名规则</a></li>
+           
+           <li><a href="/Web Design/2008/01/26/mozilla-css-write-order"><i class="icon-file"></i>Mozilla建议的CSS书写顺序</a></li>
+           
+           <li><a href="/Web Design/2007/01/14/div-css-name"><i class="icon-file"></i>div+css命名参考</a></li>
+           
+           <li><a href="/Web Design/2007/01/14/web-standard"><i class="icon-file"></i>"Web标准"大白话版</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

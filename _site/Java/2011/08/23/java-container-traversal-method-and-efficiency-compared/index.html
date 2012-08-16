@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Java 容器类及遍历效率对比</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>Java 容器类及遍历效率对比 <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <h4>Java的容器类</h4>
+
+
+<p><strong>1)Collection</strong></p>
+
+<p>Collection是最基本的集合接口，一个Collection代表一组Object，Java SDK不提供直接继承自Collection的类，Java SDK提供的类都是继承自Collection的“子接口”如List和Set。</p>
+
+<p><strong>2)List</strong></p>
+
+<p>以元素插入的次序来放置元素，不会重新排列。</p>
+
+<p><strong>3)Set</strong></p>
+
+<p>不接爱重复元素，它会使用自己内部的一个排列机制。</p>
+
+<p><strong>4)Map</strong></p>
+
+<p>一群成对的key-value对象，即所持有的是key-value pairs。Map中不能有重复的key，它拥有自己的内部排列机制.</p>
+
+<p><strong>5)Vector</strong></p>
+
+<p>非常类似ArrayList，但是Vector是同步的。由Vector创建的Iterator，虽然和ArrayList创建的Iterator是同一接口，但是，因为Vector是同步的，当一个Iterator被创建而且正在被使用，另一个线程改变了Vector的状态（例 如，添加或删除了一些元素），这时调用Iterator的方法时将抛出ConcurrentModificationException，因此必须捕获该异常。</p>
+
+<p>Java容器类类库的用途是“保存对象”，它分为两类：</p>
+
+<p>Collection----一组独立的元素，通常这些元素都服从某种规则。List必须保持元素特定的顺序，而Set不能有重复元素。</p>
+
+<p>Map----一组成对的“键值对”对象，即其元素是成对的对象，最典型的应用就是数据字典，并且还有其它广泛的应用。另外，Map可以返回其所有键组成的Set和其所有值组成的Collection，或其键值对组成的Set，并且还可以像数组一样扩展多维Map，只要让Map中键值对的每个“值”是一个Map即可。</p>
+
+<p><strong>1.迭代器</strong></p>
+
+<p>迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量级”对象，因为创建它的代价小。</p>
+
+<p>Java中的Iterator功能比较简单，并且只能单向移动：</p>
+
+<p>(1) 使用方法iterator()要求容器返回一个Iterator。第一次调用Iterator的next()方法时，它返回序列的第一个元素。</p>
+
+<p>(2) 使用next()获得序列中的下一个元素。</p>
+
+<p>(3) 使用hasNext()检查序列中是否还有元素。</p>
+
+<p>(4) 使用remove()将迭代器新返回的元素删除。</p>
+
+<p>Iterator是Java迭代器最简单的实现，为List设计的ListIterator具有更多的功能，它可以从两个方向遍历List，也可以从List中插入和删除元素。</p>
+
+<p><strong>2.List的功能方法</strong></p>
+
+<p><strong>List</strong>(interface)</p>
+
+<p>次序是List最重要的特点；它确保维护元素特定的顺序。List为Collection添加了许多方法，使得能够向List中间插入与移除元素(只推荐LinkedList使用)。一个List可以生成ListIterator，使用它可以从两个方向遍历List，也可以从List中间插入和删除元素。</p>
+
+<p><strong>ArrayList</strong></p>
+
+<p><strong></strong>由数组实现的List。它允许对元素进行快速随机访问，但是向List中间插入与移除元素的速度很慢。ListIterator只应该用来由后向前遍历ArrayList，而不是用来插入和删除元素，因为这比LinkedList开销要大很多。</p>
+
+<p><strong>LinkedList</strong></p>
+
+<p><strong></strong>对顺序访问进行了优化，向List中间插入与删除的开销不大，随机访问则相对较慢(可用ArrayList代替)。它具有方法addFirst()、addLast()、getFirst()、getLast()、removeFirst()、removeLast()，这些方法(没有在任何接口或基类中定义过)使得LinkedList可以当作堆栈、队列和双向队列使用。</p>
+
+<p><strong>3.Set的功能方法</strong></p>
+
+<p><strong>Set</strong>(interface)</p>
+
+<p>存入Set的每个元素必须是唯一的，因为Set不保存重复元素。加入Set的Object必须定义equals()方法以确保对象的唯一性。Set与Collection有完全一样的接口。Set接口不保证维护元素的次序。</p>
+
+<p><strong>HashSet</strong></p>
+
+<p>为快速查找而设计的Set。存入HashSet的对象必须定义hashCode()。</p>
+
+<p><strong>TreeSet</strong></p>
+
+<p>保持次序的Set，底层为树结构。使用它可以从Set中提取有序的序列。</p>
+
+<p><strong>LinkedHashSet</strong></p>
+
+<p>具有HashSet的查询速度，且内部使用链表维护元素的顺序(插入的次序)。于是在使用迭代器遍历Set时，结果会按元素插入的次序显示。</p>
+
+<p>HashSet采用散列函数对元素进行排序，这是专门为快速查询而设计的；TreeSet采用红黑树的数据结构进行排序元素；LinkedHashSet内部使用散列以加快查询速度，同时使用链表维护元素的次序，使得看起来元素是以插入的顺序保存的。需要注意的是，生成自己的类时，Set需要维护元素的存储顺序，因此要实现Comparable接口并定义compareTo()方法。</p>
+
+<h4>List遍历效率对比</h4>
+
+
+<p><strong>测试程序</strong></p>
+
+<pre>import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class ListTest {
+public static void main(String args[]){
+List lists = new ArrayList();
+
+for(Long i=0l;i&lt;1000000l;i++){
+lists.add(i);
+}
+
+Long oneOk = oneMethod(lists);
+Long twoOk = twoMethod(lists);
+Long threeOk = threeMethod(lists);
+Long fourOk = fourMethod(lists);
+
+System.out.println("One:" + oneOk);
+System.out.println("Two:" + twoOk);
+System.out.println("Three:" + threeOk);
+System.out.println("four:" + fourOk);
+
+}
+
+public static Long oneMethod(Listlists){
+
+Long timeStart = System.currentTimeMillis();
+for(int i=0;i System.out.println(lists.get(i));
+}
+Long timeStop = System.currentTimeMillis();
+
+return timeStop -timeStart ;
+}
+
+public static Long twoMethod(Listlists){
+
+Long timeStart = System.currentTimeMillis();
+for(Long string : lists) {
+System.out.println(string);
+}
+Long timeStop = System.currentTimeMillis();
+
+return timeStop -timeStart ;
+}
+
+public static Long threeMethod(Listlists){
+
+Long timeStart = System.currentTimeMillis();
+Iterator it = lists.iterator();
+while (it.hasNext())
+{
+System.out.println(it.next());
+}
+Long timeStop = System.currentTimeMillis();
+
+return timeStop -timeStart ;
+}
+
+public static Long fourMethod(Listlists){
+
+Long timeStart = System.currentTimeMillis();
+for(Iterator i = lists.iterator(); i.hasNext();) {
+System.out.println(i.next());
+}
+Long timeStop = System.currentTimeMillis();
+
+return timeStop -timeStart ;
+}
+}</pre>
+
+
+<p><strong>测试结果</strong></p>
+
+<p>One:14109
+Two:14000
+Three:15141
+four:14297</p>
+
+<p>&nbsp;</p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Database/2011/08/22/oracle-lock-table-and-unluck" title="Oracle锁表与解表">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Windows/2011/09/26/sunstring-in-batch" title="批处理截取字符串方法详解">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '1004 http://dreambt.github.com/?p=1004';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2011-08-23</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#container-ref">container <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Java-ref">Java <span>11</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Java/2012/03/25/how-to-write-high-quality-java-source-code"><i class="icon-file"></i>如何书写高质量的Java源代码</a></li>
+           
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Java/2011/11/14/java-internationalization-resource-files"><i class="icon-file"></i>Java国际化资源文件相关的乱码问题</a></li>
+           
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/Java/2010/07/27/java-j2se-and-c-comparison"><i class="icon-file"></i>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</a></li>
+           
+           <li><a href="/Java/2008/09/14/how-to-become-a-good-java-developer"><i class="icon-file"></i>如何成为一个成功的Jsp程序员？</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+

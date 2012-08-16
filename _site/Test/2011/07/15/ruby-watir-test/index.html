@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Ruby和Watir调用浏览器测试</title>
+    
+    <meta name="author" content="dreambt">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">SiQi Blog</a>
+		  <div class="nav-collapse">
+			<ul class="nav">
+			  <li><a href="/categories/Life">Life</a></li>
+		      <li class="dropdown">
+			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+			    <ul class="dropdown-menu">
+				  <li class="nav-header">内容管理系统</li>
+				  <li><a href="/cms4j" target="_blank">cms4j</a></li>
+				  <li class="divider"></li>
+				  <li class="nav-header">云相册</li>
+				  <li><a href="/CloudAlbum" target="_blank">CloudAlbum</a></li>
+			    </ul>
+			  </li>
+			  <li><a href="/contact.html">Contact</a></li>
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+
+
+            </ul>
+	      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span2">
+				<div class="well sidebar-nav">
+					<ul class="nav nav-list">
+						<li class="nav-header">文章分类</li>
+						<!--
+						
+  						<li><a href="/categories/Linux">Linux</a></li>
+  						
+  						<li><a href="/categories/Cloud">Cloud</a></li>
+  						
+  						<li><a href="/categories/Web Design">Web Design</a></li>
+  						
+  						<li><a href="/categories/PHP">PHP</a></li>
+  						
+  						<li><a href="/categories/C">C</a></li>
+  						
+  						<li><a href="/categories/MQ">MQ</a></li>
+  						
+  						<li><a href="/categories/Ruby">Ruby</a></li>
+  						
+  						<li><a href="/categories/Security">Security</a></li>
+  						
+  						<li><a href="/categories/Matlab">Matlab</a></li>
+  						
+  						<li><a href="/categories/Java">Java</a></li>
+  						
+  						<li><a href="/categories/Windows">Windows</a></li>
+  						
+  						<li><a href="/categories/Algorithm">Algorithm</a></li>
+  						
+  						<li><a href="/categories/Android">Android</a></li>
+  						
+  						<li><a href="/categories/Life">Life</a></li>
+  						
+  						<li><a href="/categories/Design Pattern">Design Pattern</a></li>
+  						
+  						<li><a href="/categories/Database">Database</a></li>
+  						
+  						<li><a href="/categories/Other">Other</a></li>
+  						
+  						<li><a href="/categories/Version Control">Version Control</a></li>
+  						
+  						<li><a href="/categories/Test">Test</a></li>
+  						
+  						<li><a href="/categories/UML">UML</a></li>
+  						
+  						<li><a href="/categories/J2EE">J2EE</a></li>
+  						
+						-->
+						<li><a href="/categories/Life/">Life</a></li>
+						<li><a href="/categories/Java/">Java</a></li>
+						<li><a href="/categories/J2EE/">J2EE</a></li>
+						<li><a href="/categories/Database/">Database</a></li>
+						<li><a href="/categories/Linux/">Linux</a></li>
+						<li><a href="/categories/Cloud/">Cloud</a></li>
+						<li><a href="/categories/Web Design/">Web Design</a></li>
+						<li><a href="/categories/Algorithm/">Algorithm</a></li>
+						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
+						<li><a href="/categories/Other/">Other</a></li>
+						<li class="nav-header">文章归档</li>
+						<li><a href="/2012/">2012</a></li>
+						<li><a href="/2011/">2011</a></li>
+						<li><a href="/2010/">2010</a></li>
+						<li><a href="/2009/">2009</a></li>
+						<li><a href="/2008/">2008</a></li>
+						<li><a href="/2007/">2007</a></li>
+						<li class="nav-header">博客信息</li>
+						<li><a href="#">文章总数: 120 篇</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="span10">
+				
+<div class="hero-unit page-header">
+  <h1>Ruby和Watir调用浏览器测试 <small>sdfdsfds</small></h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span9">
+    <p>gem update --system
+gem install watir</p>
+
+<p>当使用Watir开发测试脚本的时候，通过给网页上的对象发送消息来与之交互。</p>
+
+<p>Watir 语法（Web Application Testing in Ruby)</p>
+
+<h1>watir的安装</h1>
+
+<p>watie的安装请查看 -&gt; Ruby library的安装</p>
+
+<h1>使用Watir工具，需要在脚本中加上</h1>
+
+<p>require 'watir'</p>
+
+<h1>创建一个IE的实例</h1>
+
+<p>ie = Watir::IE.new
+或者在创建的同时直接转到页面
+ie = Watir::IE.start('http://www.text.com/')
+Watir使用start方法同时创建一个浏览器实例并转到一个页面。
+IE浏览速度
+ie.speed = :fast
+ie.speed = :slow</p>
+
+<h1>页面导航</h1>
+
+<p>ie.goto('http://www.text.com/')
+注: ie.goto还可以运行javascript的代码如: ie.goto("javascript: ie.document.write("Hello World");")</p>
+
+<h1>取得当前网页的网址</h1>
+
+<p>ie.url</p>
+
+<h1>点击超链接</h1>
+
+<p>ie.link(:text , "Pickaxe").click
+ie.link(:href, /http:\/\/pragmaticprogrammer.com/).click
+ie.link(:name =&gt; 'foo', :index =&gt; 1).click</p>
+
+<h1>超链接的uri</h1>
+
+<p>ie.link(:text , "Pickaxe").href
+ie.link(:index, 1).href
+ie.link(:text =&gt; "reply", :index =&gt; 2).href</p>
+
+<h1>超链接的文本</h1>
+
+<p>ie.link(:href , /http:\/\/pragmaticprogrammer.com/).text</p>
+
+<p>对应的HTML代码为：
+&lt;a href='http://pragmaticprogrammer.com/titles/ruby/'&gt;Pickaxe&lt;/a&gt;</p>
+
+<h1>img标签</h1>
+
+<p>ie.image(:name, 'image').src
+ie.image(:index, 2).src</p>
+
+<p>对应的HTML代码为：
+&lt;img name = img src='http://pragmaticprogrammer.com/titles/ruby/top.gif'&gt;
+&lt;img name = img src='http://pragmaticprogrammer.com/titles/ruby/head.gif'&gt;</p>
+
+<h1>设置复选框</h1>
+
+<p>ie.checkbox(:name, "checkme").set
+ie.checkbox(:name, "checkme", "1").set # 使用name和value属性设置复选框</p>
+
+<h1>清除复选框</h1>
+
+<p>ie.checkbox(:name, "checkme").clear
+ie.checkbox(:name, "checkme", "1").clear # 使用name和value属性清除复选框</p>
+
+<p>对应的HTML代码为：
+&lt;input type = "checkbox" name = "checkme" value = "1"&gt;</p>
+
+<h1>设置单选框</h1>
+
+<p>ie.radio(:name, "clickme").set
+ie.radio(:name=&gt;'clickme', :index=&gt;2).set
+ie.radio(:name, "clickme", "1").set # 使用name和id属性设置单选框</p>
+
+<h1>使用name属性清除单选框</h1>
+
+<p>ie.radio(:name, "clickme").clear
+ie.radio(:name, "clickme", "1").clear # 使用name和id属性清除单选框</p>
+
+<p>对应的HTML代码为：
+&lt;input type = "radio" name = "clickme" id = "1"&gt;
+&lt;input type = "radio" name = "clickme" id = "2"&gt;</p>
+
+<h1>设置下拉框</h1>
+
+<p>ie.select_list(:name, "selectme").select('Python') # 使用text属性和值来设置下拉框
+ie.select_list(:name, "selectme").select_value('2') # 使用value属性和值来设置下拉框</p>
+
+<h1>使用name属性和值来清除下拉框</h1>
+
+<p>ie.select_list(:name, "selectme").clearSelection</p>
+
+<p>对应的HTML代码为：
+&lt;select name = "selectme"&gt;
+&lt;option value = 1&gt;Ruby
+&lt;option value = 2&gt;Java
+&lt;option value = 3&gt;Python
+&lt;option value = 4&gt;C
+&lt;/select&gt;</p>
+
+<h1>文本的框设置</h1>
+
+<p>ie.text_field(:name, "typeinme").set("Watir World")</p>
+
+<h1>清空文本输入框</h1>
+
+<p>ie.text_field(:name, "typeinme").clear</p>
+
+<p>对应的HTML代码为：
+&lt;input type = "text" name = "typeinme"&gt;</p>
+
+<h1>通过值或name属性点击button</h1>
+
+<p>ie.button(:value, "Click Me").click
+ie.button(:name, "clickme").click</p>
+
+<p>对应的HTML代码为：
+&lt;input type = "button" name = "clickme" value = "Click Me"&gt;</p>
+
+<h1>通过值或name属性点击Submit</h1>
+
+<p>ie.button(:value, "Submit").click
+ie.button(:type, "Submit").click
+ie.button(:name, "Submit").click</p>
+
+<p>对应的HTML代码为：
+&lt;form. action = "submit" name = "submitform" method="post"&gt;
+&lt;input type = "submit" value = "Submit"&gt;
+&lt;/form&gt;</p>
+
+<h1>表单中的图片按钮</h1>
+
+<p>ie.button(:name, "doit").click</p>
+
+<p>对应的HTML代码为：
+&lt;form. action = "submit" name = "doitform" method="post"&gt;
+&lt;input type="image" src = "images/doit.gif" name = "doit"&gt;
+&lt;/form&gt;</p>
+
+<h1>没有按钮的表单</h1>
+
+<p>ie.form(:name, "loginform").submit # 通过name,action以及method属性来提交表单
+ie.form(:action, "login").submit
+对应的HTML代码为：
+&lt;form. action = "login" name = "loginform" method="get"&gt;
+&lt;input name="username" type="text"&gt;
+&lt;/form&gt;</p>
+
+<h1>框架</h1>
+
+<p>ie.show_frames可以打印出当前页面框架的数量和名称
+Watir允许通过名称属性来访问框架，如ie.frame("menu")
+如果要访问menu框架中的一个超链接，可以
+ie.frame("menu").link(:text, "Click Menu Item").click</p>
+
+<h1>嵌套框架</h1>
+
+<p>ie.frame(:name, "frame1").form(:name, 'form1')</p>
+
+<h1>新窗口</h1>
+
+<p>一些Web应用会弹出新窗口或打开一个新窗口，可以使用attach方法来访问并控制新窗口。通过标示新窗口的URL或者title来访问。
+ie2 = Watir::IE.attach(:url, 'http://www.text.com/')
+ie3 = Watir::IE.attach(:title, 'Test New Window')
+也可以使用正则表达式
+ie4 = Watir::IE.attach(:title, /Test New/)
+注意：不要把新窗口分配到你的ie变量，最好给新窗口一个不同的名字</p>
+
+<h1>访问Table元素：</h1>
+
+<p>t = $ie.table(:id,"data")
+t = Table.new($ie,:id,"data")
+t = $ie.table[1]</p>
+
+<h1>tr,td元素</h1>
+
+<p>tr = ie.row(:id,"title")
+tr = TableRow.new(ie,:id,"title")</p>
+
+<p>td = ie.cell(:id,"name")
+td = TableCell.new(ie,:id,"name")</p>
+
+<h1>Watir中Table，TableBody，TableRow，TableCell这几个类，都提供了一个索引方法"<a href="index"></a>"来定位其下一层的子元素对象,该方法为实例方法,"index"为传入的参数,索引值从1开始,而非从0开始。</h1>
+
+<p>用法如下：
+以table的第一行，第一个元素为例：
+tr1 = t.<a href="1"></a>
+td1 = tr1.<a href="1"></a>
+也可以连续访问：td1 = t.<a href="1"></a>.<a href="1"></a>
+如果td中还有其他元素，可以通过td的实例方法直接访问，以checkbox为例：
+cb = td1.checkbox(:id,'navigate_id').click</p>
+
+<p>对于以上所提到的对象,都是从Element继承而来,所以click,enabled?,exists?,fireEvent,flash,focus等方法都直接可以使用。
+如果你的td元素定位准确了，且鼠标响应事件没有错误的话，那么应该能看到点击后的效果。
+建议多查一下Watir的API Reference <a href="http://wtr.rubyforge.org/rdoc/" target="_blank">http://wtr.rubyforge.org/rdoc/</a></p>
+
+<p>代码如下：
+t = ie.table(:id,"CoolMenu2menutable")
+td_logout=t.<a href="1"></a>.<a href="16"></a></p>
+
+<p>先找到Table，再索引TR，再索引到TD</p>
+
+<h1>运行Ruby时不显示browser方法</h1>
+
+<p>运行Ruby程序文件时在后面加 "-b"
+ex:
+test.rb -b
+也可以做成.bat文件
+ex: test.bat
+ruby.exe test.rb -b</p>
+
+<h1>获取隐含对象值</h1>
+
+<p>&lt;INPUT type=hidden value="您的Email" name="field1"&gt;
+方法：values = ie.hidden(:name, 'field1').value</p>
+
+<h1>获取窗口对象</h1>
+
+<p>方法1： ie2 = Watir::IE.attach(:url,'http://www.google.cn/')   #根据URL获取
+方法2： ie3 = Watir::IE.attach(:title,'Google')                #根据窗口标题获
+方法3： ie4 = Watir::IE.attach(:title, /google.cn/)              #正则表达式匹配获取</p>
+
+<p>转自：<a href="http://my.chinaunix.net/space.php?uid=20255298&amp;do=blog&amp;id=170598" target="_blank">http://my.chinaunix.net/space.php?uid=20255298&amp;do=blog&amp;id=170598</a></p>
+
+    <hr>
+    Liquid error: undefined method `each' for nil:NilClass
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/Cloud/2011/07/02/quality-of-service" title="Quality of Service服务质量">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/Linux/2011/08/04/linux-curl" title="Linux下curl命令的使用">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'siqiblog'; // required: replace example with your forum shortname
+    var disqus_identifier = '974 http://dreambt.github.com/?p=974';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <div class="well sidebar-nav">
+	  <ul class="nav nav-list">
+	    <li class="nav-header">Published</li>
+		<li><div class="date"><span>2011-07-15</span></div></li>
+		
+		<li class="nav-header">Tags</li>
+		<li><ul class="tag_box">
+		  
+		  
+
+
+  
+     
+    	<li><a href="/tags.html#intro-ref">intro <span>69</span></a></li>
+     
+    	<li><a href="/tags.html#Ruby-ref">Ruby <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#Watir-ref">Watir <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Test-ref">Test <span>2</span></a></li>
+    
+  
+
+
+
+		  </ul></li>
+		    
+        <li class="nav-header">Related Posts</li>
+        <li><ul class="unstyled">
+	      
+           <li><a href="/Test/2011/10/30/junit-4-before-after-ignore-test-beforeclass-afterclass"><i class="icon-file"></i>JUnit 4 中的Before After Ignore Test BeforeClass AfterClass</a></li>
+           
+           <li><a href="/Ruby/2011/10/12/ruby-commonly-used-global-variables"><i class="icon-file"></i>Ruby中常用的全局变量</a></li>
+           
+           <li><a href="/Ruby/2011/08/10/ruby"><i class="icon-file"></i>Ruby入门(一):Ruby简介</a></li>
+           
+           <li><a href="/J2EE/2012/08/13/log4j"><i class="icon-file"></i>日志处理Log4j</a></li>
+           
+           <li><a href="/Security/2012/08/04/oauth2"><i class="icon-file"></i>OAuth原理初探</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/07/gof-kit"><i class="icon-file"></i>GoF设计模式之Kit抽象工厂</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/05/gof-factory-method"><i class="icon-file"></i>GoF设计模式之工厂方法模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-decorator"><i class="icon-file"></i>GoF设计模式之Decorator装饰者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/07/04/gof-simply-factory"><i class="icon-file"></i>GoF设计模式之简单工厂模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/29/gof-observer"><i class="icon-file"></i>GoF设计模式之Observer观察者模式</a></li>
+           
+           <li><a href="/Design Pattern/2012/06/27/gof-policy"><i class="icon-file"></i>GoF设计模式之Policy策略模式</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/jersey-basic"><i class="icon-file"></i>Jersey基础知识分享</a></li>
+           
+           <li><a href="/J2EE/2012/03/06/rest-web-service"><i class="icon-file"></i>构建REST风格的Web Service</a></li>
+           
+           <li><a href="/J2EE/2011/12/15/tomcat-http2"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（下）</a></li>
+           
+           <li><a href="/J2EE/2011/12/08/tomcat-http1"><i class="icon-file"></i>Tomcat处理HTTP请求源码分析（上）</a></li>
+           
+           <li><a href="/Java/2011/11/20/jvm-jstack-jconsole-jinfo-jmap-jdb-jsta"><i class="icon-file"></i>JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta</a></li>
+           
+           <li><a href="/Linux/2011/11/02/install-vmware-tools-on-ubuntu-server"><i class="icon-file"></i>Install VMWare Tools on Ubuntu Server</a></li>
+           
+           <li><a href="/Java/2011/11/01/java-reflection-mechanism-output-class-instance-attribute-values"><i class="icon-file"></i>利用Java反射机制输出类实例的属性值</a></li>
+           
+           <li><a href="/Algorithm/2011/10/19/kmp-algorithm"><i class="icon-file"></i>KMP算法详解</a></li>
+           
+           <li><a href="/Java/2011/10/18/java-multi-threaded"><i class="icon-file"></i>Java多线程总结</a></li>
+           
+           <li><a href="/Linux/2011/10/16/ubuntu-terminal"><i class="icon-file"></i>Ubuntu常用的终端命令</a></li>
+           
+           <li><a href="/Windows/2011/09/26/sunstring-in-batch"><i class="icon-file"></i>批处理截取字符串方法详解</a></li>
+           
+           <li><a href="/Database/2011/08/22/oracle-lock-table-and-unluck"><i class="icon-file"></i>Oracle锁表与解表</a></li>
+           
+           <li><a href="/Linux/2011/08/04/linux-curl"><i class="icon-file"></i>Linux下curl命令的使用</a></li>
+           
+           <li><a href="/Cloud/2011/07/02/quality-of-service"><i class="icon-file"></i>Quality of Service服务质量</a></li>
+           
+           <li><a href="/Web Design/2011/05/11/server-returns-status-code"><i class="icon-file"></i>服务器返回状态码图解</a></li>
+           
+           <li><a href="/Linux/2011/05/05/overviewof-open-source-software-license"><i class="icon-file"></i>开源软件许可证总览</a></li>
+           
+           <li><a href="/J2EE/2011/05/02/all-levels-of-encoding-in-j2ee-system"><i class="icon-file"></i>J2EE系统各个层次的编码方式</a></li>
+           
+           <li><a href="/Algorithm/2011/04/21/data-mining-classical-algorithm-10-cart"><i class="icon-file"></i>数据挖掘十大经典算法(10) CART: 分类与回归树</a></li>
+           
+           <li><a href="/Algorithm/2011/04/20/data-mining-classical-algorithm-9-naive-bayes"><i class="icon-file"></i>数据挖掘十大经典算法(9) 朴素贝叶斯分类器 Naive Bayes</a></li>
+           
+           <li><a href="/Algorithm/2011/04/19/data-mining-classical-algorithm-8-knn-k-nearest-neighbor-classification"><i class="icon-file"></i>数据挖掘十大经典算法(8) kNN: k-nearest neighbor classification</a></li>
+           
+           <li><a href="/Algorithm/2011/04/18/data-mining-classical-algorithm-7-adaboost"><i class="icon-file"></i>数据挖掘十大经典算法(7) AdaBoost</a></li>
+           
+           <li><a href="/Algorithm/2011/04/17/data-mining-classical-algorithm-6-pagerank"><i class="icon-file"></i>数据挖掘十大经典算法(6) PageRank</a></li>
+           
+           <li><a href="/Algorithm/2011/04/16/data-mining-classical-algorithm-5"><i class="icon-file"></i>数据挖掘十大经典算法(5) 最大期望(EM)算法</a></li>
+           
+           <li><a href="/Algorithm/2011/04/15/data-mining-classical-algorithm-4-the-apriori-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(4) The Apriori algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/14/data-mining-classical-algorithm-3-support-vector-machines"><i class="icon-file"></i>数据挖掘十大经典算法(3) Support vector machines</a></li>
+           
+           <li><a href="/Algorithm/2011/04/13/data-mining-classical-algorithm-2-the-k-means-algorithm"><i class="icon-file"></i>数据挖掘十大经典算法(2) The k-means algorithm</a></li>
+           
+           <li><a href="/Algorithm/2011/04/12/data-mining-classical-algorithm-1-c4-5"><i class="icon-file"></i>数据挖掘十大经典算法(1) C4.5</a></li>
+           
+           <li><a href="/Linux/2011/04/11/unix-timestamp"><i class="icon-file"></i>关于Unix时间戳(Unix timestamp)</a></li>
+           
+           <li><a href="/Java/2011/04/02/java-data-type-double-long"><i class="icon-file"></i>Java数据类型转化，特别是Double转Long</a></li>
+           
+           <li><a href="/Design Pattern/2011/03/30/gof-prototype"><i class="icon-file"></i>GoF设计模式之Prototype(原型模式)</a></li>
+           
+           <li><a href="/UML/2011/03/27/uml-class-diagram-elements"><i class="icon-file"></i>全面认识UML-类图元素</a></li>
+           
+           <li><a href="/Linux/2011/03/21/ubuntu-jdk"><i class="icon-file"></i>Ubuntu环境下配置JDK</a></li>
+           
+           <li><a href="/Database/2011/03/19/mysql-join"><i class="icon-file"></i>MySQL的连接/联结（Join）语法</a></li>
+           
+           <li><a href="/Security/2011/03/14/two-basic-algorithms-in-classical-encryption-technology"><i class="icon-file"></i>古典加密技术中最基本的两种算法</a></li>
+           
+           <li><a href="/Java/2011/03/12/java-lang-class"><i class="icon-file"></i>深入研究java.lang.Class类</a></li>
+           
+           <li><a href="/Version Control/2011/03/12/svn-trunk-branches-and-tags"><i class="icon-file"></i>SVN trunk, branches and tags</a></li>
+           
+           <li><a href="/Linux/2011/03/02/linux-ubuntu-mount-point-presentations"><i class="icon-file"></i>Linux(Ubuntu)挂载点介绍及桌面服务器分区方案</a></li>
+           
+           <li><a href="/Windows/2011/02/15/windows-aik-3-0-imagex-winpe3-0"><i class="icon-file"></i>使用Windows AIK 3.0制作带ImageX的winPE3.0</a></li>
+           
+           <li><a href="/Version Control/2011/02/14/svn-guidelines-to-submit-updated"><i class="icon-file"></i>SVN提交更新的一些准则</a></li>
+           
+           <li><a href="/Cloud/2011/01/19/virtualbox-vdi-resizeexpand-capacity"><i class="icon-file"></i>VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)</a></li>
+           
+           <li><a href="/Linux/2011/01/15/ubuntu-remount-home-mount-fstab"><i class="icon-file"></i>Ubuntu重新挂载 /home （有关mount和fstab）</a></li>
+           
+           <li><a href="/Android/2011/01/08/64bit-m9-android-mobile-usb-driver"><i class="icon-file"></i>64位系统连接M9等Android手机的USB驱动修改方法</a></li>
+           
+           <li><a href="/Other/2010/11/06/10-programming-experience"><i class="icon-file"></i>每位开发人员都应铭记的10句编程谚语</a></li>
+           
+           <li><a href="/Other/2010/10/29/how-to-achievement-of-a-senior-programmer"><i class="icon-file"></i>是什么成就了一名“高级”程序员？</a></li>
+           
+           <li><a href="/Matlab/2010/10/21/matlab-curve-fitting-toolbox"><i class="icon-file"></i>Matlab曲线拟合工具箱Curve Fitting Toolbox</a></li>
+           
+           <li><a href="/Java/2010/10/09/how-to-package-a-java-program-as-executable-file"><i class="icon-file"></i>如何打包JAVA程序以及生成可执行文件</a></li>
+           
+           <li><a href="/C/2010/10/05/c-language-drawin-lagrange-interpolation"><i class="icon-file"></i>C语言绘图-拉格朗日插值</a></li>
+           
+           <li><a href="/Java/2010/07/27/java-j2se-and-c-comparison"><i class="icon-file"></i>Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)</a></li>
+           
+           <li><a href="/Linux/2010/04/02/5-open-source-license-agreement"><i class="icon-file"></i>5大开源许可协议详解</a></li>
+           
+           <li><a href="/Linux/2009/10/02/linux-redhat-adsl"><i class="icon-file"></i>Redhat下使用ADSL拨号上网</a></li>
+           
+           <li><a href="/Linux/2009/08/10/linux-gdb-debug-c"><i class="icon-file"></i>linux下用gdb调试c程序的总结</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/s-form-action"><i class="icon-file"></i>浅谈s:form标签中action属性为XX.action与XX的区别</a></li>
+           
+           <li><a href="/J2EE/2009/07/11/struts2-struts-config-xml"><i class="icon-file"></i>struts2的struts-config.xml文件</a></li>
+           
+           <li><a href="/J2EE/2009/06/01/spring-applicationcontext-xml"><i class="icon-file"></i>Spring的applicationContext.xml文件</a></li>
+           
+           <li><a href="/Linux/2009/05/16/linux-speed-up-yum"><i class="icon-file"></i>Speed Up YUM！让Linux的升级速度快如飞</a></li>
+           
+           <li><a href="/Linux/2009/05/02/linux-os-file-system"><i class="icon-file"></i>Linux操作系统文件系统基础知识详解</a></li>
+           
+           <li><a href="/Linux/2009/04/05/rpm"><i class="icon-file"></i>RPM命令详解</a></li>
+           
+	       </ul></li>
+  </div>
+</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	  <hr>
+      <footer>
+        <p>&copy; dreambt 2012</p>
+      </footer>
+
+	<script src="/assets/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+	<script src="/assets/themes/twitter/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    
+  </body>
+</html>
+
