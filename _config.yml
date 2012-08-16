@@ -6,7 +6,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
 pygments: true
 markdown: rdiscount
-paginate: 10
+paginate: 5
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -18,7 +18,7 @@ author :
   email : dreambt@gmail.com
   github : dreambt
   twitter : dreambt
-  feedburner : feedname
+  feedburner : dreambt
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
