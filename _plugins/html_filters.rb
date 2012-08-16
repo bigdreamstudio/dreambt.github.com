@@ -1,6 +1,6 @@
 # encoding: utf-8
-#require 'rubygems'
-#require 'nokogiri'
+require 'rubygems'
+require 'nokogiri'
 
 module Liquid
   module StandardFilters

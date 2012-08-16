@@ -3,19 +3,16 @@ layout: post
 category : J2EE
 tags : [intro, beginner, J2EE, Log4j, log]
 title: 日志处理Log4j
+author: Dreambt
 wordpress_id: 1176
 wordpress_url: http://www.im47.cn/?p=1176
 date: 2012-08-13 04:53:11.000000000 +08:00
 ---
-<h2>日志分级</h2>
-<em>DEBUG</em>
+## 日志分级
 
-<em>INFO</em>
+DEBUG
+INFO
+WARN
+ERROR
+FATAL
 
-<em>WARN</em>
-
-<em> ERROR</em><em></em>
-
-<em>FATAL</em>
-
-&nbsp;

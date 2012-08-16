@@ -1,0 +1,19 @@
+active: true
+bio:
+  This is a sample person's bio.
+email: dreambt@gmail.com
+github: dreambt
+image:
+  url: /images/headpic/dreambt.jpg
+  title: Dreambt
+  alt: Dreambt
+  attribution:
+layout: profile
+linkedin: dreambt
+name: Dreambt
+role: Founder & CEO
+short:
+  <a href="/team/dreambt">Dreambt</a> is the founder and CEO of the company.
+twitter: dreambt
+type: employee
+website: http://www.im47.cn/

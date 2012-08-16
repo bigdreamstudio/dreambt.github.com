@@ -1,0 +1,30 @@
+<div id="author" class="author">
+  <h3>About the Author</h3>
+  <div class="vcard row">
+      <div class="span2 center">
+        <img class="photo" src="{{ author.image.url }}" title="{{ author.image.title }}" alt="{{ author.image.alt }}" width="200" height="200" />
+      </div>
+      <div class="note span3">
+        <h1>
+      {{ author.name }}
+      <small>{{ author.role }}</small>
+    </h1>
+
+    {{ author.bio }}
+
+    <ul>
+      {% if author.linkedin %}
+        <li><a href="http://www.linkedin.com/in/{{ author.linkedin }}">Connect on LinkedIn</a></li>
+      {% endif %}
+
+      {% if author.twitter %}
+        <li><a href="http://twitter.com/{{ author.twitter }}">Follow on Twitter</a></li>
+      {% endif %}
+
+      {% if author.github %}
+        <li><a href="http://github.com/{{ author.github }}">Follow on GitHub</a></li>
+      {% endif %}
+    </ul>
+    </p>
+  </div>
+</div>
