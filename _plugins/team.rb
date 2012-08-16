@@ -50,7 +50,7 @@ module Jekyll
 
     # Loops through the list of team pages and processes each one.
     def write_team(site)
-      if Dir.exists?('_team')
+      if File.directory?('_team')
         Dir.chdir('_team')
         Dir["*.yml"].each do |path|
           name = File.basename(path, '.yml')
