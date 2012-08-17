@@ -32,7 +32,12 @@
           <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
 		  <div class="nav-collapse">
 			<ul class="nav">
-			  <li><a href="/categories/Life">Life</a></li>
+			  <li><a href="/Life">Life</a></li>
+			  <li><a href="/J2EE/">J2EE</a></li>
+			  <li><a href="/Linux/">Linux</a></li>
+			  <li><a href="/Cloud/">Cloud</a></li>
+			  <li><a href="/Web Design/">Web</a></li>						
+			  <li><a href="/Other/">Other</a></li>
 		      <li class="dropdown">
 			    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
 			    <ul class="dropdown-menu">
@@ -59,21 +64,9 @@
 				<div class="well sidebar-nav">
 					<ul class="nav nav-list">
 						<li class="nav-header">文章分类</li>
-						<!--
 						{% for category in site.categories %}
-  						<li><a href="/categories/{{category | first}}">{{category | first}}</a></li>
+  						<li><a href="/{{category | first}}">{{category | first}}</a></li>
   						{% endfor %}
-						-->
-						<li><a href="/categories/Life/">Life</a></li>
-						<li><a href="/categories/Java/">Java</a></li>
-						<li><a href="/categories/J2EE/">J2EE</a></li>
-						<li><a href="/categories/Database/">Database</a></li>
-						<li><a href="/categories/Linux/">Linux</a></li>
-						<li><a href="/categories/Cloud/">Cloud</a></li>
-						<li><a href="/categories/Web Design/">Web Design</a></li>
-						<li><a href="/categories/Algorithm/">Algorithm</a></li>
-						<li><a href="/categories/Design Pattern/">Design Pattern</a></li>						
-						<li><a href="/categories/Other/">Other</a></li>
 						<li class="nav-header">文章归档</li>
 						<li><a href="/2012/">2012</a></li>
 						<li><a href="/2011/">2011</a></li>

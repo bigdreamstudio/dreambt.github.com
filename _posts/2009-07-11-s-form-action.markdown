@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, beginner, J2EE, Struts2]
+tags : [J2EE, Struts2]
 title: 浅谈s:form标签中action属性为XX.action与XX的区别
 wordpress_id: 170
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=170

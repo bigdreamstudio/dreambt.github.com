@@ -30,8 +30,12 @@
     <div class="well sidebar-nav">
 	  <ul class="nav nav-list">
 	    <li class="nav-header">Author</li>
-		<li><a href="/team/{{ page.author }}">{{ page.author }}</a></li>
-	    <li class="nav-header">Published</li>
+		{% if page.author %}
+		  <li><a href="/team/{{ page.author }}">{{ page.author }}</a></li>
+		{% else %}
+		  <li><a href="/team/Dreambt">Dreambt</a></li>
+	    {% endif %}
+		<li class="nav-header">Published</li>
 		<li><div class="date"><span>{{ page.date | date:"%Y-%m-%d" }}</span></div></li>
 		{% unless page.tags == empty %}
 		<li class="nav-header">Tags</li>
