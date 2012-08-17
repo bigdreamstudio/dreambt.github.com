@@ -10,7 +10,9 @@ tagline: Open source, Cloud, Java, Linux and so on
                             更新: <span>{{ post.date | date:"%Y-%m-%d" }}</span>                            |
                             <span>作者: <a href="/team/{{ post.author }}">{{ post.author }}</a></span>
                         </div>
-    {{ post.content | truncatehtml: 255 }}
+    {% if post.excerpt %}
+        {{ post.excerpt | markdownify }}
+    {% endif %}
     <p> <a href="{{ post.url }}/#more" class="more-link"><span class="readmore">阅读全文 &raquo; </span></a></p>
     </div>
 {% endfor %}

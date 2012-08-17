@@ -3,10 +3,12 @@ layout: post
 category : Design Pattern
 tags : [intro, GoF, factory]
 title: GoF设计模式之简单工厂模式
+author: Dreambt
 wordpress_id: 893
 wordpress_url: http://www.im47.net/?p=893
 date: 2012-07-04 15:18:23.000000000 +08:00
 ---
+{% excerpt %}
 简单工厂模式是由一个工厂对象决定创建出哪一种产品类的实例。
 
 &nbsp;
@@ -14,7 +16,7 @@ date: 2012-07-04 15:18:23.000000000 +08:00
 实现：
 
 <a href="http://www.im47.cn/wp-content/uploads/2011/03/1.jpg"><img class="aligncenter size-full wp-image-1153" title="1" src="http://www.im47.cn/wp-content/uploads/2011/03/1.jpg" alt="" width="501" height="180" /></a>
-
+{% endexcerpt %}
 &nbsp;
 
 工厂类:

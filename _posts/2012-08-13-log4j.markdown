@@ -8,6 +8,7 @@ wordpress_id: 1176
 wordpress_url: http://www.im47.cn/?p=1176
 date: 2012-08-13 04:53:11.000000000 +08:00
 ---
+{% excerpt %}
 ## 日志分级
 
 DEBUG
@@ -15,4 +16,4 @@ INFO
 WARN
 ERROR
 FATAL
-
+{% endexcerpt %}
