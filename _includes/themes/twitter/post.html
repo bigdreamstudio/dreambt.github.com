@@ -5,21 +5,19 @@
 <div class="row-fluid">
   <div class="span9">
     {{ content }}
-    <hr>
-    {% authors %}
-    <hr>
+    <hr> 
     <div class="pagination">
       <ul>
-      {% if page.previous %}
-        <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
+      {% if page.previous.url %}
+        <li class="prev"><a href="{{ page.previous.url }}" rel="previous" title="{{ page.previous.title }}">&laquo;&nbsp;{{ page.previous.title }}</a></li>
       {% else %}
-        <li class="prev disabled"><a>&larr; Previous</a></li>
+        <li class="prev disabled"><a>&laquo;&nbsp;Previous</a></li>
       {% endif %}
         <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-      {% if page.next %}
-        <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
+      {% if page.next.url %}
+        <li class="next"><a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title }}&nbsp;&raquo;</a></li>
       {% else %}
-        <li class="next disabled"><a>Next &rarr;</a>
+        <li class="next disabled"><a>Next&nbsp;&raquo;</a></li>
       {% endif %}
       </ul>
     </div>
@@ -31,11 +29,13 @@
   <div class="span3">
     <div class="well sidebar-nav">
 	  <ul class="nav nav-list">
+	    <li class="nav-header">Author</li>
+		<li><a href="/team/{{ page.author }}">{{ page.author }}</a></li>
 	    <li class="nav-header">Published</li>
 		<li><div class="date"><span>{{ page.date | date:"%Y-%m-%d" }}</span></div></li>
 		{% unless page.tags == empty %}
 		<li class="nav-header">Tags</li>
-		<li><ul class="tag_box">
+		<li><ul class="tag_box inline">
 		  {% assign tags_list = page.tags %}
 		  {% include JB/tags_list %}
 		  </ul></li>
@@ -45,6 +45,7 @@
 	      {% for post in site.related_posts %}
            <li><a href="{{ post.url }}"><i class="icon-file"></i>{{ post.title }}</a></li>
            {% endfor %}
-	       </ul></li>
+	       </ul></li>       
+	  </ul>
   </div>
 </div>
