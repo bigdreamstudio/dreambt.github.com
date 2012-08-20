@@ -7,8 +7,8 @@ author: Dreambt
 wordpress_id: 1168
 wordpress_url: http://www.im47.cn/?p=1168
 date: 2012-08-04 17:26:09.000000000 +08:00
+excerpt: 如今很多网站的功能都强调彼此间的交互，因此我们需要一种简单，标准的解决方案来安全的完成应用的授权，于是，OAuth应运而生，看看官网对其的定义：<blockquote>An open protocol to allow secure API authorization  in a simple and standard method from desktop and web applications.</blockquote>
 ---
-{% excerpt %}
 <h2>什么是OAuth</h2>
 如今很多网站的功能都强调彼此间的交互，因此我们需要一种简单，标准的解决方案来安全的完成应用的授权，于是，OAuth应运而生，看看官网对其的定义：
 <blockquote>An open protocol to allow secure API authorization  in a simple and standard method from desktop and web applications.</blockquote>
@@ -21,7 +21,7 @@ date: 2012-08-04 17:26:09.000000000 +08:00
 用户好理解，不必多言，消费方和服务提供者则需要解释一下，举例来说：假设我们做了一个SNS，它有一个功能，可以让会员把他们在Google上的联系人导入到SNS上，那么此时的消费方就是SNS，而服务提供者则是Google。
 
 注：<a href="http://code.google.com/more/" target="_blank">Google APIs</a>支持<a href="http://code.google.com/apis/accounts/docs/OAuth.html" target="_blank">OAuth</a>。
-{% endexcerpt %}
+
 消费方如果想使用服务提供者的OAuth功能，通常需要先申请两样东西：
 <ul>
 	<li>Consumer Key</li>

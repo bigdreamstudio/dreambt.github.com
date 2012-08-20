@@ -8,7 +8,6 @@ wordpress_id: 1167
 wordpress_url: http://www.im47.cn/?p=1167
 date: 2012-08-02 17:19:05.000000000 +08:00
 ---
-{% excerpt %}
 <strong>1.5.0如何挂载U盘？</strong>
 
 esxi 4.1是可以自动挂的，5.0不可以。挂载办法如下：
@@ -19,4 +18,3 @@ esxi 4.1是可以自动挂的，5.0不可以。挂载办法如下：
 但是在挂之前要注意，esxi只支持对 fat/ext3/vmfs分区的读写， fat32（有的人说可以，但很多限制）和ntfs是不支持的， 这一点要注意。
 
 如果用完后，拔出U盘， 运行  /etc/init.d/usbarbitrator start
-{% endexcerpt %}

@@ -74,6 +74,4 @@ class Jekyll::Thumbnail < Liquid::Tag
   end
 end
 
-
-
-Liquid::Template.register_tag('thumbnail',   Jekyll::Thumbnail)
+Liquid::Template.register_tag('thumbnail', Jekyll::Thumbnail)
