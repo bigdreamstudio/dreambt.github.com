@@ -14,7 +14,7 @@ category_dir: ''
 # so be sure to set them if your theme uses them.
 #
 title : SiQi Blog
-tagline: Site Tagline
+tagline: Open source, Cloud, Java, Linux and so on
 author :
   name : dreambt
   email : dreambt@gmail.com
@@ -128,3 +128,45 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+# ----------------------- #
+#   3rd Party Settings    #
+# ----------------------- #
+
+# Weibo Share Button
+weibo_share: true
+weibo_uid: dreambt
+
+# Github repositories
+github_user: dreambt
+github_repo_count: 0
+github_show_profile_link: true
+github_skip_forks: true
+
+# Twitter
+twitter_user: dreambt
+twitter_tweet_count: 4
+twitter_show_replies: false
+twitter_follow_button: true
+twitter_show_follower_count: false
+twitter_tweet_button: true
+
+# Google +1
+google_plus_one: false
+google_plus_one_size: medium
+
+# Google Plus Profile
+# Hidden: No visible button, just add author information to search results
+googleplus_user: dreambt
+googleplus_hidden: false
+
+links:
+  - url: "http://dreambt.github.com"
+    name: "dreambt@Github"
+  - url: "http://mimiz.cn"
+    name: "觅觅守候"
+  - url: "http://weisay.com"
+    name: "威言威语"
+  - url: "http://liuzhaocn.com"
+    name: "刘钊博客"
+  - url: "http://ijser.cn"
+    name: "ijser博客"

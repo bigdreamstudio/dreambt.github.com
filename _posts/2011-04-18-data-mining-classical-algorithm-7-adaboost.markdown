@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm]
+tags : [DataMining, Algorithm]
 title: 数据挖掘十大经典算法(7) AdaBoost
 wordpress_id: 911
 wordpress_url: http://www.im47.net/?p=911

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, beginner, Java]
+tags : [Java]
 title: Java多线程总结
 wordpress_id: 1022
 wordpress_url: http://www.im47.cn/?p=1022

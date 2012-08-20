@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Windows
-tags : [intro, beginner, AIK, ImageX, tutorial, winPE]
+tags : [AIK, ImageX, tutorial, winPE]
 title: 使用Windows AIK 3.0制作带ImageX的winPE3.0
 wordpress_id: 863
 wordpress_url: http://www.im47.net/?p=863

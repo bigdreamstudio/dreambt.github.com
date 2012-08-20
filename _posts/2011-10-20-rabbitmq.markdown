@@ -1,7 +1,7 @@
 ---
 layout: post
 category : MQ
-tags : [RabbitMQ, beginner, MQ, question]
+tags : [RabbitMQ, MQ, question]
 title: RabbitMQ常见问题整理
 wordpress_id: 1029
 wordpress_url: http://www.im47.cn/?p=1029

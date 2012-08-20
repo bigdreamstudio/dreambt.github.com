@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, Linux, Unix, timestamp]
+tags : [Linux, timestamp]
 title: 关于Unix时间戳(Unix timestamp)
 wordpress_id: 901
 wordpress_url: http://www.im47.net/?p=901

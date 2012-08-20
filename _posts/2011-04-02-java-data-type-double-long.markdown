@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, Java, Double, Long]
+tags : [Java]
 title: Java数据类型转化，特别是Double转Long
 wordpress_id: 891
 wordpress_url: http://www.im47.net/?p=891

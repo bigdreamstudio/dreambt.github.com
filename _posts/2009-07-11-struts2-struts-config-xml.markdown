@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, Struts2, struts-config.xml, J2EE]
+tags : [Struts2, J2EE]
 title: struts2的struts-config.xml文件
 wordpress_id: 169
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=169

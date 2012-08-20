@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Design Pattern
-tags : [intro, GoF, Policy]
+category : Design_Pattern
+tags : [GoF, Policy]
 title: GoF设计模式之Policy策略模式
 wordpress_id: 1137
 wordpress_url: http://www.im47.cn/?p=1137

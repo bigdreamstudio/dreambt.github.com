@@ -1,7 +1,7 @@
 ---
 layout: post
 category : PHP
-tags : [PHP, beginner, question, error]
+tags : [PHP, question, error]
 title: Cannot modify header information - headers already sent by错误解决办法
 wordpress_id: 553
 wordpress_url: http://www.im47.cn/?p=553
@@ -9,7 +9,7 @@ date: 2010-10-07 18:10:58.000000000 +08:00
 ---
 最近在学习PHP，在页面跳转时遇到了一些小问题。出错信息如下所示：
 
-<strong>Warning</strong>: Cannot modify header information - headers already sent by (output started at E:\...\htdocs\...\*.php:1) in <strong>E:\...\htdocs\...\*d.php</strong> on line <strong>3</strong>
+<strong>Warning</strong>: Cannot modify header information - headers already sent by (output started at E:\...\htdocs\...\*.php:1) in?<strong>E:\...\htdocs\...\*d.php</strong> on line?<strong>3</strong>
 
 <strong></strong><strong>解决方法一：</strong>
 在PHP里Cookie的使用是有一些限制的。

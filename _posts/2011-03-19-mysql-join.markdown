@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Database
-tags : [intro, beginner, Database, MySQL, SQL, join]
+tags : [Database, MySQL, SQL]
 title: MySQL的连接/联结（Join）语法
 wordpress_id: 881
 wordpress_url: http://www.im47.net/?p=881

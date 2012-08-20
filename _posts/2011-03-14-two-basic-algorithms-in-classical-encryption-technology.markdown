@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Security
-tags : [intro, beginner, algorithm, encryption, security]
+tags : [algorithm, encryption, security]
 title: 古典加密技术中最基本的两种算法
 wordpress_id: 873
 wordpress_url: http://www.im47.net/?p=873

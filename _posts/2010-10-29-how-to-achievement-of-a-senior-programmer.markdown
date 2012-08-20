@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Other
-tags : [intro, coder, programer, how-to]
+tags : [coder, programer, how-to]
 title: 是什么成就了一名“高级”程序员？
 wordpress_id: 740
 wordpress_url: http://www.im47.cn/?p=740

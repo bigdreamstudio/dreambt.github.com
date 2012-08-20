@@ -1,6 +1,6 @@
 ---
 layout: post
-category : Web Design
+category : Web_Design
 tags : [Development, process, web]
 title: 网站开发的流程
 wordpress_id: 88

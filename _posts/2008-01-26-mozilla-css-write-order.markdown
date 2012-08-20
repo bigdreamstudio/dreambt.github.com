@@ -1,6 +1,6 @@
 ---
 layout: post
-category : Web Design
+category : Web_Design
 tags : [CSS, Mozilla, tutorial]
 title: Mozilla建议的CSS书写顺序
 wordpress_id: 44

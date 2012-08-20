@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [beginner, J2EE, question, how-to]
+tags : [J2EE, question, how-to]
 title: 【090711更新】SSH常见问题及解决办法
 wordpress_id: 162
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=162

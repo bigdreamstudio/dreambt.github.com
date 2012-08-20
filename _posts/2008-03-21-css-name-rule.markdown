@@ -1,6 +1,6 @@
 ---
 layout: post
-category : Web Design
+category : Web_Design
 tags : [CSS, roles, name, tutorial]
 title: 常用的CSS命名规则
 wordpress_id: 63

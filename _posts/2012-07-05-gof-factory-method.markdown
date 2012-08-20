@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Design Pattern
-tags : [intro, GoF, Factory]
+category : Design_Pattern
+tags : [GoF, Factory]
 title: GoF设计模式之工厂方法模式
 author: Dreambt
 wordpress_id: 1157

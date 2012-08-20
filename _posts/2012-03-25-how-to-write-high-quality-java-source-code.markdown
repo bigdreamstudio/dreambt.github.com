@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [how-to, beginner, Java]
+tags : [how-to, Java]
 title: 如何书写高质量的Java源代码
 wordpress_id: 1125
 wordpress_url: http://www.im47.cn/?p=1125

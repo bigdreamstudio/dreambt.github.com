@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, encode, J2EE]
+tags : [encode, J2EE]
 title: J2EE系统各个层次的编码方式
 wordpress_id: 934
 wordpress_url: http://www.im47.net/?p=934

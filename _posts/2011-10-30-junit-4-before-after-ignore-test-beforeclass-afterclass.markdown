@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Test
-tags : [intro, beginner, Test, JUnit]
+tags : [Test, JUnit]
 title: JUnit 4 中的Before After Ignore Test BeforeClass AfterClass
 wordpress_id: 1048
 wordpress_url: http://www.im47.cn/?p=1048

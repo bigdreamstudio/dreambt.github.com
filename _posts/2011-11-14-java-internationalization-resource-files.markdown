@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [Java, beginner, i19n, resources]
+tags : [Java, i18n, resources]
 title: Java国际化资源文件相关的乱码问题
 wordpress_id: 1054
 wordpress_url: http://www.im47.cn/?p=1054

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm]
+tags : [DataMining, Algorithm]
 title: 数据挖掘十大经典算法(4) The Apriori algorithm
 wordpress_id: 906
 wordpress_url: http://www.im47.net/?p=906

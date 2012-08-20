@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Database
-tags : [Database, beginner, varchar, char]
+tags : [Database, SQL]
 title: char与varchar数据类型转化的奇怪问题
 wordpress_id: 117
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=117

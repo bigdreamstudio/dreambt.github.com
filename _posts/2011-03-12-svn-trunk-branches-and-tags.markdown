@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Version Control
-tags : [intro, beginner, SVN, trunk, branches, tags]
+category : Version_Control
+tags : [SVN, trunk, branches, tags]
 title: SVN trunk, branches and tags
 wordpress_id: 870
 wordpress_url: http://www.im47.net/?p=870

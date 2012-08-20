@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Android
-tags : [intro, beginner, Android, how-to, question]
+tags : [Android, how-to, question]
 title: 64位系统连接M9等Android手机的USB驱动修改方法
 wordpress_id: 786
 wordpress_url: http://www.im47.net/?p=786

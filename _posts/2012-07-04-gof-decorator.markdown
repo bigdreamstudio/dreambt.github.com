@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Design Pattern
-tags : [intro, GoF, Decorator]
+category : Design_Pattern
+tags : [GoF, Decorator]
 title: GoF设计模式之Decorator装饰者模式
 wordpress_id: 1147
 wordpress_url: http://www.im47.cn/?p=1147

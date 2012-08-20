@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Linux, tutorial, Ubuntu, mount, fstab]
+tags : [Linux, tutorial, Ubuntu, mount, fstab]
 title: Ubuntu重新挂载 /home （有关mount和fstab）
 wordpress_id: 845
 wordpress_url: http://www.im47.net/?p=845

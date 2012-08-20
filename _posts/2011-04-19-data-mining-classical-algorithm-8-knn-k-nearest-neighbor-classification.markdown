@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm]
+tags : [DataMining, Algorithm]
 title: ! '数据挖掘十大经典算法(8) kNN: k-nearest neighbor classification'
 wordpress_id: 912
 wordpress_url: http://www.im47.net/?p=912

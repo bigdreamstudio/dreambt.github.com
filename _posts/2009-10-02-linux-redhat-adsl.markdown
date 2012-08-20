@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Linux, tutorial, Redhat, ADSL]
+tags : [Linux, tutorial, Redhat, ADSL]
 title: Redhat下使用ADSL拨号上网
 excerpt: ! "RedHat Linux是目前世界上使用最多的Linux操作系统。因为它具备最好的图形界面，无论是安装、配置还是使用都十分方便，而且运行稳定，因此不论是新手还是老玩家都对它有很高的评价。\r\n然而，初次接触RedHat却发现它的ADSL设置并没有像Fedora、Ubuntu那么简单。这篇文章就详细讲解了在Redhat下如何使用ADSL拨号上网。"
 wordpress_id: 176

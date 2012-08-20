@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Cloud
-tags : [intro, Cloud, QoS]
+tags : [Cloud, QoS]
 title: Quality of Service服务质量
 wordpress_id: 969
 wordpress_url: http://www.im47.cn/?p=969

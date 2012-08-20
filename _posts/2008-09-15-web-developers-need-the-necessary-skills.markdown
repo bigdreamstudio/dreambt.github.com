@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Web Design
-tags : [web, coder, skill, programer]
+category : Web_Design
+tags : [coder, skill, programer]
 title: 任何Web开发人员需要必备的技巧
 wordpress_id: 97
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=97

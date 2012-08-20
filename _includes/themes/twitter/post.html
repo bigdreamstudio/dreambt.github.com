@@ -39,17 +39,44 @@
 		<li><div class="date"><span>{{ page.date | date:"%Y-%m-%d" }}</span></div></li>
 		{% unless page.tags == empty %}
 		<li class="nav-header">Tags</li>
-		<li><ul class="tag_box inline">
+		<li><ul class="tag_box nav nav-pills">
 		  {% assign tags_list = page.tags %}
 		  {% include JB/tags_list %}
 		  </ul></li>
-		  {% endunless %}  
+		  {% include pretty_tabs %}
+		{% endunless %} 
+		<li class="nav-header">Sharing</li>
+<li class="tag_box inline"><!-- JiaThis Button BEGIN -->
+<div id="ckepop">
+<a class="jiathis_button_tsina"></a>
+<a class="jiathis_button_tqq"></a>
+<a class="jiathis_button_fb"></a>
+<a class="jiathis_button_twitter"></a>
+<a class="jiathis_button_googleplus"></a>
+<a class="jiathis_button_fanfou"></a>
+<a class="jiathis_button_diandian"></a>
+<a class="jiathis_button_xianguo"></a>
+<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+	url:"{{ site.url }}{{ page.url }}",
+	summary:{% if page.excerpt %}{{ page.excerpt }}{% else %}""{% endif %},
+	title:"快来看我刚刚分享的文章 《{{ page.title }}》{% unless page.tags == empty %}{% for tag in page.tags %} #{{ tag }}#{% endfor %}{% endunless %}",
+	hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END --></li>		 
         <li class="nav-header">Related Posts</li>
         <li><ul class="unstyled">
 	      {% for post in site.related_posts %}
            <li><a href="{{ post.url }}"><i class="icon-file"></i>{{ post.title }}</a></li>
            {% endfor %}
-	       </ul></li>       
+	       </ul></li>
+		<li class="nav-header">Ads</li>
+		<li><script type="text/javascript">var cpro_id = 'u220730';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script></li>
 	  </ul>
   </div>
 </div>

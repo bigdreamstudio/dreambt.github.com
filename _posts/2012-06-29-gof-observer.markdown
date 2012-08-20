@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Design Pattern
-tags : [intro, GoF, Observer]
+category : Design_Pattern
+tags : [GoF, Observer]
 title: GoF设计模式之Observer观察者模式
 wordpress_id: 1140
 wordpress_url: http://www.im47.cn/?p=1140

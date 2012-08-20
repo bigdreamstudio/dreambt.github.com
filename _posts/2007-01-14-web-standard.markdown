@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Web Design
-tags : [CSS, standard, web, HTML, tutorial]
+category : Web_Design
+tags : [CSS, HTML]
 title: ! '"Web标准"大白话版'
 wordpress_id: 15
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=15

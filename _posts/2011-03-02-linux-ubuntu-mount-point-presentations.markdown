@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Linux, Ubuntu, mount, server]
+tags : [Linux, Ubuntu, mount, server]
 title: Linux(Ubuntu)挂载点介绍及桌面服务器分区方案
 wordpress_id: 867
 wordpress_url: http://www.im47.net/?p=867

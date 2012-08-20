@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm]
+tags : [DataMining, Algorithm]
 title: 数据挖掘十大经典算法(9) 朴素贝叶斯分类器 Naive Bayes
 wordpress_id: 913
 wordpress_url: http://www.im47.net/?p=913

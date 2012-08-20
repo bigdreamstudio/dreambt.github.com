@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Version Control
-tags : [intro, beginner, SVN, tutorial]
+category : Version_Control
+tags : [SVN, tutorial]
 title: SVN提交更新的一些准则
 wordpress_id: 860
 wordpress_url: http://www.im47.net/?p=860

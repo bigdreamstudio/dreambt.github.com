@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Cloud
-tags : [intro, beginner, VirtualBox, tutorial]
+tags : [VirtualBox, tutorial]
 title: VirtualBox虚拟硬盘VDI扩展容量(resize/expand capacity)
 wordpress_id: 846
 wordpress_url: http://www.im47.net/?p=846

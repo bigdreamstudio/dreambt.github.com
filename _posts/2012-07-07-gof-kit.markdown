@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Design Pattern
-tags : [intro, GoF, Kit, factory]
+category : Design_Pattern
+tags : [GoF, Kit, factory]
 title: GoF设计模式之Kit抽象工厂
 author: Dreambt
 wordpress_id: 1160

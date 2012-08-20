@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Linux, FS]
+tags : [Linux, FS]
 title: Linux操作系统文件系统基础知识详解
 wordpress_id: 153
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=153

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, beginner, Java, JVM]
+tags : [Java, JVM]
 title: JVM监控工具介绍jstack, jconsole, jinfo, jmap, jdb, jsta
 wordpress_id: 1059
 wordpress_url: http://www.im47.cn/?p=1059

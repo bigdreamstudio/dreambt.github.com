@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm]
+tags : [DataMining, Algorithm]
 title: 数据挖掘十大经典算法(5) 最大期望(EM)算法
 wordpress_id: 907
 wordpress_url: http://www.im47.net/?p=907

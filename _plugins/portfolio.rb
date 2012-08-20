@@ -28,7 +28,7 @@ module Jekyll
       @base = base
       @dir = dir
       @name = "index.html"
-      self.data = YAML.load(File.read(File.join(@base, path)))
+      self.data = YAML.load(File.read(File.join(@base, path), :encoding => "utf-8"))
 
       self.process(@name) if self.data['published']
     end

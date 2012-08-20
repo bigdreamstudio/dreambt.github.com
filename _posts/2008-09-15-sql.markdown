@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Database
-tags : [Database, beginner, SQL, tutorial]
+tags : [Database, SQL, tutorial]
 title: 通用SQL数据库查询语句精华使用简介
 wordpress_id: 95
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=95

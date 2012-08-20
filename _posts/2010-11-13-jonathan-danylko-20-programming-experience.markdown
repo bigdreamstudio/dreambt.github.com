@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Other
-tags : [beginner, coder, programer]
+tags : [coder, programer]
 title: Jonathan Danylko的20条编程经验
 wordpress_id: 767
 wordpress_url: http://www.im47.cn/?p=767

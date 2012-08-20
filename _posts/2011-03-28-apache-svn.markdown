@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Version Control
-tags : [Apache, beginner, SVN, tutorial, how-to]
+category : Version_Control
+tags : [Apache, SVN, tutorial, how-to]
 title: 如何让现有的Apache服务器支持SVN
 wordpress_id: 886
 wordpress_url: http://www.im47.net/?p=886

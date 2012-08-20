@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm]
+tags : [DataMining, Algorithm]
 title: 数据挖掘十大经典算法(3) Support vector machines
 wordpress_id: 905
 wordpress_url: http://www.im47.net/?p=905

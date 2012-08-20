@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Other
-tags : [intro, coder, programer, how-to]
+tags : [coder, programer, how-to]
 title: 每位开发人员都应铭记的10句编程谚语
 wordpress_id: 752
 wordpress_url: http://www.im47.cn/?p=752

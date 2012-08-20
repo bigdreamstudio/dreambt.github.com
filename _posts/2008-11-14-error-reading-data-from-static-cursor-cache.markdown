@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Database
-tags : [Database, beginner, SQL, error, help]
+tags : [Database, SQL, error]
 title: 莫名其妙的Error reading data from static cursor cache
 wordpress_id: 113
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=113

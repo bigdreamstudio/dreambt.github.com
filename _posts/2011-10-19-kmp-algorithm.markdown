@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Algorithm, KMP]
+tags : [Algorithm]
 title: KMP算法详解
 wordpress_id: 1025
 wordpress_url: http://www.im47.cn/?p=1025

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [Linux, curl, intro]
+tags : [Linux, curl]
 title: Linux下curl命令的使用
 wordpress_id: 991
 wordpress_url: http://www.im47.cn/?p=991

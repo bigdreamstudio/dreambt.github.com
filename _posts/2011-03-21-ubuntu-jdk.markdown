@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Ubuntu, tutorial, Linux, JDK, configure]
+tags : [Ubuntu, tutorial, Linux, JDK, configure]
 title: Ubuntu环境下配置JDK
 wordpress_id: 878
 wordpress_url: http://www.im47.net/?p=878

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : PHP
-tags : [PHP, beginner, question, phpize, error]
+tags : [PHP, question, phpize, error]
 title: 运行phpize时出现：Cannot find autoconf. Please check your autoconf installation
 wordpress_id: 1129
 wordpress_url: http://www.im47.cn/?p=1129

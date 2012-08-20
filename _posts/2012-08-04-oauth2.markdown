@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Security
-tags : [intro, Security, OAuth]
+tags : [Security, OAuth]
 title: OAuth原理初探
 author: Dreambt
 wordpress_id: 1168

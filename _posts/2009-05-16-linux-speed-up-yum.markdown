@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Linux]
+tags : [Linux]
 title: Speed Up YUM！让Linux的升级速度快如飞
 wordpress_id: 157
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=157

@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Web Design
-tags : [div, css, tutorial]
+category : Web_Design
+tags : [div, CSS, tutorial]
 title: div+css命名参考
 wordpress_id: 17
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=17

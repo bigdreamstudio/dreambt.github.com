@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Database
-tags : [Database, SQL, Fazzy, Query]
+tags : [Database, SQL, Query]
 title: 有关SQL模糊查询
 wordpress_id: 94
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=94

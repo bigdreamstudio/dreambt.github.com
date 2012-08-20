@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Design Pattern
-tags : [intro, GoF, Prototype]
+category : Design_Pattern
+tags : [GoF, Prototype]
 title: GoF设计模式之Prototype(原型模式)
 wordpress_id: 894
 wordpress_url: http://www.im47.net/?p=894

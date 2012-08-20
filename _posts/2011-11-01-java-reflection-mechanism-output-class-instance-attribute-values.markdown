@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, beginner, Java, how-to, reflection]
+tags : [Java, how-to, reflection]
 title: 利用Java反射机制输出类实例的属性值
 wordpress_id: 1051
 wordpress_url: http://www.im47.cn/?p=1051

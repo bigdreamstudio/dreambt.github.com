@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, beginner, Java, C#]
+tags : [Java, C#]
 title: Java和C#的语法对照表(Java (J2SE 5.0) and C# Comparison)
 wordpress_id: 421
 wordpress_url: http://www.im47.cn/?p=421

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Windows
-tags : [intro, beginner, substring, batch, Windows]
+tags : [substring, batch, Windows]
 title: 批处理截取字符串方法详解
 wordpress_id: 1008
 wordpress_url: http://www.im47.cn/?p=1008

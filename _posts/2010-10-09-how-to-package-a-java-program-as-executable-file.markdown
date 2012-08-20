@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, beginner, Java, how-to]
+tags : [Java, how-to]
 title: 如何打包JAVA程序以及生成可执行文件
 wordpress_id: 562
 wordpress_url: http://www.im47.cn/?p=562

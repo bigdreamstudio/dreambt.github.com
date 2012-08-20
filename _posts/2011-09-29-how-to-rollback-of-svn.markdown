@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Version Control
-tags : [how-to, beginner, SVN]
+category : Version_Control
+tags : [how-to, SVN]
 title: 如何对SVN进行回滚操作
 wordpress_id: 1010
 wordpress_url: http://www.im47.cn/?p=1010

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, Spring, applicationContext.xml, J2EE]
+tags : [Spring, applicationContext.xml, J2EE]
 title: Spring的applicationContext.xml文件
 wordpress_id: 161
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=161

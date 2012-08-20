@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Java
-tags : [intro, Java, java.lang.Class]
+tags : [Java, java.lang.Class]
 title: 深入研究java.lang.Class类
 wordpress_id: 871
 wordpress_url: http://www.im47.net/?p=871

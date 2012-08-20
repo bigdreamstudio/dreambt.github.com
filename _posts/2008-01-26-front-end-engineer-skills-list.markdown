@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Web Design
-tags : [web, skill]
+category : Web_Design
+tags : [skill, UED]
 title: Web前端工程师技能列表
 wordpress_id: 43
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=43

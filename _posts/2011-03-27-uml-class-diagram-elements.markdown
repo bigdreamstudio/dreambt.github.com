@@ -1,7 +1,7 @@
 ---
 layout: post
 category : UML
-tags : [intro, beginner, UML, class diagram]
+tags : [UML]
 title: 全面认识UML-类图元素
 wordpress_id: 884
 wordpress_url: http://www.im47.net/?p=884

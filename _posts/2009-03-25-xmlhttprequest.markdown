@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Web Design
-tags : [XMLHttpRequest, beginner, javascript, AJAX, tutorial]
+category : Web_Design
+tags : [XMLHttpRequest, javascript, AJAX, tutorial]
 title: XMLHttpRequest对象
 wordpress_id: 144
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=144

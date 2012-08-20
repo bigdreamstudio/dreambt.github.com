@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Linux, Ubuntu, VMWare]
+tags : [Linux, Ubuntu, VMWare]
 title: Install VMWare Tools on Ubuntu Server
 wordpress_id: 1052
 wordpress_url: http://www.im47.cn/?p=1052

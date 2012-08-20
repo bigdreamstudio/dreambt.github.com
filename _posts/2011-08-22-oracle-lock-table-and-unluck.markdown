@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Database
-tags : [intro, beginner, Database, Oracle, luck table]
+tags : [Database, Oracle]
 title: Oracle锁表与解表
 wordpress_id: 1003
 wordpress_url: http://www.im47.cn/?p=1003

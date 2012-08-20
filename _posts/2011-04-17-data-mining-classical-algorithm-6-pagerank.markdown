@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm, PageRank]
+tags : [DataMining, Algorithm, PageRank]
 title: 数据挖掘十大经典算法(6) PageRank
 wordpress_id: 910
 wordpress_url: http://www.im47.net/?p=910

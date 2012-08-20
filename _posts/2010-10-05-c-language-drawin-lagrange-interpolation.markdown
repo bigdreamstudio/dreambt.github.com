@@ -1,7 +1,7 @@
 ---
 layout: post
 category : C
-tags : [intro, beginner, C]
+tags : [C]
 title: C语言绘图-拉格朗日插值
 wordpress_id: 532
 wordpress_url: http://www.im47.cn/?p=532

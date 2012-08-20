@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Matlab
-tags : [intro, beginner, Matlab, Curve fitting, Toolbox]
+tags : [Matlab, CurveFitting, Toolbox]
 title: Matlab曲线拟合工具箱Curve Fitting Toolbox
 wordpress_id: 686
 wordpress_url: http://www.im47.cn/?p=686

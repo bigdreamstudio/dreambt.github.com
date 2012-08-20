@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, beginner, J2EE, Tomcat, HTTP]
+tags : [J2EE, Tomcat, HTTP]
 title: Tomcat处理HTTP请求源码分析（上）
 wordpress_id: 1081
 wordpress_url: http://www.im47.cn/?p=1081

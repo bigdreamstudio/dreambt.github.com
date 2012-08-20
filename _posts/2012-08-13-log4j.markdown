@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, beginner, J2EE, Log4j, log]
+tags : [J2EE, Log4j]
 title: 日志处理Log4j
 author: Dreambt
 wordpress_id: 1176

@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, Linux, Open source]
+tags : [Linux, OpenSource]
 title: 开源软件许可证总览
 wordpress_id: 944
 wordpress_url: http://www.im47.net/?p=944

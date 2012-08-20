@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Test
-tags : [intro, Ruby, Watir, Test]
+tags : [Ruby, Watir, Test]
 title: Ruby和Watir调用浏览器测试
 wordpress_id: 974
 wordpress_url: http://www.im47.cn/?p=974

@@ -1,7 +1,7 @@
 ---
 layout: post
-category : Web Design
-tags : [intro, respone status, web, server]
+category : Web_Design
+tags : [respone, server]
 title: 服务器返回状态码图解
 wordpress_id: 945
 wordpress_url: http://www.im47.net/?p=945

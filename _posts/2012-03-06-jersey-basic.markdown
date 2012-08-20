@@ -1,7 +1,7 @@
 ---
 layout: post
 category : J2EE
-tags : [intro, beginner, Jersey, java, J2EE, REST, Web service]
+tags : [Jersey, J2EE, REST, Web service]
 title: Jersey基础知识分享
 wordpress_id: 1118
 wordpress_url: http://www.im47.cn/?p=1118

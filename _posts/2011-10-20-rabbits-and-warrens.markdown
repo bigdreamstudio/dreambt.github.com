@@ -1,7 +1,7 @@
 ---
 layout: post
 category : MQ
-tags : [MQ, beginner, RabbitMQ]
+tags : [MQ, RabbitMQ]
 title: ! '[翻译] [RabbitMQ入门经典] 兔子和兔子窝'
 wordpress_id: 1026
 wordpress_url: http://www.im47.cn/?p=1026

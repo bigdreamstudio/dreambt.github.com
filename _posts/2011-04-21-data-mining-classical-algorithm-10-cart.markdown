@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Algorithm
-tags : [intro, Data mining, Algorithm, CART]
+tags : [DataMining, Algorithm, CART]
 title: ! '数据挖掘十大经典算法(10) CART: 分类与回归树'
 wordpress_id: 914
 wordpress_url: http://www.im47.net/?p=914

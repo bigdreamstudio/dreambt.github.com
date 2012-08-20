@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Cloud
-tags : [Cloud, beginner, ESXi, question]
+tags : [Cloud, ESXi, question]
 title: ESXi相关问题解决
 author: Dreambt
 wordpress_id: 1167

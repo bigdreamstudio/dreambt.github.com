@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Ruby
-tags : [intro, beginner, Ruby]
+tags : [Ruby]
 title: Ruby中常用的全局变量
 wordpress_id: 1035
 wordpress_url: http://www.im47.cn/?p=1035

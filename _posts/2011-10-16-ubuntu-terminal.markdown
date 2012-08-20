@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [intro, beginner, Ubuntu, Linux]
+tags : [Ubuntu, Linux]
 title: Ubuntu常用的终端命令
 wordpress_id: 1021
 wordpress_url: http://www.im47.cn/?p=1021
