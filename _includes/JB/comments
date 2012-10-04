@@ -1,3 +1,4 @@
+{% assign comment_immediately = true %}
 {% if site.JB.comments.provider and page.comments != false %}
 
 <div id="disqus_container">

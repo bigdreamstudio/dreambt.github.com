@@ -6,7 +6,7 @@ title: Sample Team Layout
   {% if page.team['employee'] %}
     <h2>Core Team Members</h2>
 
-    <ul class="team row">
+    <ul class="team" style="margin-left:0px;">
       {% for person in page.team['employee'] %}
         <li class="person span3">
           <a href="/team/{{ person[0] }}">

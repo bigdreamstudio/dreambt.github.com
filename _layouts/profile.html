@@ -1,8 +1,8 @@
 ---
 layout: page
 ---
-<div id="profile" class="row">
-  <div class="span4">
+<div id="profile">
+  <div class="span3">
     {% if page.image %}
       <div id="profile-photo">
         <img src="{{ page.image.url }}" title="{{ page.image.title }}" alt="{{ page.image.alt }}" width="200" height="200" />
@@ -10,7 +10,7 @@ layout: page
     {% endif %}
   </div>
 
-  <div class="span11">
+  <div class="span9">
     <h1>
       {{ page.name }}
       <small>{{ page.role }}</small>
