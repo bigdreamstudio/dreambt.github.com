@@ -3,45 +3,34 @@ layout: post
 category : Design_Pattern
 tags : [GoF, Kit, factory]
 title: GoF设计模式之Kit抽象工厂
-author: Dreambt
-wordpress_id: 1160
-wordpress_url: http://www.im47.cn/?p=1160
 date: 2012-07-07 18:04:58.000000000 +08:00
+thumbnail: /assets/images/2012/07/gof_kit_1.jpg
 excerpt: 抽象工厂（Kit）模式提供一个接口，用来创建相关或依赖对象的家族，而不需要明确指定具体类。
 ---
 抽象工厂（Kit）模式提供一个接口，用来创建相关或依赖对象的家族，而不需要明确指定具体类。
 
-&nbsp;
-
 特点：
 
 1. 抽象工厂模式面对的问题是多个产品等级结构的系统设计
-
 2. 抽象工厂模式是工厂方法的进一步推广
-
 3. 抽象工厂将产品对象的创建延迟到它的具体工厂的子类。
-
 4. 通常在运行时刻创建一个具体工厂类的实例，这一具体工厂的创建具有特定实现的产品对象，为创建不同的产品对象，客户应使用不同的具体工厂。
-
-&nbsp;
 
 实现：
 
-<a href="http://www.im47.cn/wp-content/uploads/2012/07/12.jpg"><img class="aligncenter size-full wp-image-1161" title="1" src="http://www.im47.cn/wp-content/uploads/2012/07/12.jpg" alt="" width="553" height="268" /></a>
-
-&nbsp;
+![/assets/images/2012/07/gof_kit_1.jpg](/assets/images/2012/07/gof_kit_1.jpg)
 
 抽象工厂（提供不同等级结构的产品工厂）：
-<div>
+
 <pre>public interface Creator
 {
     public ProductA factoryA();
 
     public ProductB factoryB();
 }</pre>
-</div>
+
 具体工厂（实现不同等级结构中的某一族产品对象）：
-<div>
+
 <pre>public class ConcreteCreator1 implements Creator
 {
     public ProductA factoryA()
@@ -54,9 +43,7 @@ excerpt: 抽象工厂（Kit）模式提供一个接口，用来创建相关或�
         return new ProductB1();
     }
 }</pre>
-</div>
-&nbsp;
-<div>
+
 <pre>public class ConcreteCreator2 implements Creator
 {
     public ProductA factoryA()
@@ -69,93 +56,72 @@ excerpt: 抽象工厂（Kit）模式提供一个接口，用来创建相关或�
         return new ProductB1();
     }
 }</pre>
-</div>
+
 抽象产品：
-<div>
+
 <pre>public interface ProductA
 {
 }</pre>
-</div>
-&nbsp;
-<div>
+
 <pre>public interface ProductB
 {
 }</pre>
-</div>
+
 具体产品：
-<div>
+
 <pre>public class ProductA1 implements ProductA
 {
     public ProductA1()
     {
     }
 }</pre>
-</div>
-&nbsp;
-<div>
+
 <pre>public class ProductA2 implements ProductA
 {
     public ProductA2()
     {
     }
 }</pre>
-</div>
-&nbsp;
-<div>
+
 <pre>public class ProductB1 implements ProductA
 {
     public ProductB1()
     {
     }
 }</pre>
-</div>
-&nbsp;
-<div>
+
 <pre>public class ProductB2 implements ProductA
 {
     public ProductB2()
     {
     }
 }</pre>
-</div>
-&nbsp;
 
 相图：
 
 每一个产品族都有一个具体工厂。而每一个具体工厂负责创建属于同一个产品族、但是分属于不同等级结构的产品。
 
-&nbsp;
-
-<a href="http://www.im47.cn/wp-content/uploads/2012/07/2.gif"><img class="aligncenter size-full wp-image-1162" title="2" src="http://www.im47.cn/wp-content/uploads/2012/07/2.gif" alt="" width="304" height="213" /></a>
+![/assets/images/2012/07/gof_kit_2.gif](/assets/images/2012/07/gof_kit_2.gif)
 
 适用性：
 
 1. 一个系统不应当依赖于产品类实例如何被创建、组合和表达的细节。这对于所有形态的工厂模式都是重要的
-
 2. 这个系统的产品有多于一个的产品族，而系统只消费其中某一族的产品
-
 3. 同属于同一个产品族的产品是在一起使用的，这一约束必须要在系统的设计中体现出来
-
 4. 系统提供一个产品类的库，所有的产品以同样的接口出现，从而使客户端不依赖于实现
 
-&nbsp;
-
 参与者：
-<ol>
-	<li>AbstractFactory：创建抽象产品对象的接口</li>
-	<li>ConcreteFactory：实现创建具体产品对象的操作</li>
-	<li>AbstractProduct：为一类产品对象声明一个接口</li>
-	<li>ConcreteProduct：定义一个将被相应的具体工厂创建的产品对象，实现AbstractProduct接口</li>
-	<li>Client：仅使用由AbstractFactory和AbstractProduct类声明的接口</li>
-</ol>
-&nbsp;
+
+* AbstractFactory：创建抽象产品对象的接口
+* ConcreteFactory：实现创建具体产品对象的操作
+* AbstractProduct：为一类产品对象声明一个接口
+* ConcreteProduct：定义一个将被相应的具体工厂创建的产品对象，实现AbstractProduct接口
+* Client：仅使用由AbstractFactory和AbstractProduct类声明的接口
 
 优点：
 
 1. 分离了具体的类。抽象工厂模式帮助你控制一个应用创建的对象的类，因为一个工厂封装创建产品对象的责任和过程。它将客户和类的实现分离，客户通过他们的抽象接口操纵实例，产品的类名也在具体工厂的实现中被分离，它们不出现在客户代码中。
-
 2. 它使得易于交换产品系列。一个具体工厂类在一个应用中仅出现一次——即在它初始化的时候。这使得改变一个应用的具体工厂变得很容易。它只需改变具体的工厂即可使用不同的产品配置，这是因为一个抽象工厂创建了一个完整的产品系列，所以整个产品系列会立刻改变。
-
 3. 它有利于产品的一致性。当一个系列的产品对象被设计成一起工作时，一个应用一次只能使用同一个系列中的对象，这一点很重要，而抽象工厂很容易实现这一点。
 
 缺点：

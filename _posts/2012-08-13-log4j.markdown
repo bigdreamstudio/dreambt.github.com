@@ -2,10 +2,8 @@
 layout: post
 category : J2EE
 tags : [J2EE, Log4j]
-title: 配置Log4j
-author: Dreambt
-wordpress_id: 1176
-wordpress_url: http://www.im47.cn/?p=1176
+title: 如何配置Log4j
+tagline: Log4j使用方法总结
 date: 2012-08-13 04:53:11.000000000 +08:00
 excerpt: Log4J的配置文件(Configuration File)就是用来设置记录器的级别、存放器和布局的，它可接key=value格式的设置或xml格式的设置信息。通过配置，可以创建出Log4J的运行环境。
 ---
@@ -115,4 +113,4 @@ Layout：日志输出格式，Log4j提供的layout有以下几种：
 
 运行一下，看看异常信息是不是保存在了一个单独的文件error.log中。
 
-转载自：[配置Log4j](http://www.blogjava.net/zJun/archive/2006/06/28/55511.html)
+转自：[配置Log4j](http://www.blogjava.net/zJun/archive/2006/06/28/55511.html)

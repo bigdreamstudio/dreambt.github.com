@@ -6,7 +6,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
 pygments: true
 markdown: rdiscount
-paginate: 10
+paginate: 8
 
 category_dir: ''
 

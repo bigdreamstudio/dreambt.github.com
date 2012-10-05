@@ -1,5 +1,5 @@
 <div class="hero-unit page-header">
-  <h1>{{ page.title }} <small>sdfdsfds{{ page.tagline }}</small></h1>
+  <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
 </div>
 
 <div class="row-fluid">
@@ -30,11 +30,7 @@
     <div class="well sidebar-nav">
 	  <ul class="nav nav-list">
 	    <li class="nav-header">Author</li>
-		{% if page.author %}
-		  <li><a href="/team/{{ page.author }}">{{ page.author }}</a></li>
-		{% else %}
-		  <li><a href="/team/Dreambt">Dreambt</a></li>
-	    {% endif %}
+		<li><a href="/about.html">dreambt</a></li>
 		<li class="nav-header">Published</li>
 		<li><div class="date"><span>{{ page.date | date:"%Y-%m-%d" }}</span></div></li>
 		{% unless page.tags == empty %}

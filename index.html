@@ -8,15 +8,17 @@ tagline: Open source, Cloud, Java, Linux and so on
 </div>
 
 {% for post in paginator.posts %}
-<div class="wrapper">
-    <h2 class="h2 entry-title"><a href="{{ post.url }}">{{ post.title }}</a> </h2>
-    <div class="entry-meta">Author: {% if post.author %}<a href="/team/{{ page.author }}">{{ post.author }}</a>{% else %}<a href="/team/Dreambt">Dreambt</a>{% endif %}
-        Date: {{ post.date | date:"%Y-%m-%d" }}
-		Categorie: {{ post.categories | category_links }}</div>		
-    {% if post.excerpt %}
-        {{ post.excerpt | markdownify }}
-    {% endif %}
-    <p> <a href="{{ post.url }}/#more" class="more-link"><span class="readmore">阅读全文 &raquo; </span></a></p>
+    <div class="thumbnail clearfix" style="margin-bottom:5px">
+	    <div class="caption">
+		   {% if post.thumbnail %}
+               <img src="{{ post.thumbnail }}" alt="" style="float:right;height:expression(this.height > 350 ? '350px': true);max-height:350px;width:expression(this.width > 400 ? '400px': true);max-width:400px;">
+           {% endif %}
+           <h3><a href="{{ post.url }}">{{ post.title }}</a> <small> Written by <a href="/about.html">dreambt</a> on {{ post.date | date:"%Y-%m-%d" }} in {{ post.categories | category_links }}</small></h3>
+		   <p>{% if post.excerpt %}
+                {{ post.excerpt | markdownify }}
+           {% endif %}</p>
+           <p><a href="{{ post.url }}/#more" class="btn btn-primary">阅读全文</a></p>
+        </div>
     </div>
 {% endfor %}
 	
@@ -24,13 +26,18 @@ tagline: Open source, Cloud, Java, Linux and so on
 <div id="pagination" class="pagination">
 	<ul>
 		<li><a href="/">首页</a></li>
-		{% if paginator.previous_page && paginator.previous_page > 1 %}
+		{% if paginator.page > 2 %}
 			<li><a href="/page{{paginator.previous_page}}/">上一页</a></li>
 		{% endif %}
-		{% assign pageSize = 5 %}
-		{% assign startPage = [1, paginator.total_pages-pageSize].max %}
-		{% assign endPage = [paginator.page + pageSize, paginator.total_pages].min %}
-		{% for count in (2..paginator.total_pages) %}
+		{% assign startPage = paginator.page | minus:5 %}
+		{% if 2 > startPage %}				
+		{%	assign startPage = 2 %}
+		{% endif %}
+		{% assign endPage = startPage | plus:10 %}
+		{% if endPage >= paginator.total_pages %}				
+		{%	assign endPage = paginator.total_pages | minus:1 %}
+		{% endif %}
+		{% for count in (startPage..endPage) %}
 			{% if count == paginator.page %}
 			<li><a href="#"><span class="current-page">{{count}}</span></a></li>
 			{% else %}
