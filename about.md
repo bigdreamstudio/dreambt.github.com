@@ -1,4 +1,4 @@
----
+﻿---
 layout: page
 title: "About"
 ---
@@ -84,6 +84,3 @@ E-mail: <dreambt@gmail.com>
 
 ---
 最后更新于 2012年7月1日
-
----
-{% include JB/comments %}
