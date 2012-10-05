@@ -2,28 +2,27 @@
 layout: page
 ---
 {% if page.image %}
-  <div class="span5 logo">
+  <div style="float:right">
     <img src="{{ page.image.url }}" title="{{ page.image.title }}" alt="{{ page.image.alt }}" />
   </div>
 {% endif %}
 
-<div class="span10">
-  <h1>{{ page.title }}</h1>
+<div>
   <p>{{ page.description }}</p>
 
   {% if page.website %}
-    <div class="website"><a href="{{ page.website }}">{{ page.website }}</a></div>
+    <div class="website">下载地址：<a href="{{ page.website }}">{{ page.website }}</a></div>
   {% endif %}
 </div>
 
-<div id="project-description" class="span16">
-  <h3>What we did for {{ page.title }}:</h3>
+<div id="project-description">
+  <h3>我们做了些什么:</h3>
   {{ page.project_description }}
 </div>
 
 {% if page.endorsements %}
-  <div id="endorsements" class="span16">
-    <h3>What {{ page.title }} had to say about us:</h3>
+  <div id="endorsements">
+    <h3>用户如何评价:</h3>
 
     {% for endorsement in page.endorsements %}
       <blockquote>
@@ -33,3 +32,5 @@ layout: page
     {% endfor %}
   </div>
 {% endif %}
+
+{% include JB/comments %}
