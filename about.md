@@ -7,15 +7,17 @@ title: "About"
 ## 基本信息
 
 <div style="width:320px;float:right;text-aligh:center"><img src="/assets/images/headpic/dreambt-320x200.jpg"><p>[2011年9月于大明山]</p></div>
-姓名：纪柏涛<br />
-性别：男<br />
-生日：1987-06-01<br />
-学历：已获中国海洋大学计算机科学与技术专业学士学位<br />
-学校：山东财经大学在读研究生（2013年6月毕业）<br />
-专业：计算机应用技术
-E-mail: <dreambt@gmail.com>
 
-[获取更多联系方式：](http://cn.gravatar.com/dreambt)
+* 姓名：纪柏涛
+* 性别：男
+* 生日：1987-06-01
+* 学历：已获中国海洋大学计算机科学与技术专业学士学位
+* 学校：山东财经大学在读研究生（2013年6月毕业）
+* 专业：计算机应用技术
+* E-mail: <dreambt@gmail.com>
+
+[电子简历：](/assets/resume.pdf)
+[联系方式：](http://cn.gravatar.com/dreambt)
 
 ## 研究生期间获奖情况
 
@@ -34,6 +36,7 @@ E-mail: <dreambt@gmail.com>
 * 2010年5月获优秀毕业设计奖
 * 2010年5月获优秀团员荣誉称号
 * 2010年6月获优秀毕业生荣誉称号
+* [成绩单：](/assets/benke.jpg)
 
 ## 社会与工作实践
 
