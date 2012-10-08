@@ -14,10 +14,11 @@ title: "About"
 * 学历：已获中国海洋大学计算机科学与技术专业学士学位
 * 学校：山东财经大学在读研究生（2013年6月毕业）
 * 专业：计算机应用技术
-* E-mail: <dreambt@gmail.com>
+* E-mail: <dreambt@126.com>
 
-[电子简历：](/assets/resume.pdf)
-[联系方式：](http://cn.gravatar.com/dreambt)
+电子简历：[点击查看](/resume.pdf)
+
+联系方式：[点击查看](http://cn.gravatar.com/dreambt)
 
 ## 研究生期间获奖情况
 
@@ -36,7 +37,7 @@ title: "About"
 * 2010年5月获优秀毕业设计奖
 * 2010年5月获优秀团员荣誉称号
 * 2010年6月获优秀毕业生荣誉称号
-* [成绩单：](/assets/benke.jpg)
+* 成绩单：[点击查看](/assets/benke.jpg)
 
 ## 社会与工作实践
 
@@ -59,31 +60,56 @@ title: "About"
 * 熟悉自动化测试相关技术以及质量保证方法
 * 熟悉主流 Linux 操作系统，可以熟练运用 Linux 命令完成日常工作
 
-## 参与项目与基金
+## 优势
+* 自学能力强
+* 喜欢专研技术
+* 认真负责敢担当
+* 懂大型网站架构设计、性能调优
 
-* 国家自然基金1项（在研）
-* 省自然基金2项（在研）
+## 参与基金
+
+* 国家自然基金1项
+* 省自然基金2项
+
+## 参与项目
+
 * 个性化旅游服务网站（开发中）
-	> Spring、Spring MVC、MyBatis、Web Service、Memcached、SiteMesh、jQuery、AJAX、MySQL
-* 开源文件管理系统CMS4j
-	> Spring、Spring MVC、MyBatis、Memcached、SiteMesh、jQuery、AJAX、MySQL
-	> 已部署至[http://www.sdfie.org](http://www.sdfie.org "山东省金融信息工程技术研究中心")
+	> 职责：架构设计，技术选型；带团队并指导他们技术；负责其中一个模块的开发工作<br>
+	> 人员：7~8人<br>
+	> 平台：Java<br>
+	> 技术：Spring、Spring MVC、MyBatis、Web Service、Memcached、SiteMesh、jQuery、AJAX、MySQL等
 * 省经信委专项基金1项 - 基于 Java 平台的物联网中间件
-	> Spring、CXF、MySQL
+	> 职责：架构设计；负责多个模块的开发工作<br>
+	> 人员：20人左右<br>
+	> 平台：Java<br>
+	> 技术：Spring、CXF、MySQL、JMS等
+* 开源文件管理系统CMS4j
+	> 职责：架构设计，技术选型；带团队并指导他们技术；负责其中多个模块的开发工作<br>
+	> 人员：3人<br>
+	> 平台：Java<br>
+	> 技术：Spring、Spring MVC、MyBatis、Memcached、SiteMesh、jQuery、AJAX、MySQL等<br>
+	> 案例：[山东省金融信息工程技术研究中心](http://www.sdfie.org "山东省金融信息工程技术研究中心")
+* 勤工助学在线系统
+	> 职责：技术选型；负责其中一个模块的开发工作<br>
+	> 人员：3人<br>
+	> 平台：Java<br>
+	> 技术：Struts2、Spring、Hibernate、SiteMesh、MySQL、jQuery、AJAX
 * 阿里巴巴中文站关键词中心
 * 阿里巴巴中文站保障卡项目
 * 青岛豪雅光人力资源管理系统
 * 基于公私密钥对的软件授权系统 Aegis
-* AlarmClock 桌面闹钟（WPF）
+	> 平台：Java
+* AlarmClock 桌面闹钟
+	> 平台：.Net<br>
+	> 技术：WPF
 * 张店钢铁总厂在建项目与固定资产管理信息系统
-	> 主要负责转资管理模块、固定资产管理模块的设计与实现
-* 中国海洋大学青岛学院勤工助学在线系统（JSP + MS-SQL2000）
+	> 职责：主要负责转资管理模块、固定资产管理模块的设计与实现<br>
+	> 人员：2人<br>
+	> 平台：.Net
 * 学生信息管理系统（Delphi + MS-SQL2000版、Java Swing版）
 * 在线选课系统（JSP + MS-SQL2000）
 * 个人通讯录（Delphi + MS-SQL2000）
 * 中国海洋大学青岛学院大学生科技创新实践基地网站（ASP+Access）
-* 中国海洋大学青岛学院勤工助学在线系统
-	> Struts2、Spring、Hibernate、SiteMesh、MySQL、jQuery、AJAX
 
 ---
-最后更新于 2012年7月1日
+最后更新于 2012年10月08日
