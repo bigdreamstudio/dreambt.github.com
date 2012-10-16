@@ -6,11 +6,17 @@ title: 归途-终于回家了
 wordpress_id: 46
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=46
 date: 2008-01-27 06:00:21.000000000 +08:00
+thumbnail: http://pic.yupoo.com/dreambt/7090053f1494/medium.jpg
+excerpt: 终于回家了，心情异样的激动，但又异样的平静。说是很矛盾，但又不无道理。
 ---
-<img src="http://pic.yupoo.com/dreambt/7090053f1494/medium.jpg" alt="" border="0" />
-终于回家了
+![](http://pic.yupoo.com/dreambt/7090053f1494/medium.jpg)
+
+终于回家了，
+
 心情异样的激动，但又异样的平静。
+
 说是很矛盾，但又不无道理。
+
 应该考了8门课，5门优秀，马基一般，精读和听说刚刚及格，专英生死未卜。
 
 回顾也应该是回顾大一的生活吧，大二还没有上完，不好妄加评论。

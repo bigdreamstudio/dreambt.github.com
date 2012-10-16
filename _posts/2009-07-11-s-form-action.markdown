@@ -6,93 +6,68 @@ title: 浅谈s:form标签中action属性为XX.action与XX的区别
 wordpress_id: 170
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=170
 date: 2009-07-11 19:05:32.000000000 +08:00
+excerpt: 从home进入login.jsp页面时，点击"submit"按钮，程序执行正常。 但是从userManage重定向到login.jsp页面时，点击"submit"按钮就会出现异常。当我们将 <s:form action="login.action" method="post" namespace="/demo/login"> 改成 <s:form action="login" method="post" namespace="/demo/login"> 就能正常执行了。
 ---
 先来看一个实例struts.xml的内容：
-<div class="codeText">
-<div class="codeHead">XML代码</div>
-<ol class="dp-xml">
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">package</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"home"</span><span class="attribute">extends</span><span>=</span><span class="attribute-value">"demo"</span><span class="attribute">namespace</span><span>=</span><span class="attribute-value">"/demo/home"</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;</span><span class="tag-name">action</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"home"</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"com.demo.home.HomeAction"</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span> <span class="tag">&lt;</span><span class="tag-name">result</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"login"</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"redirect-action"</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;</span><span class="tag-name">param</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"namespace"</span><span class="tag">&gt;</span><span>/demo/login </span><span class="tag">&lt;/</span><span class="tag-name">param</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span> <span class="tag">&lt;</span><span class="tag-name">param</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"actionName"</span><span class="tag">&gt;</span><span>login!init.action </span><span class="tag">&lt;/</span><span class="tag-name">param</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;/</span><span class="tag-name">result</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"></li>
-	<li><span> <span class="tag">&lt;</span><span class="tag-name">result</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"userManage"</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"redirect-action"</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span> <span class="tag">&lt;</span><span class="tag-name">param</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"namespace"</span><span class="tag">&gt;</span><span>/demo/userManage </span><span class="tag">&lt;/</span><span class="tag-name">param</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;</span><span class="tag-name">param</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"actionName"</span><span class="tag">&gt;</span><span>userManage!init.action </span><span class="tag">&lt;/</span><span class="tag-name">param</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span> <span class="tag">&lt;/</span><span class="tag-name">result</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;/</span><span class="tag-name">action</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span><span class="tag">&lt;/</span><span class="tag-name">package</span><span class="tag">&gt;</span></span></li>
-	<li></li>
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">package</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"userManage"</span><span class="attribute">extends</span><span>=</span><span class="attribute-value">"demo"</span><span class="attribute">namespace</span><span>=</span><span class="attribute-value">"/demo/userManage"</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;</span><span class="tag-name">action</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"userManage"</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"com.demo.userManage.UserManageAction"</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span> <span class="tag">&lt;</span><span class="tag-name">result</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"login"</span><span class="attribute">type</span><span>=</span><span class="attribute-value">"redirect"</span><span class="tag">&gt;</span><span>/login/login.jsp </span><span class="tag">&lt;/</span><span class="tag-name">result</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;/</span><span class="tag-name">action</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span><span class="tag">&lt;/</span><span class="tag-name">package</span><span class="tag">&gt;</span></span></li>
-	<li></li>
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">package</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"login"</span><span class="attribute">extends</span><span>=</span><span class="attribute-value">"demo"</span><span class="attribute">namespace</span><span>=</span><span class="attribute-value">"/demo/login"</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;</span><span class="tag-name">action</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"login"</span><span class="attribute">class</span><span>=</span><span class="attribute-value">"com.demo.login.LoginAction"</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span> <span class="tag">&lt;</span><span class="tag-name">result</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"input"</span><span class="tag">&gt;</span><span>/login/login.jsp </span><span class="tag">&lt;/</span><span class="tag-name">result</span><span class="tag">&gt;</span></span></li>
-	<li><span> <span class="tag">&lt;/</span><span class="tag-name">action</span><span class="tag">&gt;</span></span></li>
-	<li class="alt"><span><span class="tag">&lt;/</span><span class="tag-name">package</span><span class="tag">&gt;</span></span></li>
-</ol>
-</div>
+
+    <packagename="home"extends="demo"namespace="/demo/home">
+        <actionname="home"class="com.demo.home.HomeAction">
+            <resultname="login"type="redirect-action">
+                <paramname="namespace">/demo/login </param>
+                <paramname="actionName">login!init.action </param>
+            </result>
+            <resultname="userManage"type="redirect-action">
+                <paramname="namespace">/demo/userManage </param>
+                <paramname="actionName">userManage!init.action </param>
+            </result>
+        </action>
+    </package>
+    <packagename="userManage"extends="demo"namespace="/demo/userManage">
+        <actionname="userManage"class="com.demo.userManage.UserManageAction">
+            <resultname="login"type="redirect">/login/login.jsp </result>
+        </action>
+    </package>
+    <packagename="login"extends="demo"namespace="/demo/login">
+        <actionname="login"class="com.demo.login.LoginAction">
+            <resultname="input">/login/login.jsp </result>
+        </action>
+    </package>
+    
 继续看 login.jsp 的内容：
-<div class="codeText">
-<div class="codeHead">JSP代码</div>
-<ol class="dp-j">
-	<li class="alt"><span><span>&lt;s:form action=</span><span class="string">"login.action"</span><span> method=</span><span class="string">"post"</span><span> namespace=</span><span class="string">"/demo/login"</span><span>&gt; </span></span></li>
-	<li><span> &lt;table width=<span class="string">"100%"</span><span> align=</span><span class="string">"center"</span><span>&gt; </span></span></li>
-	<li class="alt"><span>&lt;tr&gt;&lt;td&gt;name : &lt;s:textfield name=<span class="string">"loginForm.name"</span><span>/&gt;&lt;/td&gt;&lt;/tr&gt; </span></span></li>
-	<li><span>&lt;tr&gt;&lt;td&gt;password : &lt;s:password name=<span class="string">"loginForm.password"</span><span>/&gt;&lt;/td&gt;&lt;/tr&gt; </span></span></li>
-	<li class="alt"><span>&lt;tr&gt;&lt;td&gt;&lt;s:submit name=<span class="string">"login"</span><span> value=</span><span class="string">"submit"</span><span> method=</span><span class="string">"login"</span><span>/&gt;&lt;/td&gt;&lt;/tr&gt; </span></span></li>
-	<li><span> &lt;/table&gt; </span></li>
-	<li class="alt"><span>&lt;/s:form&gt; </span></li>
-</ol>
-</div>
+
+    <s:form action="login.action" method="post" namespace="/demo/login">
+    <table width="100%" align="center">
+        <tr><td>name : <s:textfield name="loginForm.name"/></td></tr>
+        <tr><td>password : <s:password name="loginForm.password"/></td></tr>
+        <tr><td><s:submit name="login" value="submit" method="login"/></td></tr>
+    </table>
+    </s:form>
+    
 已知问题：
 
-从home进入login.jsp页面时，点击"submit"按钮，程序执行正常。
-但是从userManage重定向到login.jsp页面时，点击"submit"按钮，出现下面的异常：
-<span style="color: #ff0000;">javax.servlet.ServletException: java.lang.NoSuchMethodException: com.opensymphony.xwork2.ActionSupport.login()
-org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:515)
-org.apache.struts2.dispatcher.FilterDispatcher.doFilter(FilterDispatcher.java:419) </span>
+从home进入login.jsp页面时，点击"submit"按钮，程序执行正常。 但是从userManage重定向到login.jsp页面时，点击"submit"按钮，出现下面的异常： 
 
-然后我把login.jsp的 &lt;s:form action="<strong>login.action</strong>" method="post" namespace="/demo/login"&gt;
-改成 &lt;s:form action="<strong>login</strong>" method="post" namespace="/demo/login"&gt; 就能正常执行了。
+>javax.servlet.ServletException: java.lang.NoSuchMethodException: 
+com.opensymphony.xwork2.ActionSupport.login() 
+org.apache.struts2.dispatcher.Dispatcher.serviceAction(Dispatcher.java:515) 
+org.apache.struts2.dispatcher.FilterDispatcher.doFilter(FilterDispatcher.java:419)
+
+然后我把login.jsp的 <s:form action="login.action" method="post" namespace="/demo/login"> 改成 <s:form action="login" method="post" namespace="/demo/login"> 就能正常执行了。
 
 很多网友都在讨论 .action 到底应该又还是不应该有，那么我们先看看下面的分析吧
 
 jsp页面带 .action 时：
-<div class="codeText">
-<div class="codeHead">XML代码</div>
-<ol class="dp-xml">
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">s:form</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"testForm"</span><span class="attribute">action</span><span>=</span><span class="attribute-value">"add.action"</span><span class="attribute">namespace</span><span>=</span><span class="attribute-value">"/user"</span><span class="tag">&gt;</span><span>
-</span></span></li>
-</ol>
-</div>
+
+    <s:formid="testForm"action="add.action"namespace="/user">
+
 查看HTML原代码：
-<div class="codeText">
-<div class="codeHead">HTML代码</div>
-<ol class="dp-xml">
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">form</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"testForm"</span><span class="attribute">action</span><span>=</span><span class="attribute-value">"add.action"</span><span class="attribute">method</span><span>=</span><span class="attribute-value">"post"</span><span class="tag">&gt;</span><span>
-</span></span></li>
-</ol>
-</div>
+
+    <formid="testForm"action="add.action"method="post">
+
 jsp页面不带 .action 时：
-<div class="codeText">
-<div class="codeHead">XML代码</div>
-<ol class="dp-xml">
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">s:form</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"testForm"</span><span class="attribute">action</span><span>=</span><span class="attribute-value">"add"</span><span class="attribute">namespace</span><span>=</span><span class="attribute-value">"/user"</span><span class="tag">&gt;</span><span>
-</span></span></li>
-</ol>
-</div>
+
+    <s:formid="testForm"action="add"namespace="/user">
+
 查看HTML原代码：
-<div class="codeText">
-<div class="codeHead">HTML代码</div>
-<ol class="dp-xml">
-	<li class="alt"><span><span class="tag">&lt;</span><span class="tag-name">form</span><span class="attribute">id</span><span>=</span><span class="attribute-value">"testForm"</span><span class="attribute">name</span><span>=</span><span class="attribute-value">"add"</span><span class="attribute">action</span><span>=</span><span class="attribute-value">"/teststruts2_1/user/add"</span><span class="attribute">method</span><span>=</span><span class="attribute-value">"post"</span><span class="tag">&gt;</span><span>
-</span></span></li>
-</ol>
-</div>
+
+    <formid="testForm"name="add"action="/teststruts2_1/user/add"method="post">

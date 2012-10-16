@@ -1,0 +1,64 @@
+---
+layout: post
+category : Share
+tags : [VPN, free]
+title: 免费VPN邀请码
+tagline: 领取成功后请留言
+date: 2012-10-10 11:29:11.000000000 +08:00
+thumbnail: /assets/images/2012/10/vpn.jpg
+excerpt: 免费VPN的邀请码及使用方法，领取成功后请留言啊
+---
+请以邀请码（邀请码通常是随机字符串）为标题， 用gmail，hotmail或yahoo的邮箱，寄电子邮件到 dixiatielu.net@gmail.com 即可。
+
+## 邀请码
+
+* akor!*osebak
+* iten!*imakei
+* <strike>woma!*ninoru</strike>
+* <strike>!*onahihahim</strike>
+* atak!*animas
+
+## 有效期
+
+* 2012-11-09 00:05:49
+
+## 使用指南
+
+我们整理了一些网上现有的教程，并且分享在如下网页，请忽略SSL证书的警告。
+服务器IP地址 (Server Address) : [https://96.126.102.25:1433/info/manual/](https://96.126.102.25:1433/info/manual/)
+
+### dabr
+
+点击如下链接即可进入 dabr 页面， 如果过去没有登录过推特 twitter （包括第一次使用时）， 或者以前的认证已经失效，需要先在推特网页上进行认证。
+
+请打开 VPN，然后点击 dabr 页面上的一个蓝色图标， 即可进入推特认证页面。请根据指示输入用户名和密码。
+
+认证成功后，你会被带回到 dabr 页面，以后就不需要 VPN 也可以访问推特了。
+
+* 服务器IP地址 (Server Address) :	[https://96.126.102.25:5432/](https://96.126.102.25:5432/)
+* 用户名 (User Name) :**
+* 密码 (Password) :	**
+
+### l2tp
+
+* 服务器IP地址 (Server Address) :	 96.126.102.25
+* 用户名 (User Name) :	 drea74_gm
+* 密码 (Password) :	 ogakorot
+* 共享密钥 (Shared Secret) :	 palfans
+
+### ssh
+
+* 服务器IP地址 (Server Address) :	 96.126.102.25
+* 用户名 (User Name) :	 drea74_gm
+* 密码 (Password) :	 ogakorot
+* 服务器端口 (Server Port) :	 443 (注意！)
+
+### OpenVPN
+
+* 服务器IP地址 (Server Address) :	 96.126.102.25
+* 用户名 (User Name) :	 drea74_gm
+* 密码 (Password) :	 ogakorot
+* 服务器证书 (Server Certificate) :	 ca.crt (在此下载)
+* OpenVPN设置文件 (OpenVPN config files) :	 两个.ovpn文件* (下载： UDP和 TCP)
+
+> UDP和TCP中任何一个都能使用，UDP版的应该会稍快一些，但有的地方此 协议会被封。
