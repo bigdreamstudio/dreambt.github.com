@@ -13,7 +13,7 @@ tagline: Open source, Cloud, Java, Linux and so on
 		   {% if post.thumbnail %}
                <img src="{{ post.thumbnail }}" alt="" style="float:right;height:expression(this.height > 350 ? '350px': true);max-height:350px;width:expression(this.width > 400 ? '400px': true);max-width:400px;">
            {% endif %}
-           <h3><a href="{{ post.url }}">{{ post.title }}</a> <small> Written by <a href="/about.html">dreambt</a> on {{ post.date | date:"%Y-%m-%d" }} in {{ post.categories | category_links }}</small></h3>
+           <h3><a href="{{ post.url }}">{{ post.title }}</a> <small> Written by <a href="/about.html">dreambt</a> on {{ post.date | date:"%Y-%m-%d" }} in {{ post.categories | category_links }} <script language="javascript" src="http://dreambt.sinaapp.com/counter.php?action=get&key={{ page.url }}">document.write(this);</script> views</small></h3>
 		   <p>{% if post.excerpt %}
                 {{ post.excerpt | markdownify }}
            {% endif %}</p>

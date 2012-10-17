@@ -5,34 +5,16 @@
 <div class="row-fluid">
   <div class="span9">    
     {{ content }}
-    <hr> 
-    <div class="pagination">
-      <ul>
-      {% if page.previous.url %}
-        <li class="prev"><a href="{{ page.previous.url }}" rel="previous" title="{{ page.previous.title }}">&laquo;&nbsp;{{ page.previous.title }}</a></li>
-      {% else %}
-        <li class="prev disabled"><a>&laquo;&nbsp;Previous</a></li>
-      {% endif %}
-        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
-      {% if page.next.url %}
-        <li class="next"><a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title }}&nbsp;&raquo;</a></li>
-      {% else %}
-        <li class="next disabled"><a>Next&nbsp;&raquo;</a></li>
-      {% endif %}
-      </ul>
-    </div>
-    <script type="text/javascript" src="http://js1.bloggerads.net/showbanner.aspx?blogid=20121006000019&charset=utf-8"></script>
-    <hr>
-    {% include JB/comments %}
   </div>
-  
   <div class="span3">
     <div class="well sidebar-nav">
 	  <ul class="nav nav-list">
 	    <li class="nav-header">Author</li>
-		<li><a href="/about.html">dreambt</a></li>
+		<li><a href="/about.html">dreambt</a></li>		
 		<li class="nav-header">Published</li>
 		<li><div class="date"><span>{{ page.date | date:"%Y-%m-%d" }}</span></div></li>
+		<li class="nav-header">Views</li>
+		<li><span id="views"></span> times</li>
 		{% unless page.tags == empty %}
 		<li class="nav-header">Tags</li>
 		<li><ul class="tag_box nav nav-pills">
@@ -51,5 +33,33 @@
 		<li><script type="text/javascript">var cpro_id = 'u220730';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script></li>
 		<li><a href="http://author.bloggerads.net/01_join_read.aspx?refid=20222&id=20121006000007" target="_blank"><img src="http://author.bloggerads.net/referrals/125x200_dog_pb.gif" border="0" /></a></li>
 	  </ul>
+    </div>
   </div>
+</div>
+<div class="row-fluid">
+	<hr>
+	<div class="pagination">
+      <ul>
+      {% if page.previous.url %}
+        <li class="prev"><a href="{{ page.previous.url }}" rel="previous" title="{{ page.previous.title }}">&laquo;&nbsp;{{ page.previous.title }}</a></li>
+      {% else %}
+        <li class="prev disabled"><a>&laquo;&nbsp;Previous</a></li>
+      {% endif %}
+        <li><a href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a></li>
+      {% if page.next.url %}
+        <li class="next"><a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title }}&nbsp;&raquo;</a></li>
+      {% else %}
+        <li class="next disabled"><a>Next&nbsp;&raquo;</a></li>
+      {% endif %}
+      </ul>
+    </div>
+<script type="text/javascript">
+$.getJSON("http://dreambt.sinaapp.com/counter.php?" + "callback=?", {
+	key:"{{ page.url }}"
+}, function (data) {
+	$("#views").text(data.count);
+});
+</script>
+    <script type="text/javascript" src="http://js1.bloggerads.net/showbanner.aspx?blogid=20121006000019&charset=utf-8"></script>
+    {% include JB/comments %}
 </div>
