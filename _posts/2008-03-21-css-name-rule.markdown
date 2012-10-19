@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Web_Design
-tags : [CSS, roles, name, tutorial]
+tags : [CSS, roles, tutorial]
 title: 常用的CSS命名规则
 wordpress_id: 63
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=63

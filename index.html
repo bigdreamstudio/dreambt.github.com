@@ -3,12 +3,13 @@ layout: default
 title: SiQi Blog
 tagline: Open source, Cloud, Java, Linux and so on
 ---
-<div class="page-header">
+<div class="row-fluid">
+<div class="well page-header">
   <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
 </div>
 
 {% for post in paginator.posts %}
-    <div class="thumbnail clearfix" style="margin-bottom:5px">
+    <div class="well thumbnail clearfix" style="margin-bottom:12px">
 	    <div class="caption">
 		   {% if post.thumbnail %}
                <img src="{{ post.thumbnail }}" alt="" style="float:right;height:expression(this.height > 350 ? '350px': true);max-height:350px;width:expression(this.width > 400 ? '400px': true);max-width:400px;">
@@ -49,5 +50,6 @@ tagline: Open source, Cloud, Java, Linux and so on
 		{% endif %}
 		<li><a href="/page{{paginator.total_pages}}/">末页</a></li>
 		<li><a href="#">第{{paginator.page}}页 / 共{{paginator.total_pages}}页</a></li>
+	</ul>
 </div>
 </div>

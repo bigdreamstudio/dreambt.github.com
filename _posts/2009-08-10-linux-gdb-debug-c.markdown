@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Linux
-tags : [Linux, tutorial, c, gdb]
+tags : [Linux, tutorial, C, gdb]
 title: linux下用gdb调试c程序的总结
 wordpress_id: 173
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=173

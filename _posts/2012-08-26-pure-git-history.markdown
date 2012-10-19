@@ -17,7 +17,7 @@ excerpt: 用 Git 也有一段时间了，看过一些 Git 工作流的文章，�
 
 本篇文章是基于中心式的代码管理，但如果你理解其内涵，会发现这跟一般的 github 托管的开源项目是兼容的，只要把每个 fork 都当成特性分支，而项目的发源地是中心。
 
-# 理想的历史线索
+## 理想的历史线索
 
 首先看一下这个流传很广的图（取自 [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)）
 
@@ -41,7 +41,7 @@ excerpt: 用 Git 也有一段时间了，看过一些 Git 工作流的文章，�
 
 下面将会分析图中问题产生的原因和解决方法。
 
-## 不要产生多余的分支
+#### 不要产生多余的分支
 
 留意到上一节的糟糕例子中，有几条 merge 信息是这样的格式：
 
@@ -70,7 +70,7 @@ pull --rebase 可以基于远程分支重写自己的本地 commit，从而产�
 
 注意，rebase 某些时候是个危险的工具，因为它实际改写了你的 commit，千万不要 rebase 一些已经提交到公共源的 commit，详情可以看 progit 中 分支的衍合 这一章节。
 
-## 避免线索“扭麻花”
+#### 避免线索“扭麻花”
 
 依然是这个图
 
@@ -111,7 +111,7 @@ pull --rebase 可以基于远程分支重写自己的本地 commit，从而产�
 
 bug 点在什么时候进入主干分支一目了然。
 
-## 线上分支合并一定要用 merge --no-ff
+#### 线上分支合并一定要用 merge --no-ff
 
 假设你已经知道，git 中的合并默认是快进合并（fast-forward）
 
@@ -139,4 +139,28 @@ bug 进入主干的时间将很清晰。
 
 不要混用两种身份，一边进行代码提交，一边进行分支合并。这样你的 git 管理将会轻松很多。
 
-转自：[构造干净的 Git 历史线索](http://codecampo.com/topics/379)
+以上转自：[构造干净的 Git 历史线索](http://codecampo.com/topics/379)
+
+## 多人协作规范
+
+多人合作时比自己管理分支立马复杂了一个数量级，因为每人都会有一套分支结构，如果大家都遵循上一节分支规范还好，否则更加麻烦。
+
+如果不是一个小团队可以达到内部高度规范和统一，那么大多数时候开源项目更适合使用Pull request的方式合作，这样的方式也更符合GitHub设计的精髓。
+
+#### 分支基点
+
+Pull request永远使用主仓库的master（或dev，如果有）分支作为base，并新建一个feature-xxx或者fix-xxx分支进行开发，以保证不产生任何额外无关的commit造成合并困难。同时以此小步快跑的方式也能更大程度的保证分支的完整性和延续性，减少难以合并的分支。
+
+#### 推送合并目标
+
+在发起pull request时，feature部分应对应到主仓库的dev分支，fix部分对应到master分支。
+
+#### 代码评审
+
+Pull request必须经过主仓库成员code review，并由review人员完成合并。如果自己有主仓库的权限，又通过pull request进行代码分享，那么请不要自己完成合并，否则请直接推送到仓库。
+
+#### 处理期限
+
+每个pull request的处理期限暂定为14天，超过2周并无人review的request任何有权限的用户（主仓库成员或自己）可以进行关闭，以减少干扰。
+
+以上转自：[Git使用规范建议](http://mytharcher.github.com/posts/git-suggestions.html)

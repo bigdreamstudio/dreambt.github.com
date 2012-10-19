@@ -1,35 +1,36 @@
 ---
 layout: post
-category : Other
-tags : [Other, Facebook]
+category : Business
+tags : [Business, Facebook]
 title: Facebook内部人才建设的5条潜规则
 wordpress_id: 1000
 wordpress_url: http://www.im47.cn/?p=1000
 date: 2011-08-17 12:53:43.000000000 +08:00
+thumbnail: /assets/images/2011/08/facebook.jpg
+excerpt: Facebook产品第二研究中心执行总监胡智鑫(George Hu)接受@IT你懂的 专访时谈到了一个成功互联网企业的内部人才建设规划，与目前中国最大的不同在于西方人更喜欢创造一份舒适又有挑战的工作，而在中国是一群人挤破脑袋去当一个“官”，老板们想方设法在公司内部制造官僚体系留人。
 ---
 Facebook产品第二研究中心执行总监胡智鑫(George Hu)接受@IT你懂的 专访时谈到了一个成功互联网企业的内部人才建设规划，与目前中国最大的不同在于西方人更喜欢创造一份舒适又有挑战的工作，而在中国是一群人挤破脑袋去当一个“官”，老板们想方设法在公司内部制造官僚体系留人。
 
-<span style="color: #ffffff;"><a href="http://www.im47.cn/wp-content/uploads/2011/08/0251f273dc7a615029ba64002b34c6c3.jpg"><img class="aligncenter size-full wp-image-1001" title="0251f273dc7a615029ba64002b34c6c3" src="http://www.im47.cn/wp-content/uploads/2011/08/0251f273dc7a615029ba64002b34c6c3.jpg" alt="" width="513" height="301" /></a>
-</span>
+![/assets/images/2011/08/facebook.jpg](/assets/images/2011/08/facebook.jpg)
 
-<center></center><strong>　　1、新人就是一个祼人，那怕你原来是CEO。</strong>
+* **1、新人就是一个祼人，那怕你原来是CEO。**
 
 有几多Google的工程师跳槽到Facebook，其中一个曾经是街景项目的总监，但在前面两个月时间内，他和一个普通的技术员没什么两样在写代码，他原来的职务对他现在的工作没有一点影响。而半年后，因为他的能力出色，被任命为一个秘密项目的项目经理。据我所知在中国如果招一个技术总监，打死他也不肯写代码了。
 
-<strong>　　2、晋升没有周期，可能随时随地。</strong>
+* **2、晋升没有周期，可能随时随地。**
 
 我们没有加薪或晋升的固定时间，在Facebook只要完成一个重要项目并且在规定的时间内完成目标数据，公司立即对项目成员进行加薪和晋升。当然如果做假，也会有很严厉的惩罚。我的中国同学因为模仿Apple一个专利连升两级，但最后被查出是抄袭，被起诉，退回多加的薪水，并且开除。
 
-<strong>　　3、能力不行，或者走人或者做管理。</strong>
+* **3、能力不行，或者走人或者做管理。**
 
 晚上12点，几个程序员还在解决一个安全问题，这时候他们的主管送上了热腾腾的中国水饺，要知道这可是去5公里的中国餐馆买来的。和国内有点不同，这儿的一线员工是地位最高的，管理者类似国内的后勤工作，是为员工服务的。而在中国很多企业是把业务做不好的人升为做管理，并且还指挥有能力的人干活，这也是我不愿意回国的一个重要因素。
 
-<strong>　　4、做一流的企业，给一流的薪水。</strong>
+* **4、做一流的企业，给一流的薪水。**
 
 Mark Zuckerberg创办这天开始，就开出了比Google、Apple更高的薪水，他们理念就是我们要做全世界一流的企业，那什么都要一流，包括薪水。当然一流的薪水得到的是一流的人才，这也是对人才市场定价的认同。
 
-<strong>　　5、多一天懈怠，早一天回家。</strong>
+* **5、多一天懈怠，早一天回家。**
 
 进公司的那天起，CHO就告诉我们，做好随时被裁员的准备。任何一个人进Facebook总有一天要离开，只是时间长短的问题。认真做好每一件事，珍惜每一天，离开Facebook的时候不后悔。
 
-<em><span style="color: #888888;">作者：董释德 http://weibo.com/itnidongde</span></em>
+转载自：[http://blog.163.com/dong_shide/blog/static/189237469201164112815481/](http://blog.163.com/dong_shide/blog/static/189237469201164112815481/)

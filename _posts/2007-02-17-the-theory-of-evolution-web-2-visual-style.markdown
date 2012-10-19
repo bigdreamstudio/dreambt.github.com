@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Web_Design
-tags : [Web2.0, CSS]
+tags : [Web, CSS]
 title: Web2.0视觉风格进化论二
 wordpress_id: 34
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=34

@@ -6,7 +6,10 @@ title: 如何书写高质量的Java源代码
 wordpress_id: 1125
 wordpress_url: http://www.im47.cn/?p=1125
 date: 2012-03-25 18:06:59.000000000 +08:00
+thumbnail: /assets/images/2012/03/high_quality.jpg
 ---
+![/assets/images/2012/03/high_quality.jpg](/assets/images/2012/03/high_quality.jpg)
+
 <span style="color: #ff0000;"><strong>错误码：WMI_WRONG_MAP_ITERATOR</strong></span>
 
 实例：

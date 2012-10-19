@@ -8,7 +8,7 @@ wordpress_id: 1167
 wordpress_url: http://www.im47.cn/?p=1167
 date: 2012-08-02 17:19:05.000000000 +08:00
 ---
-<strong>1.5.0如何挂载U盘？</strong>
+## 1.5.0如何挂载U盘？
 
 esxi 4.1是可以自动挂的，5.0不可以。挂载办法如下：
 

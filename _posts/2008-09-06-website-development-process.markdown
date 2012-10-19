@@ -1,7 +1,7 @@
 ---
 layout: post
 category : Web_Design
-tags : [Development, process, web]
+tags : [Development, process, Web]
 title: 网站开发的流程
 wordpress_id: 88
 wordpress_url: http://www.im47cn.nt102.idcwind.net/wordpress/?p=88

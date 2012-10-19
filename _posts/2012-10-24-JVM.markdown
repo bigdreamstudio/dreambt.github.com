@@ -1,0 +1,265 @@
+---
+layout: post
+category : Java
+tags : [Java, JVM, GC]
+title: Java虚拟机的JVM垃圾回收机制
+tagline: 让 Java 跑的更稳更快
+date: 2012-10-24 21:31:11.000000000 +08:00
+thumbnail: /assets/images/2012/10/jvm-1.jpg
+excerpt: 本文从JVM的内存空间划分讲起，然后介绍了 GC 收集器、GC 策略、GC默认策略及组合策略。
+---
+## 一、JVM内存空间
+
+![/assets/images/2012/10/jvm-1.jpg](/assets/images/2012/10/jvm-1.jpg)
+
+#### 1.JVM堆（Heap）
+
+> JVM堆（Heap）= 新生代（Young） + 旧生代（Tenured）
+ 
+**分区作用：**
+
+新创建的对象通常先将其分配在新生代中，在新生代中经过若干次GC之后仍未释放的对象，再将它移动到旧生代。为了让内存回收更高效（GC会暂停JVM中的应用），Sun JDK在1.2开始对堆采用了分代管理的方式。在分配对象遇到内存不足时，先对新生代进行GC（Young GC）；当新生代GC之后仍无法满足内存空间分配需求时， 才会对整个堆空间以及方法区进行GC （Full GC）
+
+**相关参数：**
+
+* -Xms                       -- 设置堆内存初始大小
+* -Xmx                       -- 设置堆内存最大值
+* -XX:MaxTenuringThreshold  -- 设置对象在新生代中存活的次数
+* -XX:PretenureSizeThreshold  -- 设置超过指定大小的大对象直接分配在旧生代中
+
+**注意点：**
+
+当新生代设置得太小时，也可能引发大对象直接分配到旧生代中。
+
+#### 2.新生代（Young）
+
+> 新生代（Young）= Eden区 + Survivor区
+
+**分区作用：**
+
+Eden区为对象通常最初分配到的地方，Survivor区分为S0和S1两块大小相等的区域。JVM进行Minor GC时，将Eden中还存活的对象拷贝到Survivor区中，还会将Survivor区中还存活的对象拷贝到Tenured区中。在这种GC模式下，JVM为了提升GC效率， 将Survivor区分为S0和S1，这样就可以将对象回收和对象晋升分离开来。
+
+**相关参数：**
+
+* -Xmn             -- 设置新生代内存大小。
+* -XX:SurvivorRatio  -- 设置Eden与Survivor空间的大小比例
+
+**注意点：**
+
+图中Virtual部分表示可伸缩的内存空间，当用-Xms在指定堆的初始大小为128m，通过-Xmx指定堆最大为256m时，JVM会根据内存情况在128m与256m之间伸缩。为了避免JVM进行这些伸缩消耗性能，对于能够提供稳定内存空间的用作服务器的JVM，通常将-Xms和-Xmx设置为相等。
+
+#### 3.方法区（Perm）
+
+**分区作用：**
+
+也被成为持久代，用来存放JVM加载的类型信息。包括: 类型基本信息，常量池，字段信息，方法信息，类变量，指向ClassLoader的引用，Class类的引用，方法表等。方法区是全局共享的，在一定条件下也会被GC。
+
+**相关参数：**
+
+* -XX:PermSize        --设置Perm区的初始大小
+* -XX:MaxPermSize    --设置Perm区的最大值
+
+## 4.JVM方法栈（不是分区）
+     
+**作用： **
+
+JVM方法栈为JVM线程私有内存，当方法运行完毕后，其对应的栈帧内存会自动释放
+
+**相关参数：**
+
+* -Xss                  --设置方法栈的最大值
+
+**TLAB：**
+
+JVM所占用的主要内存都是从堆空间分配的，堆是所有线程共享的，因此在堆上分配内存需要加锁，Sun JDK为提升效率，会为每个新建的线程在Eden上分配一块独立的空间由该线程独享，这块空间称为TLAB（Thread Local Allocation Buffer）。其大小由JVM根据运行情况计算得到，也可通过参数-XX:TLABWasteTargetPercent来设置TLAB可占用的Eden空间的百分比，默认值为1%。在TLAB上分配内存不需要加锁，因此JVM在给线程中的对象分配内存时会尽量在TLAB上分配。如果对象过大或TLAB用完，则仍然在堆上进行分配。
+
+## 二、Sun JDK GC收集器
+
+收集器主要分为引用计数器和跟踪收集器两种，Sun JDK中采用跟踪收集器作为GC实现策略。
+
+#### 跟踪收集器简介
+
+跟踪收集器采用集中式的管理方式，全局记录数据的引用状态。触发执行时需要从根节点来扫描对象的引用关系，可能会造成应用程序暂停。主要有三种实现算法：**复制（Copying）**、 **标记-清除（Mark-Sweep）**、 **标记-压缩（Mark-Compact）**。下文将简单介绍这三种算法的过程，有助于后续的GC策略理解和分析。
+
+#### 1.复制（Copying）
+
+**算法**：复制采用的方式为从根集合扫描出存活的对象，并将找到的存活对象复制到一块新的完全未使用的空间中。
+
+**过程**：![/assets/images/2012/10/jvm-2.jpg](/assets/images/2012/10/jvm-2.jpg)
+
+注意：红叉为不存活的对象所占用内存空间
+
+#### 2.标记-清除（Mark-Sweep）
+
+**算法**：标记-清除采用的方式为从根集合开始扫描，对存活的对象进行标记，标记完毕后，再扫描整个空间中未标记的对象，并进行回收。
+
+**过程**：![/assets/images/2012/10/jvm-3.jpg](/assets/images/2012/10/jvm-3.jpg)
+
+**优缺点**：在空间中存活对象较多的情况下较为高效，但由于该算法为直接回收不存活对象所占用的内存，因此会造成内存碎片。
+
+#### 3.标记-压缩（Mark-Compact）
+
+**算法**：标记阶段与“标记-清除”算法相同，但在清除阶段有所不同。在回收不存活对象所占用的内存空间后，会将其他所有存活对象都往左端空闲的空间进行移动，并更新引用其对象指针。
+
+**过程**：![/assets/images/2012/10/jvm-4.jpg](/assets/images/2012/10/jvm-4.jpg)
+
+**优缺点**：在“标记-清除”的基础上还需要进行对象移动，成本相对较高，好处则是不产生内存碎片。
+
+## 三、Sun JDK GC 策略
+ 
+![/assets/images/2012/10/jvm-5.jpg](/assets/images/2012/10/jvm-5.jpg)
+
+图4 Sun JDK中可用的GC方式
+
+基于上一小节讲解的跟踪收集器算法，Sun JDK在新生代和老生代进行了不同的算法实现，形成了上图中的GC方式分布。本小节将具体介绍新生代和老生带的GC策略及组合方式。
+
+#### 1.新生代 – 串行GC（Serial Copying）
+
+**算法**：复制（Copy）
+
+**过程**：
+
+1. 扫描出新生代中存活的对象；
+2. Minor GC将存活的对象复制到做为To Space的S0/S1区；
+3. 之前做为To Space/From Spache的S0/S1区对换角色；
+4. 经历过几次Minor GC仍然存活的对象，放入老生代。
+
+#### 2.新生代 – 并行回收GC（Parallel Scavenge）
+
+**算法**：复制（Copy）
+
+**过程**：在扫描和复制时均采用多线程方式进行（如下图），并且并行回收GC为大的新生代回收做了很多优化（可以自行扩展阅读相关资料）。
+
+![/assets/images/2012/10/jvm-6.jpg](/assets/images/2012/10/jvm-6.jpg)
+
+**优势**：在多CPU的机器上其GC耗时会比串行方式短，适合多CPU、对暂停时间要求较短的应用。
+
+**配置方式**：本身是Server级别多CPU机器上的默认GC方式，也可以通过-XX:+UseParallelGC来指定，并且可以采用-XX:ParallelGCThread来指定线程数。
+
+#### 3.新生代 – 并行GC（ParNew）
+
+**算法**：复制（Copy）
+
+**过程**：与并行回收GC（Parallel Scavenge）的区别在于并行GC（ParNew）必须配合老生代使用CMS GC。原因是CMS GC在进行老生代GC时，有些过程是并发执行的。如果此时发生了Minor GC，需要进行相应处理，而并行回收GC（Parallel Scavenge）是没有做这些处理的。也正是如此，ParNew GC不可与并行的老生代GC同时使用。
+
+**配置方式**：在配置为CMS GC的情况下，新生代默认使用并行GC（ParNew）方式，也可以通过-XX:+UseParNewGC来指定。
+
+#### 4.老生代 – 串行GC（Serial MSC）
+
+**算法**：Mark-Sweep-Compact，该算法结合Mark-Sweep和Mark-Compact做了一些改进。
+
+**过程**：
+
+1. 扫描出老生代中存活的对象，进行标识；
+2. 遍历整个老生代和持久代内存空间，找出未被标识的对象，并回收其内存；
+3. 进行滑动压缩（Sliding Compaction），将存活对象向老生代空间的开始处滑动，最终留出一块连续的到结尾的内存空间。
+
+**优缺点**：串行执行的过程中为单线程，需要暂停应用并耗时较长。
+
+**配置方式**：是client模式默认采用的GC方式，也可以通过-XX:UseSerialGC进行指定。
+
+#### 5.老生代 – 并行GC（Parallel Mark Sweep、Parallel Compacting）
+
+**算法**：Mark -Compact
+
+**过程**：
+
+1. 将老生代划分为并行线程个数的区域（regions）；
+2. 并行进行存活对象扫描和标记；
+3. 单线程对各区域进行扫描，标记需要压缩移动的区域；
+4. 并行进行对象移动和区域不存活对象的回收。
+
+**优缺点**：多线程同时操作以及dense prefix优化，会缩短应用暂停时间。但由于老生代较大，在扫描和标识对象上需要花费较长时间。
+
+**配置方式**：通过-XX:+UseParallelGC来指定使用Parallel Mark Sweep；通过-XX:UseParallelOldGC来指定使用Parallel Compacting。
+
+#### 6.老生代 – 并发GC（CMS：Concurrent Mark-Sweep GC）
+
+**算法**：Mark –Sweep
+
+**过程**：
+
+1. 第一次标记（Initial Marking）：暂停整个应用，扫描从根集合点到老生代中可直接访问到的对象，并进行标记；
+2. 并发标记（Concurrent Marking）：恢复所有应用的线程，同时开始并发对之前标记过的对象进行轮循，以标记这些对象可访问的对象；
+3. 重新标记（Remark）：暂停整个应用，扫描在第二步中被改变引用关系或新创建的对象，并进行标记；
+4. 并发收集（Concurrent Sweeping）：恢复所有应用的线程，将没有标记的对象进行单线程回收。针对内存碎片，CMS会尽量将相邻的块重新组装成一个块。
+
+![/assets/images/2012/10/jvm-7.jpg](/assets/images/2012/10/jvm-7.jpg)
+
+**优缺点**：如上图，优点是只有在第一次标记和重新标记阶段需要暂停整个应用，所以能够做到影响应用响应时间很短。缺点是并发标记和并发收集阶段CMS会与应用线程争用CPU资源（用增量CMS模式可以缓解），并且容易产生内存碎片，free-list机制会导致Minor GC效率下降。
+
+**配置方法**：通过-XX:UseConcMarkSweepGC来启动老生代CMS GC；通过-XX:+UseCMSCompactAtFullCollection来启动内存碎片整理功能（整理也会暂停应用）。
+
+## 四、Sun JDK GC默认策略及组合策略
+
+#### 1.Clinet、Server模式默认GC策略
+
+<table style="width: 510px;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td width="94" valign="top">&nbsp;</td>
+<td width="208" valign="top">新生代</td>
+<td width="208" valign="top">旧生代和持久代 GC 方式</td>
+</tr>
+<tr>
+<td width="94" valign="top">Client</td>
+<td width="208" valign="top">串行</td>
+<td width="208" valign="top">串行</td>
+</tr>
+<tr>
+<td width="94" valign="top">Server</td>
+<td width="208" valign="top">并行回收 GC</td>
+<td width="208" valign="top">Parallel Mark Sweep GC</td>
+</tr>
+</tbody>
+</table>
+
+#### 2.Sun JDK GC组合方式
+
+<table style="width: 510px;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td width="189" valign="top">&nbsp;</td>
+<td width="94" valign="top">新生代 GC</td>
+<td width="227" valign="top">旧生代和持久代 GC</td>
+</tr>
+<tr>
+<td width="189" valign="top">-XX:+UseSerialGC</td>
+<td width="94" valign="top">串行 GC</td>
+<td width="227" valign="top">串行 GC</td>
+</tr>
+<tr>
+<td width="189" valign="top">-XX:+UseParallelGC</td>
+<td width="94" valign="top">并行回收 GC</td>
+<td width="227" valign="top">Parallel Mark Sweep GC</td>
+</tr>
+<tr>
+<td width="189" valign="top">-XX:+UseConcMarkSweepGC</span></p>
+</td>
+<td width="94" valign="top">并行<span lang="EN-US">GC</span></p>
+</td>
+<td width="227" valign="top">并发 GC<br>当出现 Concurrent Mode Failure 时采用串行 GC</td>
+</tr>
+<tr>
+<td width="189" valign="top">-XX:+UseParNewGC</td>
+<td width="94" valign="top">并行 GC</td>
+<td width="227" valign="top">串行 GC</td>
+</tr>
+<tr>
+<td width="189" valign="top">-XX:+UseParallelOldGC</td>
+<td width="94" valign="top">并行回收 GC</td>
+<td width="227" valign="top">Parallel Mark Conpact</td>
+</tr>
+<tr>
+<td width="189" valign="top">-XX:+UseConcMarkSweepGC<br>-XX:-UseParNewGC</td>
+<td width="94" valign="top">串行 GC</td>
+<td width="227" valign="top">并发 GC<br>当出现 Concurrent Mode Failure 或 Promotion Failed 时采用串行 GC</td>
+</tr>
+<tr>
+<td width="189" valign="top">不支持的组合方式</td>
+<td colspan="2" width="321" valign="top">1.-XX:+UseParNewGC
+  -XX:+UseParallelOldGC<br>2.-XX:+UseParNewGC
+  -XX:+UseSerialGC</td>
+</tr>
+</tbody>
+</table>
