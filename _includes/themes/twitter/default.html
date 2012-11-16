@@ -54,7 +54,6 @@
 				  <li><a href="/portfolio/aegis" target="_blank">基于公私密钥对的软件授权中间件Aegis</a></li>
 			    </ul>
 			  </li>
-			  <li><a href="http://bbs.im47.cn/">BBS</a></li>
 			  <li><a href="/contact.html">Contact</a></li>
 			  <li><a href="/about.html">About</a></li>			  
             </ul>
@@ -64,38 +63,49 @@
     </div>
 
     <div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span2">
-				<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-						<li class="nav-header">文章分类</li>
-						{% for category in site.categories %}
-  						<li><a href="/{{category | first}}">{{category | first}}</a></li>
-  						{% endfor %}
-						<li class="nav-header">博客信息</li>
-						<li><a href="#">文章总数: {{site.posts.size}} 篇</a></li>
-						<li class="nav-header">友情链接</li>
-						{% include friend_links %}
-						<li class="nav-header">广而告之</li>
-						<li><script type="text/javascript">var cpro_id = 'u132537';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script></li>
-					</ul>
-				</div>
-			</div>
-			<div class="span10">
+		<div class="row-fluid">			
+			<div class="span10 offset1">
 				{{ content }}
 			</div>
 		</div>
 	</div>
 	<div class="back-mask" id="back-mask"></div>
 
-    <footer class="footer">
-      <div class="container">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2002-2012 <a href="http://im47.cn">im47.cn</a>, Inc. All rights reserved. 苏ICP备12061995</p>
-        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-      </div>
-    </footer>
+<footer id="footer">
+	<div id="footer_inner">
+		<div class="archives col">
+			<h2>About Me</h2>
+			<a href="/about.html">思奇</a>
+			<p>网龄 11 年</p>
+			<p>专注 J2EE、Linux、Cloud等领域</p>
+		</div>
+		<div class="tag_cloud col">
+			<h2>Tag Cloud</h2>			
+			<ul>
+			  {% assign categories_list = site.categories %}
+			  {% if categories_list.first[0] == null %}
+				{% for category in categories_list %}
+					<a class="tag" href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category }}-ref">{{ category | join: "/" }}</a>
+				{% endfor %}
+			  {% else %}
+				{% for category in categories_list %} 
+					<a class="tag" href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">{{ category[0] | join: "/" }}</a>
+				{% endfor %}
+			  {% endif %}
+			  {% assign categories_list = nil %}
+			</ul>
+		</div>		
+		<div class="links col">
+			<h2>Links</h2>
+			<ul>
+				{% include friend_links %}
+			</ul>
+		</div>
+		<div class="copyright">
+			<p>&copy; 2002-2012 <a href="http://im47.cn">im47.cn</a>, Inc. All rights reserved. 苏ICP备12061995</p>
+		</div>
+	</div>
+</footer>
 
 {% include JB/analytics %}
 
@@ -105,9 +115,7 @@ $('body').backstretch([
   '/assets/images/back1.jpg',
   '/assets/images/back2.jpg',
   '/assets/images/back3.jpg',
-  '/assets/images/back4.jpg',
-  '/assets/images/back5.jpg',
-  '/assets/images/back6.jpg'
+  '/assets/images/back4.jpg'
 ], {
         fade: 750,
         duration: 10000

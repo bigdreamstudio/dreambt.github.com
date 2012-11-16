@@ -27,16 +27,16 @@ tagline: Open source, Cloud, Java, Linux and so on
 <div id="pagination" class="pagination">
 	<ul>
 		<li><a href="/">首页</a></li>
-		{% if paginator.page > 2 %}
+		{% if paginator.page > 1 %}
 			<li><a href="/page{{paginator.previous_page}}/">上一页</a></li>
 		{% endif %}
 		{% assign startPage = paginator.page | minus:5 %}
 		{% if 2 > startPage %}				
-		{%	assign startPage = 2 %}
+		{%	 assign startPage = 1 %}
 		{% endif %}
 		{% assign endPage = startPage | plus:10 %}
 		{% if endPage >= paginator.total_pages %}				
-		{%	assign endPage = paginator.total_pages | minus:1 %}
+		{%	 assign endPage = paginator.total_pages | minus:1 %}
 		{% endif %}
 		{% for count in (startPage..endPage) %}
 			{% if count == paginator.page %}
@@ -53,3 +53,10 @@ tagline: Open source, Cloud, Java, Linux and so on
 	</ul>
 </div>
 </div>
+<a id="scroll_to_top" href="#" class="v_nav"></a>
+{% if paginator.page > 2 %}
+  <a id="prev" href="/page{{paginator.previous_page}}/" class="v_nav" style="display: block"><span class="icon">Prev</span></a>	
+{% endif %}
+{% if paginator.next_page %}
+  <a id="next" href="/page{{paginator.next_page}}/" class="v_nav" style="display: block"><span class="icon">Next</span></a>		
+{% endif %}

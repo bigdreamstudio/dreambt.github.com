@@ -71,7 +71,7 @@
 .markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
     margin: 15px 0;
 }
-.markdown-body hr {
+hr {
     background: url("../images/dirty-shade.png") repeat-x scroll 0 0 transparent;
     border: 0 none;
     color: #CCCCCC;

@@ -8,7 +8,7 @@ title: {{ page.category }}
 </div>
 
 {% for post in site.categories[page.category] %}
-    <div class="well thumbnail clearfix" style="margin-bottom:12px;">
+    <div class="well thumbnail clearfix" style="margin-bottom:12px;background-color: rgba(255, 255, 255, 0.8);">
 	    <div class="caption">
 		   {% if post.thumbnail %}
                <img src="{{ post.thumbnail }}" alt="" style="float:right;height:expression(this.height > 350 ? '350px': true);max-height:350px;width:expression(this.width > 400 ? '400px': true);max-width:400px;">
